@@ -1,1 +1,0 @@
-export const URL = "https://dict.hinkhoj.com/shabdkhoj.php?word" 

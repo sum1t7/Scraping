@@ -1,0 +1,149 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('./assest/shinchan.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+ 
+     
+}
+
+.InputFields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 145px;
+   
+}
+
+button{
+
+    
+    color: rgb(255, 255, 255);
+    padding: 14px 20px;
+    margin: 20px ;
+    border-radius: 20px;
+    border: none;
+    background-image: linear-gradient(90deg, #6ff7e8, #1f7ea1,#ea98da);
+    cursor: pointer;
+    max-width: 200px;
+    width: 100%;
+    font-size: 20px;
+    font-variant: small-caps; 
+    transition: 0.5s ease-in-out;
+    
+}
+button:hover
+{
+    background-image: linear-gradient(90deg,#caefd7, #f5bfd7, #abc9e9)
+    
+     
+}
+
+.videoplayer{
+
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 30px ;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+iframe{
+    
+    border-radius: 20px;
+    border: 2px solid #ffe136;
+    box-shadow: 0 0 10px #000000;
+    
+    background-color: #000000;
+    transition: 0.5s ease;
+    max-width: 1200px;
+    height: 600px;
+    width: 100%;
+    
+}
+
+input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #3654ff;
+    max-width: 200px;
+    width: 100%;
+    font-size: 20px;
+    font-variant: small-caps;
+    background-color: transparent;
+    
+}
+input:focus{
+    outline: none;
+    border: 1px solid #ff930f;
+    transition: 0.5s;
+}
+
+h1{
+    margin:5px;
+    font-size: 20px;
+    font-weight: lighter;
+    font-variant: small-caps;
+    color: #ff930f;
+    text-shadow: 0 0 10px #000000;
+}
+
+@media (max-width: 930px){
+    body{
+        background-image: url('./assest/shinchan3.jpg');
+        background-size: cover;
+    }
+    input{
+        max-width: 200px;
+    }
+    iframe{
+     max-width: 600px;
+     width: 100%;
+     height: 400px;
+     transition: 0.5s ease;     
+    
+    }
+}
+@media (max-width: 566px){
+    body{
+        background-image: url('./assest/shinchan4.jpeg');
+        background-size: cover;
+    }
+    input{
+        max-width: 200px;
+    }
+    iframe{
+        width: 400px;
+         height: 300px;
+         transition: 0.5s ease;
+    
+    }
+    
+}
+@media (max-width: 450px){
+    body{
+        background-image: url('./assest/shinchan1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #3654ff;
+    }
+    input{
+        max-width: 200px;
+    }
+    
+    button{
+        background-image: linear-gradient(90deg,#caefd7, #f5bfd7, #abc9e9);
+    }
+    iframe{
+         max-width: 300px;
+       height: 300px;
+       width: 100%;
+    }
+     
+}
+ 

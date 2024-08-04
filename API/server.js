@@ -5,12 +5,12 @@ const PORT = 3000;
  
   
 app.use(cors({
-    origin: 'https://laughing-broccoli-r4g9w55j9j6jcprj4-3001.app.github.dev'
+    origin: '*'
 }));
 
 
-app.get('/video/:season&:episode', (req, res) => {
-    const { season, episode } = req.params;
+app.get('/video', (req, res) => {
+    const { season, episode } = req.query;
     const videoUrl = `https://beta.awstream.net/watch?v=shinchan-8211-season-${season}-8211-episode-${episode}&lang=hin`;
     res.json({ videoUrl, season, episode});
 });

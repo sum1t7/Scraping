@@ -17,7 +17,7 @@ const fetchVideoUrl = () => {
     setLoading(true);
     setError(null);
 
-    axios.get('https://reimagined-rotary-phone-q7qr655wwqx6295gj-3000.app.github.dev/video', {
+    axios.get('https://shinchan-nine.vercel.app/video', {
       params: {
         season: season >= 10 ? season : `0${season}`,
         episode: episode >= 10 ? episode : `0${episode}`

@@ -93,6 +93,15 @@ h1{
     text-shadow: 0 0 10px #000000;
 }
 
+.change{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+
+
 @media (max-width: 930px){
     body{
         background-image: url('./assest/shinchan3.jpg');

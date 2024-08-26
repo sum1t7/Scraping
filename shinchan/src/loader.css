@@ -1,3 +1,5 @@
+
+ 
 body{
     margin: 0;
     padding: 0;
@@ -34,7 +36,7 @@ button{
     font-size: 20px;
     font-variant: small-caps; 
     transition: 0.5s ease-in-out;
-    
+    user-select: none;
 }
 button:hover
 {
@@ -54,7 +56,7 @@ button:hover
     margin-bottom: 30px;
 }
 iframe{
-    
+    user-select: none;
     border-radius: 20px;
     border: 2px solid #ffe136;
     box-shadow: 0 0 10px #000000;
@@ -76,6 +78,7 @@ input{
     font-size: 20px;
     font-variant: small-caps;
     background-color: transparent;
+    user-select: none;
     
 }
 input:focus{
@@ -86,13 +89,22 @@ input:focus{
 
 h1{
     margin:5px;
-    font-size: 20px;
-    font-weight: lighter;
+    font-size: 40px;
+    font-weight: bolder;
     font-variant: small-caps;
-    color: #ff930f;
-    text-shadow: 0 0 10px #000000;
+    color: #135cf8;
+    text-shadow: 0 0 8px #f5e65b;
+    user-select: none;
 }
-
+h2{
+    margin:5px;
+    font-size: 40px;
+    font-weight: bold;
+    font-variant: small-caps;
+    color: #0081fa;
+    text-shadow: 0 0 6px #f5e65b;
+    user-select: none;
+}
 .change{
     display: flex;
     justify-content: space-around;
@@ -100,6 +112,9 @@ h1{
     
 }
 
+p{
+    font-size: 20px;
+}
 
 
 @media (max-width: 930px){
@@ -117,6 +132,12 @@ h1{
      transition: 0.5s ease;     
     
     }
+    h1{
+        
+        font-size: 40px;
+        
+        color: #9864eb;   }
+    
 }
 @media (max-width: 566px){
     body{
@@ -130,7 +151,13 @@ h1{
         width: 400px;
          height: 300px;
          transition: 0.5s ease;
-    
+    }
+    h1{
+        
+        font-size: 35px;
+        
+        color: #51adc9;
+         
     }
     
 }
@@ -152,6 +179,14 @@ h1{
          max-width: 300px;
        height: 300px;
        width: 100%;
+    }
+    h1{
+        font-size: 25px;
+        color: #607dff;    
+    }
+    h2{
+        font-size: 25px;
+        color: #5c90ff;
     }
      
 }

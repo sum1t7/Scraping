@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import VideoPlayer from './Loader';
+import Rofees from './router';
 import App from './app';
+ 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <Rofees/>
+  
+
   </React.StrictMode>,
   document.getElementById('videoContainer')
 ) 

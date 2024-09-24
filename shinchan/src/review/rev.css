@@ -1,0 +1,317 @@
+section{
+  background-color: #FFFF7E ;
+}
+
+.box{
+  align-items: flex-end;
+  background-color:#D7211F;
+  border-radius: 0;
+  position: relative;
+  text-align: center;
+  top: 0;
+  justify-content: center;
+  width:250px;
+height: 370px;
+display: flex;
+border-radius: 50px;
+margin-bottom: 20px ;
+ 
+}
+.circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the circle while maintaining aspect ratio */
+}
+.circle {
+  width: 140px;
+  height: 140px;
+  background-color: white;
+  border-radius: 50%;  
+  overflow: hidden; /* Ensures the image stays within the circle */
+  position: absolute;
+  z-index: 999;
+  top: 50px;
+  border: 5px solid lightgray; /* Optional: Adds a border to the circle */
+  justify-self: center;
+}
+
+.rev-title{
+  color: #D7211F;
+  font-size: 80px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: bolder;
+  text-transform: capitalize; 
+  word-wrap: break-word;
+  position: relative;
+  align-self: center; 
+  justify-self: center;
+}
+.review-section{
+display: flex;
+justify-content: space-between;
+height: 80vh;
+background-color: #FFFF7E;
+padding-top: 40px;
+scroll-behavior: smooth;
+flex-direction: column;
+align-items: center;
+}
+.p-text{
+  margin: 10px;
+  color: #FFFF7E;
+  font-size: 20px;
+font-family: 'Outfit', sans-serif;
+font-weight: bolder;
+text-transform: capitalize; 
+word-wrap: break-word;
+position: relative;
+
+}
+.review{
+display: flex;
+position: relative;
+border-radius: 50px;
+scroll-snap-align: start;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+}
+.wrapper{
+display: flex;
+gap:10px;
+width:780px;
+height: 390px;
+overflow-x: scroll;
+justify-self: center;
+border-radius: 50px;
+scrollbar-width:thin; 
+scroll-behavior: smooth;
+scrollbar-color: #FFFF7E #D7211F;
+ 
+
+}
+ 
+
+.footer{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  
+  background-color: #FFFF7E;
+  height: 20vh;
+}
+
+
+@media (max-width: 780px){
+  .box{
+    width:250px;
+    height: 400px;
+  }
+   
+  .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;  
+  }
+  
+  .rev-title{
+    font-size: 65px;
+  }
+
+.review-section{
+  padding-top: 40px;
+}
+.p-text{
+  margin: 15px;
+}
+.review{
+  border-radius: 50px;
+}
+.wrapper{
+  width:520px;
+  height: 400px;
+  border-radius: 50px;
+ 
+}
+.f{
+  font-size: 15px;
+  margin: 20px;
+}
+
+
+@media (max-width: 540px){
+  .box{
+    width:200px;
+    height: 400px;
+  }
+   
+  .circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;  
+  }
+  
+  .rev-title{
+    font-size: 50px;
+  }
+
+.review-section{
+  padding-top: 40px;
+}
+.p-text{
+  margin: 15px;
+}
+.review{
+  border-radius: 50px;
+}
+
+.wrapper{
+  width:420px;
+  height: 400px;
+  border-radius: 50px;
+ 
+}
+.f{
+  font-size: 15px;
+  margin: 20px;
+}
+}
+
+}
+  @media (max-width: 450px){
+    
+   
+  section{
+    background-color: #FFFF7E ;
+  }
+
+  .box{
+    align-items: flex-end;
+    background-color:#D7211F;
+    border-radius: 0;
+    position: relative;
+    text-align: center;
+    top: 0;
+    justify-content: center;
+    width:200px;
+  height: 300px;
+  display: flex;
+  border-radius: 50px;
+  padding-bottom: 0;
+   
+  }
+  .circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the circle while maintaining aspect ratio */
+  }
+  .circle {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;  
+    overflow: hidden; /* Ensures the image stays within the circle */
+    position: absolute;
+    z-index: 999;
+    top: 50px;
+    border: 5px solid lightgray; /* Optional: Adds a border to the circle */
+    justify-self: center;
+  }
+  
+  .rev-title{
+    color: #D7211F;
+    font-size: 50px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bolder;
+    text-transform: capitalize; 
+    word-wrap: break-word;
+    position: relative;
+    align-self: center; 
+    justify-self: center;
+}
+.review-section{
+  display: flex;
+  justify-content: space-evenly;
+  height: 80vh;
+  background-color: #FFFF7E;
+  padding-top: 40px;
+  scroll-behavior: smooth;
+  flex-direction: column;
+   
+  align-items: center;
+}
+.p-text{
+  font-family: 'Outfit', sans-serif;
+  font-weight: bolder;
+  text-transform: capitalize; 
+  word-wrap: break-word;
+  position: relative;
+  margin: 10px;
+  color: #FFFF7E;
+
+}
+.review{
+  display: flex;
+  position: relative;
+  border-radius: 50px;
+  scroll-snap-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.wrapper{
+  display: flex;
+  gap:10px;
+  width:250px;
+  height: 300px;
+  overflow-x: scroll;
+  justify-self: center;
+  border-radius: 50px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  
+}
+.f{
+  font-size: 10px;
+  word-wrap: break-word;
+  margin: 20px;
+  
+}
+}
+
+@media (max-width: 411px){
+  .box{
+    width:200px;
+    height: 300px;
+  }
+   
+  .circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;  
+  }
+  
+  .rev-title{
+    font-size: 30px;
+  }
+
+.review-section{
+  padding-top: 40px;
+}
+.p-text{
+  margin: 10px;
+}
+.review{
+  border-radius: 50px;
+}
+.wrapper{
+  width:200px;
+  height: 300px;
+  border-radius: 50px;
+ 
+}
+.f{
+  font-size: 10px;
+  margin: 20px;
+}
+}

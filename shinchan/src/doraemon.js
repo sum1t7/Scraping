@@ -1,11 +1,11 @@
 import React, { useState ,useEffect } from 'react';
 import axios from 'axios';
 import './loader.css';
- 
+
  
 
 
-const VideoPlayer = () => {
+const Doraemonplayer = () => {
     const [season, setSeason] = useState('');
     const [episode, setEpisode] = useState('');
     const [videoUrl, setVideoUrl] = useState('');
@@ -13,10 +13,6 @@ const VideoPlayer = () => {
     const [error, setError] = useState(null);
     const [NotAvailable, setNotAvailable] = useState(false);
     
-
-   
-
-
     let current = +episode;
     let currentSeason = +season;
 
@@ -26,18 +22,20 @@ const VideoPlayer = () => {
    const saved_episode = JSON.parse(localStorage.getItem('episode'))  
    console.log("outside all" ,episode ,current)  ;
 
- 
+
+  
+  
 
 const fetchVideoUrl = () => {
     setLoading(true);
     setError(null);
     console.log("inside fetchurl" ,episode);
-    axios.get('https://shinchan-nine.vercel.app/video', {
+    axios.get('https://reimagined-rotary-phone-q7qr655wwqx6295gj-3000.app.github.dev/doraemon', {
       params: {
         season: season >= 10 ? season : `0${season}`,
         episode: episode >= 10 ? episode : `0${episode}`
       }
-    })
+    }) 
       .then(response => {
         setVideoUrl(response.data.videoUrl);
         setLoading(false);
@@ -142,11 +140,11 @@ const next = () =>{
       <button className='change_buttons' onClick={previous} >Previous</button>
       <button className='change_buttons' onClick={next} >Next</button>
     </div>
-    {NotAvailable && <p>That Season Not Available watch this instead heehe</p>}
+    {NotAvailable && <p>That Season Not Available wath this instead heehe</p>}
     </div>
   );
    
 }
 
-export default VideoPlayer;
+export default Doraemonplayer;
  

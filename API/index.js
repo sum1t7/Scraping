@@ -16,7 +16,12 @@ app.get('/video', (req, res) => {
    
 });
 
-
+app.get('/doraemon', (req, res) => {
+    const { season, episode } = req.query;
+    const videoUrl = `https://beta.awstream.net/watch?v=doraemon-8211-season-${season}-8211-episode-${episode}&lang=hin`;
+    res.json({ videoUrl, season, episode});
+   
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

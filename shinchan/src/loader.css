@@ -1,5 +1,45 @@
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
 
+.input-fields input {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.input-fields button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-fields button:hover {
+    background-color: #2980b9;
+}
  
+
+.player-frame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+
+
+
 body{
     margin: 0;
     padding: 0;
@@ -7,17 +47,53 @@ body{
     background-image: url('./assest/shinchan.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+   overflow-x: hidden;
  
      
 }
 
-.InputFields{
+.thumbnail_container{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;  
+    padding: 20px;
+}
+
+.cards{
+    
+    flex: 1 1 calc(33.33% - 20px);
+     margin: 10px; /* Margin around each card */
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fav-list {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+.button:active {
+    transform: translateY(1px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+}
+.move-left {
+    transform: translateX(-5px); 
+    transition: transform 0.5s ease-in-out;  
+}
+.Season-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
     gap: 15px;
-    margin-top: 145px;
+    margin-top: 55px;
    
 }
 
@@ -45,16 +121,7 @@ button:hover
      
 }
 
-.videoplayer{
 
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-left: 30px ;
-    margin-right: 30px;
-    margin-bottom: 30px;
-}
 iframe{
     user-select: none;
     border-radius: 20px;
@@ -69,42 +136,45 @@ iframe{
     
 }
 
-input{
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #3654ff;
-    max-width: 200px;
-    width: 100%;
-    font-size: 20px;
-    font-variant: small-caps;
-    background-color: transparent;
+h1{
+    margin:10px;
+    font-size: 30px;
+    font-weight: bolder;
+    color: #fa6c00;
+    text-shadow: 0 0 2px #070600;
     user-select: none;
-    
-}
-input:focus{
-    outline: none;
-    border: 1px solid #ff930f;
-    transition: 0.5s;
 }
 
-h1{
-    margin:5px;
-    font-size: 40px;
-    font-weight: bolder;
-    font-variant: small-caps;
-    color: #135cf8;
-    text-shadow: 0 0 8px #f5e65b;
-    user-select: none;
-}
 h2{
     margin:5px;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
-    font-variant: small-caps;
-    color: #0081fa;
+    color: #0075facb;
     text-shadow: 0 0 6px #f5e65b;
     user-select: none;
 }
+.fav{
+    background: linear-gradient(90deg, #ff9999, #ff6666); 
+    border: none;
+    border-radius: 50%;  
+    width: 70px;  
+    height: 70px; 
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    transition: transform 0.2s, box-shadow 0.2s;  
+    text-align: center;
+    justify-items: center;
+    font-size: 50px;
+}
+
+.fav:hover{
+    transform: translateY(-5px);  
+    box-shadow: 0 8px 16px rgba(201, 33, 33, 0.2);  
+}
+
+ 
+
 .change{
     display: flex;
     justify-content: space-around;
@@ -116,6 +186,112 @@ p{
     font-size: 20px;
 }
 
+.heading{
+    font-size: 100px;  
+   color: #ff4d4d;  
+   font-family: 'Comic Sans MS', 'Comic Sans', cursive; 
+   text-align: center;  
+    
+   }
+
+.Season-cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    width: 600px;
+    height: 250px;
+    justify-content: space-evenly;
+    
+    
+}
+
+.Episode-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    max-height: 580px;  
+    overflow-y: auto; 
+    max-width: 100%; 
+    scrollbar-width: none;  
+}
+
+.Episode-cards{
+    display: flex;
+    padding: .25rem;
+    border-radius: .375rem;
+    cursor: pointer;
+    max-width: 40%;
+    height: 40% ;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border with transparency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+}
+ .Episode-cards:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(204, 31, 31, 0.2); /* Enhanced shadow on hover */
+}
+.Season-cards:hover{
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(204, 31, 31, 0.2); /* Enhanced shadow on hover */
+}
+.Episode-img{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: .375rem; 
+   
+}
+.Season-cards{
+    background-image: url('../src/assest/Season_img.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: .25rem;
+    width:100px;
+    border-radius: .375rem;
+    cursor: pointer;
+    height: 3rem;
+    border: 1px solid rgba(215, 44, 44, 0.2);  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    transition: transform 0.2s, box-shadow 0.2s;  
+    backdrop-filter: blur(10px);  
+}
+h3{
+    font-size: 1.25rem; /* Set a larger font size for the heading */
+    font-weight: 600; /* Make the heading bold */
+    color: #fdfdfdea; /* Dark grey color for the heading */
+    margin: 0.5rem 0; /* Add some margin above and below the heading */
+    text-align: center; 
+    margin: 0.5rem 0; /* Add some margin above and below the heading */
+    text-align: left; /* Align text to the left */
+    position: absolute; /* Position the text absolutely */
+    top: 10px; /* Position from the top */
+    left: 10px; /* Position from the left */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 50%;
+}
+
+h4{
+    color: #311ef8ea;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    text-align: center;
+}
+
+.loader{
+    background-image: url('./assest/loading.gif');
+}
 
 @media (max-width: 930px){
     body{
@@ -167,6 +343,7 @@ p{
         background-size: cover;
         background-repeat: no-repeat;
         background-color: #3654ff;
+        min-height: 100vh;
     }
     input{
         max-width: 200px;
@@ -188,6 +365,41 @@ p{
         font-size: 25px;
         color: #5c90ff;
     }
+    .Season-container{
+        flex-direction: column;
+    }
+    .Season-cards-container{
+        width: 90%;
+        height: auto;
+        justify-content: space-evenly;
+    }
+    .heading{
+     font-size: 60px; 
+    color: #ff4d4d;  
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;  
+    text-align: center;  
      
+    }
+    .Texts
+    {
+        display: flex;
+        flex-direction: row;
+    }
+    .fav::after{
+        display: none;
+    }
+    .fav-list{
+        flex-direction: column;
+    }
+    
+    .move-left {
+         transform: translateX(0px); ;
+        transition: transform 0.5s ease-in-out;  
+    }
+    .error-gif{
+        width: 100%;
+        height: 100%;
+    }
 }
  
+

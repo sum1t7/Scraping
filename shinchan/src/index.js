@@ -8,8 +8,6 @@ import App from './app';
 ReactDOM.render(
   <React.StrictMode>
     <Rofees/>
-  
-
   </React.StrictMode>,
   document.getElementById('videoContainer')
 ) 

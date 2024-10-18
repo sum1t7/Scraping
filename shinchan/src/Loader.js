@@ -130,12 +130,7 @@ const previous = () =>{
   }
 }
 
-useEffect(() => {
-  // Simulate loading
-  setTimeout(() => {
-    setLoading(false);
-  }, 2000); // Adjust the timeout as needed
-}, []);
+ 
 
 const handleFavClick = () => {
   setShowFavList(!showFavList);

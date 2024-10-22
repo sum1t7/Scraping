@@ -5,7 +5,10 @@
     margin: 20px 0;
     
 }
-
+body{
+    width: 100vw;
+    height: 100vh;
+}
 .input-fields input {
     margin: 10px;
     padding: 10px;
@@ -120,6 +123,11 @@ body{
     gap: 15px;
     margin-top: 55px;
    
+}
+
+svg{
+    
+    height: 0px;
 }
 
 button{

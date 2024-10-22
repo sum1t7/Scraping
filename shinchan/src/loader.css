@@ -1,16 +1,40 @@
 .input-fields {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin: 20px 0;
+    
 }
 
 .input-fields input {
     margin: 10px;
     padding: 10px;
     font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+   
+    
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 14px;
+    vertical-align: baseline;
+    font-weight: 400;
+    line-height: 1.29;
+    letter-spacing: .16px;
+    border-radius: 0;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #8d8d8d;
+    background-color: #f4f4f4;
+    padding: 0 16px;
+    color: #161616;
+    transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9);  
+    :focus{
+        outline: 2px solid #0f62fe;
+        outline-offset: -2px;
+    }
+
 }
 
 .input-fields button {
@@ -73,6 +97,7 @@ body{
 .fav-list {
     margin-top: 20px;
     padding: 10px;
+    max-width: 300px;
     background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
     backdrop-filter: blur(10px); /* Blur effect for glassmorphism */
     -webkit-backdrop-filter: blur(10px); /* Safari support */
@@ -89,7 +114,7 @@ body{
 }
 .Season-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     gap: 15px;
@@ -145,14 +170,36 @@ h1{
     user-select: none;
 }
 
-h2{
-    margin:5px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #0075facb;
-    text-shadow: 0 0 6px #f5e65b;
-    user-select: none;
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
+
+h2 {
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 50px; /* Adjust the size as needed */
+  color: #ff6347; /* Tomato color */
+  display: inline-block;
+  position: relative;
+  margin:2px;
+  font-weight: 700;
+
+  animation: squiggle 1.5s infinite ease-in-out;
 }
+
+@keyframes squiggle {
+  0%, 100% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+}
+
+
 .fav{
     background: linear-gradient(90deg, #ff9999, #ff6666); 
     border: none;
@@ -193,19 +240,84 @@ p{
    text-align: center;  
     
    }
-
-.Season-cards-container{
+.Slider-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    overflow-y: hidden;
+      position: relative;
     gap: 20px;
     padding: 20px;
     width: 600px;
-    height: 250px;
+     
     justify-content: space-evenly;
+    width: 320px; /* Width to fit 3 cards */
+      border: 1px solid #ddd;
+}
+.Season-cards-container{
+    display: flex;
+    transition: transform 0.3s ease-in-out;
     
     
 }
+.Season-cards{
+    background-image: url('../src/assest/Season_img.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: .25rem;
+    width:100px;
+    border-radius: .375rem;
+    cursor: pointer;
+    height: 3rem;
+    border: 1px solid rgba(215, 44, 44, 0.2);  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    transition: transform 0.2s, box-shadow 0.2s;  
+    backdrop-filter: blur(10px);  
+    height: 3rem;
+    width: 100px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+}
+
+ .swipe-container {
+      display: flex;
+      align-items: center;
+        justify-content: center;
+    }
+    
+    .swipe-text {
+        margin-right: 10px;
+        font-size: 2rem;
+        font-family: 'Roboto', sans-serif;
+        font-weight: light;
+        font-size: smaller;
+    }
+
+    .arrow {
+      display: inline-block;
+      font-size: 2rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: light;
+      font-size: smaller;
+      position: relative;
+      animation: slideRight 1s ease-in-out infinite;
+    }
+
+    @keyframes slideRight {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(20px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
 
 .Episode-container{
     display: flex;
@@ -252,21 +364,7 @@ p{
     border-radius: .375rem; 
    
 }
-.Season-cards{
-    background-image: url('../src/assest/Season_img.webp');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: .25rem;
-    width:100px;
-    border-radius: .375rem;
-    cursor: pointer;
-    height: 3rem;
-    border: 1px solid rgba(215, 44, 44, 0.2);  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-    transition: transform 0.2s, box-shadow 0.2s;  
-    backdrop-filter: blur(10px);  
-}
+ 
 h3{
     font-size: 1.25rem; /* Set a larger font size for the heading */
     font-weight: 600; /* Make the heading bold */
@@ -284,9 +382,14 @@ h3{
 }
 
 h4{
-    color: #311ef8ea;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem; /* Small and minimalist */
+    color: rgb(0, 0, 0); /* White text for contrast */
     text-align: center;
+    padding: 10px;
+    text-shadow: #ffffff  0 0 2px;
+    line-height: 1.4;
 }
 
 .loader{
@@ -346,10 +449,12 @@ h4{
         min-height: 100vh;
     }
     input{
-        max-width: 200px;
+        max-width: 150px;
     }
     
     button{
+        margin: 10px;
+        width: 30%;
         background-image: linear-gradient(90deg,#caefd7, #f5bfd7, #abc9e9);
     }
     iframe{
@@ -362,11 +467,12 @@ h4{
         color: #607dff;    
     }
     h2{
-        font-size: 25px;
+        font-size: 50px;
         color: #5c90ff;
     }
     .Season-container{
         flex-direction: column;
+        margin-top: 75px;
     }
     .Season-cards-container{
         width: 90%;
@@ -390,6 +496,8 @@ h4{
     }
     .fav-list{
         flex-direction: column;
+        width: 300px;
+
     }
     
     .move-left {
@@ -399,6 +507,11 @@ h4{
     .error-gif{
         width: 100%;
         height: 100%;
+    }
+    .fav{
+        height: 80px;
+        width: 80px;
+        transition: background-color 0.3s ease, transform 0.2s;
     }
 }
  

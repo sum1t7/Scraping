@@ -5,11 +5,14 @@ import FecthThumbnail from './util';
 import { SeasonMap } from './seasons';
 import notAvailableGif from '../src/assest/loading.gif';
 import favaudio from '../src/assest/button-pressed-38129.mp3';
+import { useNavigate } from 'react-router-dom';
 
+ 
 const VideoPlayer = () => {
-
-
-//States & constants ------------------------------
+  
+  
+  //States & constants ------------------------------
+    const navigate = useNavigate();
     const [season, setSeason] = useState('');
     const [episode, setEpisode] = useState('');
     const [videoUrl, setVideoUrl] = useState('');
@@ -161,6 +164,7 @@ return (
   //Season Cards 
     <> 
        <h1 className='heading'>Shinchan</h1>
+       <div className='Season-container'>
      <div className='input-fields'>
         <input
           type='number'
@@ -174,17 +178,20 @@ return (
           onChange={(e) => setEpisode(e.target.value)}
           placeholder='Episode'
         />
-        <button onClick={() => fetchVideoUrl(season, episode)}>Watch</button>
       </div>
 
 
 
-
-    <div className='Season-container'>
-   
-    <div className='Season-cards-container'> 
+        <h2 onClick={() => fetchVideoUrl(season, episode)} >Watch ▶️</h2>
+         <div class="swipe-container">
+         <h2 class="swipe-text">Swipe</h2>
+         <h2 class="arrow">&#8594;</h2>
+         </div>
+   <div className='Slider-container'>
+    <div className='Season-cards-container' id="cardContainer"> 
       {SeasonMap && Array.from(SeasonMap).slice(1,13).map(([key,value],indx) => {
           return (
+            
             <div className='Season-cards' key={indx}>
             <div onClick={()=>selectcard(value)}>
             <h4>Season {key}</h4>
@@ -193,12 +200,13 @@ return (
           );
         })}
     </div>
+    </div>
 
     <div className='Texts'> 
-    <div className={`fav ${watched ? 'move-left' : ''}`} title='Previously Watched' onClick={handlewatched}>👌</div>
-    <div className={`fav ${showFavList ? 'move-left' : ''}`} onClick={handleFavClick}  title='Favourite'>❤️</div>
+    <h2 className={`fav ${watched ? 'move-left' : ''}`} title='Previously Watched' onClick={handlewatched}>👌</h2>
+    <h2 className={`fav ${showFavList ? 'move-left' : ''}`} onClick={handleFavClick}  title='Favourite'>❤️</h2>
     </div>  
-       
+
    { watched && (<div className={`fav-list ${watched ? '' : 'none'} `}> <h2>Previously Watched</h2> <h2>Season {saved_season}   Episode {saved_episode}</h2></div>)}
        {showFavList && ( <div className={`fav-list ${showFavList ? '' : 'none'} `}>
           <h2>Favourites</h2>
@@ -212,6 +220,35 @@ return (
           </div>  
       )} 
 
+       
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+
+    
+    <filter id="squiggly-0">
+      <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="0"/>
+      <feDisplacementMap id="displacement" in="SourceGraphic" in2="noise" scale="6" />
+    </filter>
+    <filter id="squiggly-1">
+      <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="1"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+    </filter>
+    
+    <filter id="squiggly-2">
+      <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="2"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+    </filter>
+    <filter id="squiggly-3">
+      <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="3"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="8" />
+    </filter>
+    
+    <filter id="squiggly-4">
+      <feTurbulence id="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="4"/>
+<feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
+    </filter>
+  </defs> 
+</svg>
     </div>
 
     {/* Card Component  */}
@@ -228,6 +265,7 @@ return (
           return (
             <div className='Episode-cards' key={indx} onClick={()=>fetchVideoUrl(getSeasonId(season),data.metadata.number)}>  
               <img src={data.metadata.thumbnail} className='Episode-img' alt="thumbnail" />
+              
               <h3>{data.metadata.number}</h3>
               </div>
           );
@@ -256,6 +294,7 @@ return (
       <button className='change_buttons' onClick={next} >Next</button>
       <div onClick={setFavouriteEp} title='Favourites' className='fav' disabled={isclicked}>❤️</div>
     </div>
+      <div className='fav' onClick={() => navigate(-1)}>🏠</div>
     </div>
     </div>
 );

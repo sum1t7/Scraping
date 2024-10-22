@@ -7,7 +7,7 @@ import VideoPlayer from "./Loader";
 import Doraemonplayer from "./doraemon";
 import { Navigate } from "react-router";
 import { useEffect } from "react";
-
+import Videoplayer from "./videoplayer/Videoplayer";
 const Rofees = () => {
    
   
@@ -18,6 +18,7 @@ const Rofees = () => {
       <Routes>
         <Route path="/" element={<><Nav/><Home /><Rev/> </>} />
         <Route path="/shinchan" element={<VideoPlayer/>} />
+        <Route path="/player" element={<Videoplayer />} />
         <Route path="/doraemon" element={<Doraemonplayer />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

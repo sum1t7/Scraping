@@ -441,6 +441,12 @@ h4{
 .loader{
     background-image: url('./assest/loading.gif');
 }
+.loading{
+    max-width: 400px;
+    margin: 20px;
+    height: 400px;
+    
+}
 
 @media (max-width: 930px){
     body{
@@ -568,6 +574,11 @@ h4{
         height: 80px;
         width: 80px;
         transition: background-color 0.3s ease, transform 0.2s;
+    }
+    .loading{
+        max-width: 200px;
+        height: 200px;
+        margin: 10px;
     }
 }
  

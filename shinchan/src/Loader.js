@@ -297,7 +297,7 @@ return (
     </div>
     <div className='change'>
       <div onClick={setFavouriteEp} title='Favourites' className='fav' disabled={isclicked}>❤️</div>
-      <div className='fav' onClick={() => navigate(-1)}>🏠</div>
+      <div className='fav' onClick={() => window.location.reload()}>🏠</div>
       </div>
     </div>
     </div>

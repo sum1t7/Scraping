@@ -205,18 +205,18 @@ return (
     </div>
     </div>
 
-    <div className='Texts'> 
-    <h2 className={`fav ${watched ? 'move-left' : ''}`} title='Previously Watched' onClick={handlewatched}>👌</h2>
+    <div className='Texts '> 
+    <h2 className={`fav  ${watched ? 'move-left' : ''}`} title='Previously Watched' onClick={handlewatched}>👌</h2>
     <h2 className={`fav ${showFavList ? 'move-left' : ''}`} onClick={handleFavClick}  title='Favourite'>❤️</h2>
     </div>  
 
-   { watched && (<div className={`fav-list ${watched ? '' : 'none'} `}> <h2>Previously Watched</h2> <h2>Season {saved_season}   Episode {saved_episode}</h2></div>)}
+   { watched && (<div className={`fav-list ${watched ? '' : 'none'} `}> <h2 className='fsize'> Previously Watched</h2> <h2 className='fsize'> Season {saved_season}   Ep {saved_episode}</h2></div>)}
        {showFavList && ( <div className={`fav-list ${showFavList ? '' : 'none'} `}>
-          <h2>Favourites</h2>
+          <h2 className='fsize' >Favourites</h2>
           {setFavourite && setFavourite.map((data,indx) => {
             return (
               <div key={indx}>
-                <h2> Season {data.season}   Episode {data.episode}</h2>
+                <h2 className='fsize'> Season {data.season}   Ep {data.episode}</h2>
               </div>
             );
           })}

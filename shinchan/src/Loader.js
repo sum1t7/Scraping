@@ -64,8 +64,11 @@ const selectcard = (data) => {
   console.log("inside selectcard",data);
   setThumbanail( [...Array(52)].map((_, index) => index + 1));
   setSeason(data);
+  setLoading(false);
 
 }
+
+
 
 const fetchVideoUrl = async (season ,episode) => {
  setLoading(true);
@@ -257,7 +260,7 @@ return (
          <h2 className='arrow' >👇</h2>
          </div>
     <div className='Episode-container'>
-     {
+     {loading ? (<img src={notAvailableGif} alt="loading" className='loading' />):
      (thumbanail.map((indx) => {
           return (
             <div className='Episode-cards' key={indx} onClick={()=>fetchVideoUrl(getSeasonId(season)===0 ? 1 : getSeasonId(season),indx)}>  

@@ -495,7 +495,7 @@ h4{
     body{
         background-image: url('./assest/shinchan1.jpg');
         background-size: cover;
-        background-repeat: no-repeat;
+        background-repeat: repeat;
         background-color: #3654ff;
         min-height: 100vh;
     }

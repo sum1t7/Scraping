@@ -224,7 +224,7 @@ return (
       )} 
 
        
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    {/* <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
 
     
@@ -251,7 +251,7 @@ return (
 <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" />
     </filter>
   </defs> 
-</svg>
+</svg> */}
     </div>
 
     {/* Card Component  */}

@@ -1,3 +1,27 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('./assest/shinchan.jpg');
+    background-size: cover;
+    background-color: #000000;
+    background-repeat: repeat;
+   overflow-x: hidden;
+   word-wrap: break-word;
+}
+body::before{ 
+    background: linear-gradient(rgba(0, 0, 0, 0), #000 55%);
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
 .input-fields {
     display: flex;
     flex-direction: row;
@@ -5,10 +29,7 @@
     margin: 20px 0;
     
 }
-body{
-    width: 100vw;
-    height: 100vh;
-}
+
 .input-fields input {
     margin: 10px;
     padding: 10px;
@@ -29,14 +50,15 @@ body{
     height: 40px;
     border: none;
     border-bottom: 1px solid #8d8d8d;
-    background-color: #f4f4f4;
+    background-color: #f4f4f40c;
     padding: 0 16px;
-    color: #161616;
+    color: #ffffff;
     transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9);  
     :focus{
         outline: 2px solid #0f62fe;
         outline-offset: -2px;
     }
+
 
 }
 
@@ -55,7 +77,6 @@ body{
     background-color: #2980b9;
 }
  
-
 .player-frame{
     display: flex;
     justify-content: center;
@@ -63,21 +84,7 @@ body{
     flex-direction: column;
     margin: 20px;
 }
-
-
-
-
-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-image: url('./assest/shinchan.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-   overflow-x: hidden;
  
-     
-}
 
 .thumbnail_container{
     display: flex;
@@ -154,6 +161,9 @@ button:hover
      
 }
 
+.point{
+    cursor: pointer;
+}
 
 iframe{
     user-select: none;
@@ -169,25 +179,60 @@ iframe{
     
 }
 
-h1{
-    margin:10px;
-    font-size: 30px;
-    font-weight: bolder;
-    color: #fa6c00;
-    text-shadow: 0 0 2px #070600;
-    user-select: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Wendy+One&display=swap');
+h1 {
+    font-size:11vw;
+    white-space: nowrap;
+    overflow: hidden;
+   
+    color: #F7CA05;
+    text-shadow: 0 10px 7px rgba(0,0,0,0.4),0 -10px 1px #f70707;
+    letter-spacing: -3px;
+  }
+  
+  h1:hover {
+    animation: glitch .3s linear infinite;
+    cursor: pointer;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+
+.heading{
+   
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;  
+    text-align: center;
+    
+   }
 
 @import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
 
 h2 {
   font-family: 'Amatic SC', sans-serif;
-  font-size: 50px; /* Adjust the size as needed */
-  color: #ff6347; /* Tomato color */
+  font-size: 8vw; /* Adjust the size as needed */
+  color: #f7ff03; /* Tomato color */
   display: inline-block;
   position: relative;
   margin:2px;
-  font-weight: 700;
+  font-weight: 600;
 
   animation: squiggle 1.5s infinite ease-in-out;
 }
@@ -209,14 +254,10 @@ h2 {
 
 
 .fav{
-    background: linear-gradient(90deg, #ff9999, #ff6666); 
-    border: none;
-    border-radius: 50%;  
-    width: 70px;  
-    height: 70px; 
+    
     margin: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+     
     transition: transform 0.2s, box-shadow 0.2s;  
     text-align: center;
     justify-items: center;
@@ -228,8 +269,6 @@ h2 {
     box-shadow: 0 8px 16px rgba(201, 33, 33, 0.2);  
 }
 
- 
-
 .change{
     display: flex;
     justify-content: space-around;
@@ -240,14 +279,7 @@ h2 {
 p{
     font-size: 20px;
 }
-
-.heading{
-    font-size: 100px;  
-   color: #ff4d4d;  
-   font-family: 'Comic Sans MS', 'Comic Sans', cursive; 
-   text-align: center;  
-    
-   }
+ 
 .Slider-container{
     display: flex;
     flex-wrap: wrap;
@@ -256,11 +288,12 @@ p{
       position: relative;
     gap: 20px;
     padding: 20px;
-    width: 600px;
      
+    scrollbar-width: none; 
     justify-content: space-evenly;
-    width: 320px; /* Width to fit 3 cards */
-      border: 1px solid #ddd;
+    max-width: 1000px;  
+    width: 70%;
+       
 }
 .Season-cards-container{
     display: flex;
@@ -273,7 +306,7 @@ p{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: .25rem;
+    padding: 2.25rem;
     width:100px;
     border-radius: .375rem;
     cursor: pointer;
@@ -289,7 +322,11 @@ p{
     justify-content: center;
     align-items: center;
      
-}
+} 
+
+.fsize{
+font-size: 4vw;
+} 
 
  .swipe-container {
       display: flex;
@@ -299,31 +336,32 @@ p{
     
     .swipe-text {
         margin-right: 10px;
-        font-size: 2rem;
+        font-size: 3vw;
+
         font-family: 'Roboto', sans-serif;
         font-weight: light;
-        font-size: smaller;
+         
     }
 
     .arrow {
       display: inline-block;
-      font-size: 2rem;
+     
       font-family: 'Roboto', sans-serif;
       font-weight: light;
-      font-size: smaller;
+      font-size: 3vw;
       position: relative;
       animation: slideRight 1s ease-in-out infinite;
     }
 
     @keyframes slideRight {
       0% {
-        transform: translateX(0);
+        transform: translateY(0);
       }
       50% {
-        transform: translateX(20px);
+        transform: translateY(10px);
       }
       100% {
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
 
@@ -347,7 +385,7 @@ p{
     padding: .25rem;
     border-radius: .375rem;
     cursor: pointer;
-    max-width: 40%;
+    max-width: 20%;
     height: 40% ;
     flex-direction: column;
     border: 1px solid rgba(255, 255, 255, 0.2); /* Light border with transparency */
@@ -420,10 +458,11 @@ h4{
     
     }
     h1{
-        
-        font-size: 40px;
-        
+         font-size: 20vw;
         color: #9864eb;   }
+    h2{
+        font-size: 12vw;
+    }
     
 }
 @media (max-width: 566px){
@@ -441,10 +480,14 @@ h4{
     }
     h1{
         
-        font-size: 35px;
         
+        font-size: 20vw;
         color: #51adc9;
          
+    }
+    h2{
+        font-size: 12vw;
+        
     }
     
 }
@@ -460,6 +503,10 @@ h4{
         max-width: 150px;
     }
     
+    
+.Episode-cards{ 
+    max-width: 40%; 
+}
     button{
         margin: 10px;
         width: 30%;
@@ -471,12 +518,13 @@ h4{
        width: 100%;
     }
     h1{
-        font-size: 25px;
-        color: #607dff;    
+        font-size: 24vw;
+        color: #fef720;    
     }
     h2{
-        font-size: 50px;
-        color: #5c90ff;
+        font-size: 12vw;
+        color: #efff5c;
+        text-shadow: rgb(0, 0, 0) 0 0 5px;
     }
     .Season-container{
         flex-direction: column;
@@ -488,8 +536,8 @@ h4{
         justify-content: space-evenly;
     }
     .heading{
-     font-size: 60px; 
-    color: #ff4d4d;  
+     
+    color: #f6ff4d;  
     font-family: 'Comic Sans MS', 'Comic Sans', cursive;  
     text-align: center;  
      

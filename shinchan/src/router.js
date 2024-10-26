@@ -16,7 +16,7 @@ const Rofees = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<><Nav/><Home /><Rev/> </>} />
+        <Route path="/" element={<><Nav/><Home /><Rev/></>} />
         <Route path="/shinchan" element={<VideoPlayer/>} />
         <Route path="/player" element={<Videoplayer />} />
         <Route path="/doraemon" element={<Doraemonplayer />} />

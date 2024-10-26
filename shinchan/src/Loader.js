@@ -13,53 +13,58 @@ const VideoPlayer = () => {
   
   //States & constants ------------------------------
     const navigate = useNavigate();
-    const [season, setSeason] = useState('');
+    const [season, setSeason] = useState(`2746`);
     const [episode, setEpisode] = useState('');
     const [videoUrl, setVideoUrl] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [thumbanail, setThumbanail] = useState(null);
+    // const [thumbanail, setThumbanail] = useState(null);
     const [isclicked, setisclicked] = useState(false);
     const [showFavList, setShowFavList] = useState(false);
     const [watched, setwatched] = useState(false);
     const [SeasonNotAvailable, setSeasonNotAvailable] = useState(false);
-// Local Storage ------------------------------
-   const setFavourite = JSON.parse(localStorage.getItem('setFavourite')) || [];
-   const faVaudio = new Audio(favaudio);
+    const [thumbanail, setThumbanail] = useState([]);
+    // Local Storage ------------------------------
+    const setFavourite = JSON.parse(localStorage.getItem('setFavourite')) || [];
+    const faVaudio = new Audio(favaudio);
 
-//Functions ------------------------------    
+    //Functions ------------------------------    
     const getSeasonId = (seasonNumber) => {
-    for (let [key, value] of SeasonMap) {
-      if (value === seasonNumber) {
-              return key;
-          }
+      for (let [key, value] of SeasonMap) {
+        if (value === seasonNumber) {
+          return key;
+        }
       }
       return null;
-  };
-     
-const thumbnailfn = async (seasons) => {
-    setLoading(true);
-    setError(null); 
-    setSeasonNotAvailable(false);
-       try {
-        console.log("inside thumbnailfn",seasons);
-      const data = await FecthThumbnail(seasons);
-      setThumbanail(data);
-      
-    } catch (err) {
-      console.error("Error fetching Episodes info:", err);
-      setSeasonNotAvailable(true);  
-       
-      
-    } finally {
-      setLoading(false);
-    }
-  }
+    };
+    
+    
+    // const thumbnailfn = async (seasons) => {
+      //     setLoading(true);
+      //     setError(null); 
+      //     setSeasonNotAvailable(false);
+      //        try {
+        //         console.log("inside thumbnailfn",seasons);
+        //       const data = await FecthThumbnail(seasons);
+        //       setThumbanail(data);
+        
+        //     } catch (err) {
+          //       console.error("Error fetching Episodes info:", err);
+          //       setSeasonNotAvailable(true);  
+          
+          
+          //     } finally {
+            //       setLoading(false);
+            //     }
+            //   }
+            
+            
 
 const selectcard = (data) => {
   console.log("inside selectcard",data);
-  thumbnailfn(data);
+  setThumbanail( [...Array(52)].map((_, index) => index + 1));
   setSeason(data);
+
 }
 
 const fetchVideoUrl = async (season ,episode) => {
@@ -88,7 +93,6 @@ const fetchVideoUrl = async (season ,episode) => {
  localStorage.setItem('season', JSON.stringify(season));
  localStorage.setItem('episode', JSON.stringify(episode));
 };
- 
 function setFavouriteEp(){
   setFavourite.push({ season, episode });
   localStorage.setItem('setFavourite', JSON.stringify(setFavourite))
@@ -97,7 +101,6 @@ function setFavouriteEp(){
   //console.log("favourite",favourite);
   //localStorage.setItem('favourite', JSON.stringify(favourite));
 }
- 
 const next = () =>{
    // Increment the episode number
    let newEpisode = parseInt(episode) + 1;
@@ -116,7 +119,6 @@ const next = () =>{
    }
     
 }
- 
 const previous = () =>{
   let newEpisode = parseInt(episode) - 1;
     setEpisode(newEpisode.toString());
@@ -132,9 +134,6 @@ const previous = () =>{
     fetchVideoUrl('2','1');
   }
 }
-
- 
-
 const handleFavClick = () => {
   setShowFavList(!showFavList);
 
@@ -168,7 +167,7 @@ return (
      <div className='input-fields'>
         <input
           type='number'
-          value={season}
+          value={getSeasonId(season)===0 ? 1 : getSeasonId(season)}
           onChange={(e) => setSeason(e.target.value)}
           placeholder='Season'
         />
@@ -182,19 +181,20 @@ return (
 
 
 
-        <h2 onClick={() => fetchVideoUrl(season, episode)} >Watch ▶️</h2>
+        <h2 className='point' onClick={() => fetchVideoUrl(season, episode)} >Watch ▶️</h2>
          <div class="swipe-container">
-         <h2 class="swipe-text">Swipe</h2>
-         <h2 class="arrow">&#8594;</h2>
+         <h2 class="swipe-text">Scroll</h2>
+         <h2 class="arrow">&#8593;</h2>
          </div>
    <div className='Slider-container'>
     <div className='Season-cards-container' id="cardContainer"> 
+      <h2>Seasons</h2>
       {SeasonMap && Array.from(SeasonMap).slice(1,13).map(([key,value],indx) => {
           return (
             
             <div className='Season-cards' key={indx}>
             <div onClick={()=>selectcard(value)}>
-            <h4>Season {key}</h4>
+            <h1>{key}</h1>
             </div>
             </div>
           );
@@ -252,22 +252,21 @@ return (
     </div>
 
     {/* Card Component  */}
+    <div class="swipe-container">
+         <h2 class="swipe-text">Select Season & Scroll</h2>
+         <h2 className='arrow' >👇</h2>
+         </div>
     <div className='Episode-container'>
-     {loading ? (
-      <div className='loader'></div>)
-     :  SeasonNotAvailable ? (
-       <div className='player-frame'>
-       <h1>Season not available hehe 😁 , try searching it instead</h1> 
-       <img  className='error-gif' src={notAvailableGif} alt="Season not available" />
-       </div>
-    ) :
-     (thumbanail && thumbanail.map((data,indx) => {
+     {
+     (thumbanail.map((indx) => {
           return (
-            <div className='Episode-cards' key={indx} onClick={()=>fetchVideoUrl(getSeasonId(season),data.metadata.number)}>  
-              <img src={data.metadata.thumbnail} className='Episode-img' alt="thumbnail" />
+            <div className='Episode-cards' key={indx} onClick={()=>fetchVideoUrl(getSeasonId(season)===0 ? 1 : getSeasonId(season),indx)}>  
+              <img loading='lazy' src={`https://img.anime-world.in/images/${season}/${indx >= 10  ? indx : `0${indx}`}.webp`} className='Episode-img' alt="thumbnail" />
               
-              <h3>{data.metadata.number}</h3>
+              <h3>{indx}</h3>
+                <h2 className='fsize'>Season: {getSeasonId(season)===0 ? 1 : getSeasonId(season)}   Ep: {indx}</h2>
               </div>
+
           );
         })
       )}
@@ -286,15 +285,17 @@ return (
       (<div className='player-frame'>
       <iframe src={videoUrl}   width={800} height={500} frameborder="0" allowfullscreen allow='fullscreen'>
       </iframe>
-      <h1>Season: {season}   Episode: {episode}</h1>
+      <h2>Season: {season}   Episode: {episode}</h2>
       </div>)}
     {/* Buttons for changing the episode */}
     <div className='change'>
-      <button className='change_buttons' onClick={previous} >Previous</button>
-      <button className='change_buttons' onClick={next} >Next</button>
-      <div onClick={setFavouriteEp} title='Favourites' className='fav' disabled={isclicked}>❤️</div>
+      <h2 className='change_buttons point fav' onClick={previous} >⏮️</h2>
+      <h2 className='change_buttons point fav' onClick={next} >⏭️</h2>
     </div>
+    <div className='change'>
+      <div onClick={setFavouriteEp} title='Favourites' className='fav' disabled={isclicked}>❤️</div>
       <div className='fav' onClick={() => navigate(-1)}>🏠</div>
+      </div>
     </div>
     </div>
 );

@@ -26,7 +26,7 @@
 ## Previews
 
 <div style="text-align: left;">
-  <img src="../Scraping/shinchan/src/assest/Shinchan-assests/Screenshot 2025-01-26 102038.png" alt="Home Page" style="max-width: 80%;" >
+  <img src="../Scraping/shinchan/src/assest/Shinchan-assests/Preview.png" alt="Home Page" style="max-width: 80%;" >
 
 </div>
 

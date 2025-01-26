@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createRequire } from 'module';
+import puppeteer from 'puppeteer';
 
 const app = express();
 const PORT = 3000;
@@ -11,20 +12,18 @@ dotenv.config();
 const require = createRequire(import.meta.url);
 
 app.use(cors({
-    origin: '*'
+  origin: '*'
 }));
 
 // puppeteer options
-let chrome = {};
-let puppeteer;
+ let chromium;
 
-if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
-  chrome = require("chrome-aws-lambda");
-  puppeteer = require("puppeteer-core");
-} else {
-  puppeteer = require("puppeteer");
-}
+chromium = require("@sparticuz/chromium");
+    
 
+
+chromium.setHeadlessMode = true;
+chromium.setGraphicsMode = false;
 
 
 
@@ -37,11 +36,10 @@ app.get('/video', async (req, res) => {
 
   if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
     options = {
-      args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
-      defaultViewport: chrome.defaultViewport,
-      executablePath: await chrome.executablePath,
-      headless: true,
-      ignoreHTTPSErrors: true,
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
     };
   }
 

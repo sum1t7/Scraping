@@ -12,8 +12,6 @@
         "src": "/(.*)",
         "dest": "index.js"
       }
-    ],
-    "includeFiles": [
-      "node_modules/@sparticuz/chromium/**"
     ]
+    
   }

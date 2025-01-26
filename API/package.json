@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-   },
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,7 +26,10 @@
     "nodemon": "^3.1.4",
     "path": "^0.12.7",
     "puppeteer": "^24.1.0",
-     "react-player": "^2.16.0",
+    "puppeteer-core": "^6",
+    "react-player": "^2.16.0",
+    "chrome-aws-lambda": "^6",
+
     "require": "^2.4.20",
     "superagent": "^9.0.2"
   },

@@ -1,17 +1,51 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import puppeteer from 'puppeteer';
+import { createRequire } from 'module';
 
 const app = express();
 const PORT = 3000;
 dotenv.config();
  
+
+const require = createRequire(import.meta.url);
+
 app.use(cors({
     origin: '*'
 }));
 
+// puppeteer options
+let chrome = {};
+let puppeteer;
+
+if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+  chrome = require("chrome-aws-lambda");
+  puppeteer = require("puppeteer-core");
+} else {
+  puppeteer = require("puppeteer");
+}
+
+
+
+
+
+
+
 app.get('/video', async (req, res) => {
+
+  let options = {};
+
+  if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+    options = {
+      args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
+      defaultViewport: chrome.defaultViewport,
+      executablePath: await chrome.executablePath,
+      headless: true,
+      ignoreHTTPSErrors: true,
+    };
+  }
+
+
   const { season, episode } = req.query;
   
    if (!season || !episode) {
@@ -19,10 +53,7 @@ app.get('/video', async (req, res) => {
   }
 
 let m3u8Url = [];
-  const browser = await puppeteer.launch({ 
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'] 
-  });
+  const browser = await puppeteer.launch(options);
 
   try {
     const page = await browser.newPage();

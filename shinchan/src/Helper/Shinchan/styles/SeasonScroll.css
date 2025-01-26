@@ -69,8 +69,7 @@
    border: 1px solid rgba(215, 44, 44, 0.2);  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
   transition: transform 0.2s, box-shadow 0.2s;  
-  backdrop-filter: blur(10px);  
-  height: 4rem;
+   height: 4rem;
   width: 20px;
    display: flex;
   justify-content: center;
@@ -158,11 +157,11 @@
 @media (max-width: 450px){
   
   .Season-Text{
-    font-size: 3rem;
+    font-size: 7rem;
     color: #fef720;    
   }
   .Season-heading{
-    font-size: 3rem;
+    font-size: 5rem;
     color: #efff5c;
    }
   .Season-container{
@@ -178,8 +177,8 @@
   
 .Season-cards{
   padding: 1.55rem;
-  height: 2rem;
-  width: 20px;
+  height: 8rem;
+  width: 55px;
 } 
 .scroll-button {
     font-size: 1.5rem;

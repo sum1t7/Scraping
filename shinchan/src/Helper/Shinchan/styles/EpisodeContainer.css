@@ -19,14 +19,12 @@
     border-radius: .375rem;
     cursor: pointer;
     max-width: 20%;
-    height: 40% ;
+    width: 40%;
     flex-direction: column;
     border: 1px solid rgba(255, 255, 255, 0.2); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
     transition: transform 0.2s, box-shadow 0.2s;  
     background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(10px);  
-    -webkit-backdrop-filter: blur(10px); 
     position: relative;
     justify-content: center;
     align-items: center;
@@ -67,12 +65,10 @@
      }
   }
 
-
  
-
 .Ep-season-text{
    font-size: 2vw;
-  color: #fdffcf; 
+  color: #fff7bb; 
   margin:2px;
    position:absolute;
    font-family: 'Amatic SC', sans-serif;
@@ -82,8 +78,7 @@
 }
 
 .Ep-season-heading {
-    font-family: 'comic sans ms', sans-serif;
-   font-size: 8vw;
+    font-size: 10vw;
   color: #f7ff03; 
   display: inline-block;
   position: relative;
@@ -108,7 +103,7 @@
  }
  
  
- @media (max-width: 710px){
+ @media (max-width: 753px){
   
     .loading{
         max-width: 200px;
@@ -124,8 +119,14 @@
 .Episode-cards{
     
     max-width: 35%;
-    height: 40% ;
+    width: 60%;
     
+ }
+ 
+.Ep-season-text{
+    font-size: 6vw;
+   
+ 
  }
    
   
@@ -141,14 +142,22 @@
     }
 .Episode-container{
     gap: 8px;
-    padding-top: 20px;
+    padding-top: 10px;
  
 }
 .Episode-cards{
     
     max-width: 40%;
-    height: 40% ;
+    width: 40%;
     
  }
+ .Ep-season-text{
+    font-size: 8vw;
+   
+ }
+ .Ep-season-heading{
+    font-size: 15vw;
+ }
+
    
   }

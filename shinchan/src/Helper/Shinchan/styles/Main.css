@@ -119,16 +119,23 @@ body::before{
   
     .heading{
          font-size: 15vw;
-        color: #9864eb;   }
+  }
     
+  .content {
+    padding: 1rem;
+   
+ }
   }
   
   @media (max-width: 566px){
     
     .heading{
       font-size: 15vw;
-      color: #51adc9;}
-      
+    }
+    .content {
+      padding: 0rem;
+     
+   }
     
     
   }
@@ -137,5 +144,9 @@ body::before{
     
     .heading{
       font-size: 20vw;
-      color: #51adc9;}
+    }
+    .content {
+       padding: 0rem;
+      
+    }
   }  

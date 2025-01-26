@@ -19,7 +19,7 @@
  @media (max-width: 930px){
   
   .PreviousWatches{
-    font-size: 7vw;
+    font-size: 11vw;
    
 }
    
@@ -29,7 +29,7 @@
 @media (max-width: 566px){
   
   .PreviousWatches{
-    font-size: 7vw;
+    font-size:11vw;
    
 }
     
@@ -39,7 +39,7 @@
 
 @media (max-width: 450px){
   .PreviousWatches{
-     font-size: 7vw;
+     font-size:11vw;
     
  }
 }

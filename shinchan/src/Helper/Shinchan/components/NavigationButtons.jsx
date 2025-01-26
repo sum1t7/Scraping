@@ -52,15 +52,18 @@ const NavigationButtons = ({
     const formattedEpisode = parseInt(episode, 10).toString();
 
     try {
-      const response = await axios.get("https://shinchan-nine.vercel.app/video", {
-        params: {
-          season: season >= 10 ? season : `0${season}`,
-          episode:
-            formattedEpisode.length === 1
-              ? `0${formattedEpisode}`
-              : formattedEpisode,
-        },
-      });
+      const response = await axios.get(
+        "https://shinchan-nine.vercel.app/video",
+        {
+          params: {
+            season: season >= 10 ? season : `0${season}`,
+            episode:
+              formattedEpisode.length === 1
+                ? `0${formattedEpisode}`
+                : formattedEpisode,
+          },
+        }
+      );
       const videoUrl = response.data.videoUrl;
       onVideoUrlChange(videoUrl);
     } catch (error) {

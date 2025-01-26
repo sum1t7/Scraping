@@ -1,0 +1,45 @@
+.PreviousWatches{
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 2vw;
+   color: #fdffcf; 
+   margin:2px;
+   font-weight: 200;
+ }
+.loading-text{
+    font-family: 'Amatic SC', sans-serif;
+    font-size: 8vw;
+    color: #fff47d; 
+    margin:2px;
+    font-weight: 200;
+    position: absolute;
+    justify-self: center;
+    align-self: center;
+ }
+
+ @media (max-width: 930px){
+  
+  .PreviousWatches{
+    font-size: 7vw;
+   
+}
+   
+  
+}
+
+@media (max-width: 566px){
+  
+  .PreviousWatches{
+    font-size: 7vw;
+   
+}
+    
+  
+  
+}
+
+@media (max-width: 450px){
+  .PreviousWatches{
+     font-size: 7vw;
+    
+ }
+}

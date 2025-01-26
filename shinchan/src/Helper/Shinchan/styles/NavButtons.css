@@ -1,0 +1,11 @@
+.change{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+     position: relative;
+
+}
+.Nav-Buttons{
+     font-size: 5vw;
+    cursor: pointer;
+}

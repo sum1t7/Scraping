@@ -1,0 +1,154 @@
+
+.Episode-container{
+    display: flex;
+    flex-wrap: wrap;
+     gap: 20px;
+    padding-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    max-height: 580px;  
+    overflow-y: auto; 
+    max-width: 100%; 
+    scrollbar-width: none;  
+}
+
+.Episode-cards{
+    display: flex;
+    padding: .25rem;
+    border-radius: .375rem;
+    cursor: pointer;
+    max-width: 20%;
+    height: 40% ;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    transition: transform 0.2s, box-shadow 0.2s;  
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);  
+    -webkit-backdrop-filter: blur(10px); 
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    animation: loading 1.5s ease-in;
+}
+ .Episode-cards:hover {
+    transform: translateY(-5px);  
+    box-shadow: 0 8px 16px rgba(7, 0, 0, 0.2);  
+}
+
+.Episode-img{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: .375rem;  
+    width: 100%;
+    height: 100%;
+
+}
+@keyframes loading {
+    0% {
+
+        width: 0px;
+        height: 0px;
+        font-size: 0px;  
+   }
+50% {
+        width: 5%;
+        height: 0px;
+        font-size: 0px;  
+    }
+    75% {
+        width: 15%;
+        height: 0px;
+        font-size: 0px;  
+    }
+    100% {
+     }
+  }
+
+
+ 
+
+.Ep-season-text{
+   font-size: 2vw;
+  color: #fdffcf; 
+  margin:2px;
+   position:absolute;
+   font-family: 'Amatic SC', sans-serif;
+  font-weight: 200;
+  animation: loading 1.5s ease-in;
+
+}
+
+.Ep-season-heading {
+    font-family: 'comic sans ms', sans-serif;
+   font-size: 8vw;
+  color: #f7ff03; 
+  display: inline-block;
+  position: relative;
+  font-weight: 200;
+  margin:2px;
+   
+ }
+ .Ep-continent{
+  font-family: 'Amatic SC', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+ }
+ 
+ .loading{
+    border-radius: 60%;
+    max-width: 400px;
+    margin: 20px;
+    height: 400px;
+
+ }
+ 
+ 
+ @media (max-width: 710px){
+  
+    .loading{
+        max-width: 200px;
+        height: 200px;
+        margin: 10px;
+        
+    }
+.Episode-container{
+    gap: 8px;
+    padding-top: 20px;
+ 
+}
+.Episode-cards{
+    
+    max-width: 35%;
+    height: 40% ;
+    
+ }
+   
+  
+} 
+
+
+  @media (max-width: 510px){
+    .loading{
+        max-width: 200px;
+        height: 200px;
+        margin: 10px;
+        
+    }
+.Episode-container{
+    gap: 8px;
+    padding-top: 20px;
+ 
+}
+.Episode-cards{
+    
+    max-width: 40%;
+    height: 40% ;
+    
+ }
+   
+  }

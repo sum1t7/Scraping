@@ -1,0 +1,141 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+     background-size: cover;
+    background-color: #000000;
+    background-repeat: repeat;
+   overflow-x: hidden;
+   word-wrap: break-word;
+}
+
+body::before{ 
+    background: linear-gradient(rgba(0, 0, 0, 0), #000 55%);
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
+
+
+ .app-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+   .background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    
+     &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.7) 50%,
+        rgba(0, 0, 0, 0.9) 100%
+      );
+    }
+  }
+  
+   .content-wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    color: white;  
+  }
+  
+  .heading {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  }
+  
+  .heading:hover {
+    animation: glitch .3s linear infinite;
+    cursor: pointer;
+  }
+  
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+
+.heading{
+    font-size:11vw;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #F7CA05;
+    text-shadow: 0 10px 7px rgba(0,0,0,0.4),0 -10px 1px #f70707;
+    letter-spacing: -3px;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;  
+    text-align: center;
+    
+   }
+
+
+
+   @media (max-width: 930px){
+  
+    .heading{
+         font-size: 15vw;
+        color: #9864eb;   }
+    
+  }
+  
+  @media (max-width: 566px){
+    
+    .heading{
+      font-size: 15vw;
+      color: #51adc9;}
+      
+    
+    
+  }
+  
+  @media (max-width: 450px){
+    
+    .heading{
+      font-size: 20vw;
+      color: #51adc9;}
+  }  

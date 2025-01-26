@@ -1,0 +1,5 @@
+# .gitignore
+node_modules/
+.env
+Courage/
+populate.js

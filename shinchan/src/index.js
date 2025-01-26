@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Rofees from './router';
-import App from './app';
- 
+ import Rofees from './Router/router';
+  
 
 ReactDOM.render(
   <React.StrictMode>
     <Rofees/>
   </React.StrictMode>,
-  document.getElementById('videoContainer')
+  document.getElementById('Shinchan')
 ) 

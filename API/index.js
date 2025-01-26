@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import puppeteer from 'puppeteer';
+import chromium from '@sparticuz/chromium';
+
 
 const app = express();
 const PORT = 3000;
@@ -10,6 +12,10 @@ dotenv.config();
 app.use(cors({
     origin: '*'
 }));
+
+chromium.setGraphicsMode = false;  
+
+ 
 
 app.get('/video', async (req, res) => {
   const { season, episode } = req.query;
@@ -20,7 +26,10 @@ app.get('/video', async (req, res) => {
 
 let m3u8Url = [];
   const browser = await puppeteer.launch({ 
-    headless: true,
+    args: chromium.args,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
+    defaultViewport: chromium.defaultViewport,
     args: ['--no-sandbox', '--disable-setuid-sandbox'] 
   });
 

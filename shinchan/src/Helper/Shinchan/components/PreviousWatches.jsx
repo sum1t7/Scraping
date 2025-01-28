@@ -17,7 +17,7 @@ const PreviousWatches = ({ watchedEpisodes, onVideoUrlChange }) => {
 
     try {
       const response = await axios.get(
-        process.env.REACT_APP_HOSTED_URL,
+        "https://shinchan-nine.vercel.app/video",
         {
           params: {
             season: season >= 10 ? season : `0${season}`,

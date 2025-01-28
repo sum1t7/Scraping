@@ -17,7 +17,7 @@ const PreviousWatches = ({ watchedEpisodes, onVideoUrlChange }) => {
 
     try {
       const response = await axios.get(
-        "https://scraping-blush.vercel.app/video",
+        process.env.REACT_APP_HOSTED_URL,
         {
           params: {
             season: season >= 10 ? season : `0${season}`,
@@ -31,8 +31,8 @@ const PreviousWatches = ({ watchedEpisodes, onVideoUrlChange }) => {
       const videoUrl = response.data.videoUrl;
       onVideoUrlChange(videoUrl);
     } catch (error) {
-      setError(error);
-    } finally {
+      window.location.reload();
+      alert("Not Available")    } finally {
       setLoading(false);
     }
   };

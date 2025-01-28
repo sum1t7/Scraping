@@ -25,10 +25,7 @@ chromium = require("@sparticuz/chromium");
 chromium.setHeadlessMode = true;
 chromium.setGraphicsMode = false;
 
-
-
-
-
+ 
 
 app.get('/video', async (req, res) => {
 
@@ -40,6 +37,7 @@ app.get('/video', async (req, res) => {
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
       headless: chromium.headless,
+ 
     };
   }
 
@@ -50,7 +48,8 @@ app.get('/video', async (req, res) => {
     return res.status(400).json({ error: "Missing season/episode" });
   }
 
-let m3u8Url = [];
+
+  let m3u8Url = [];
   const browser = await puppeteer.launch(options);
 
   try {
@@ -65,12 +64,21 @@ let m3u8Url = [];
        }
       request.continue();
     });
-    
-    const targetUrl = `https://beta.awstream.net/watch?v=shinchan-8211-season-${season}-8211-episode-${episode}&lang=hin`;
-    await page.goto(targetUrl, {
-      waitUntil: 'networkidle2',
-      timeout: 30000
-    });
+
+    if(season == '01'){
+      const targetUrl = `https://beta.awstream.net/watch?v=shinchan-8211-episode-${episode}&lang=hin`;
+      await page.goto(targetUrl, {
+        waitUntil: 'networkidle2',
+        timeout: 30000
+      });
+    }
+    else{
+      const targetUrl = `https://beta.awstream.net/watch?v=shinchan-8211-season-${season}-8211-episode-${episode}&lang=hin`;
+      await page.goto(targetUrl, {
+        waitUntil: 'networkidle2',
+        timeout: 30000
+      });
+    }
 
   } catch (error) {
     console.error('Puppeteer error:', error);
@@ -82,7 +90,9 @@ let m3u8Url = [];
   if (!m3u8Url) {
     return res.status(404).json({ error: "HLS stream not found" });
   }
-
+  if (m3u8Url.length === 0) {
+    return res.status(404).json({ error: "HLS stream not found" });
+  } 
    res.json({ 
     videoUrl: `https://anym3u8player.com/tv/video-player.php?url=${encodeURIComponent(m3u8Url)}`,  
     season,

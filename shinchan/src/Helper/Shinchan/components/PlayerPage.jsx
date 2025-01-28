@@ -37,7 +37,7 @@ const PlayerPage = ({ videoUrl, season, episode }) => {
           Back
         </button>
         <h1 className="PreviousWatches">
-          Season {getSeasonId(season)} Ep {episode}
+          Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "} Ep {episode}
         </h1>
       </div>
     </div>

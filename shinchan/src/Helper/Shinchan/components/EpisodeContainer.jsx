@@ -3,7 +3,7 @@ import axios from "axios";
 import { getSeasonId } from "../../../lib/helper/Action";
 import "../styles/EpisodeContainer.css";
 import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
-
+ 
 const EpisodeContainer = ({
   season,
   episode,
@@ -34,7 +34,7 @@ const EpisodeContainer = ({
     //This will give you back the Video Url Dumbass
     try {
       const response = await axios.get(
-        "https://scraping-blush.vercel.app/video",
+        process.env.REACT_APP_HOSTED_URL,
         {
           params: {
             season: season >= 10 ? season : `0${season}`,
@@ -48,8 +48,9 @@ const EpisodeContainer = ({
       const videoUrl = response.data.videoUrl;
       onVideoUrlChange(videoUrl);
     } catch (error) {
-      setError(error);
-    } finally {
+      window.location.reload();
+      alert("Not Available")
+     } finally {
       setLoading(false);
     }
   };
@@ -57,7 +58,7 @@ const EpisodeContainer = ({
   return (
     <div className="Ep-continent">
       {season != null && !loading && (
-        <h1 className="Ep-season-heading">Season {getSeasonId(season)}</h1>
+        <h1 className="Ep-season-heading">Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "}</h1>
       )}
       <div className="Episode-container">
         {loading ? (

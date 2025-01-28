@@ -1,7 +1,6 @@
  .player-container {
     position: relative;
-    min-height: 100vh;
-    overflow: hidden;
+     overflow: hidden;
   }
   
   .video-background {
@@ -32,8 +31,7 @@
   .player-content {
     position: relative;
     padding: 2rem;
-    min-height: 100vh;
-    display: flex;
+     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -109,11 +107,13 @@
     .video-iframe {
       padding-bottom: 60%;  
     }
+
+    .player-content{
+       padding: 1rem;
+      
+    }
   }
 
- 
-  
-   
   
 
 iframe{

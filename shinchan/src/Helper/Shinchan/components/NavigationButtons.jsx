@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { getSeasonId, getSeasonIdreverse } from "../../../lib/helper/Action";
 import "../styles/NavButtons.css";
+import toast from "react-hot-toast";
 
 const NavigationButtons = ({
   season,
@@ -18,6 +19,7 @@ const NavigationButtons = ({
 
   const next = () => {
     if (!episode || !season) {
+
       window.location.reload();
     }
 
@@ -27,7 +29,10 @@ const NavigationButtons = ({
     fetchVideoUrl(getSeasonId(season), newEpisode);
 
     if (newEpisode > 53) {
-      window.location.reload();
+      window.scrollTo(0, 0);
+
+      toast("Season Completed", { icon: "🎉" })
+            window.location.reload();
     }
   };
 
@@ -41,6 +46,9 @@ const NavigationButtons = ({
     setNextEpisode(newEpisode.toString());
     fetchVideoUrl(getSeasonId(season), newEpisode);
     if (newEpisode < 1) {
+      window.scrollTo(0, 0);
+      toast("Season Completed", { icon: "🎉" })
+
       window.location.reload();
     }
   };
@@ -53,7 +61,7 @@ const NavigationButtons = ({
 
     try {
       const response = await axios.get(
-        "https://scraping-blush.vercel.app/video",
+        process.env.REACT_APP_HOSTED_URL,
         {
           params: {
             season: season >= 10 ? season : `0${season}`,
@@ -67,7 +75,8 @@ const NavigationButtons = ({
       const videoUrl = response.data.videoUrl;
       onVideoUrlChange(videoUrl);
     } catch (error) {
-      setError(error);
+      window.location.reload();
+      alert("Not Available")
     } finally {
       setLoading(false);
     }

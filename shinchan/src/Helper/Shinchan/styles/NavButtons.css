@@ -9,3 +9,10 @@
      font-size: 5vw;
     cursor: pointer;
 }
+
+@media (max-width: 930px){
+    .Nav-Buttons{
+        font-size: 10vw;
+    }
+    
+}

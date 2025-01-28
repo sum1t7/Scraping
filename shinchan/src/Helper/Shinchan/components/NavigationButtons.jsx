@@ -61,7 +61,7 @@ const NavigationButtons = ({
 
     try {
       const response = await axios.get(
-        "https://shinchan-nine.vercel.app/video",
+        "https://scraping-blush.vercel.app/video",
         {
           params: {
             season: season >= 10 ? season : `0${season}`,

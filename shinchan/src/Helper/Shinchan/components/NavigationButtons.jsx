@@ -19,20 +19,22 @@ const NavigationButtons = ({
 
   const next = () => {
     if (!episode || !season) {
-
       window.location.reload();
     }
 
     let newEpisode = parseInt(episode) + 1;
     onEpisodeSelect(newEpisode.toString());
     console.log("inside next", newEpisode);
-    fetchVideoUrl(getSeasonId(season), newEpisode);
+    fetchVideoUrl(
+      getSeasonId(season) === 0 ? 1 : getSeasonId(season),
+      newEpisode
+    );
 
     if (newEpisode > 53) {
       window.scrollTo(0, 0);
 
-      toast("Season Completed", { icon: "🎉" })
-            window.location.reload();
+      toast("Season Completed", { icon: "🎉" });
+      window.location.reload();
     }
   };
 
@@ -44,11 +46,14 @@ const NavigationButtons = ({
     let newEpisode = parseInt(episode) - 1;
     onEpisodeSelect(newEpisode.toString());
     setNextEpisode(newEpisode.toString());
-    fetchVideoUrl(getSeasonId(season), newEpisode);
+    fetchVideoUrl(
+      getSeasonId(season) === 0 ? 1 : getSeasonId(season),
+      newEpisode
+    );
+
     if (newEpisode < 1) {
       window.scrollTo(0, 0);
-      toast("Season Completed", { icon: "🎉" })
-
+      toast("Season Completed", { icon: "🎉" });
       window.location.reload();
     }
   };
@@ -76,7 +81,7 @@ const NavigationButtons = ({
       onVideoUrlChange(videoUrl);
     } catch (error) {
       window.location.reload();
-      alert("Not Available")
+      alert("Not Available");
     } finally {
       setLoading(false);
     }

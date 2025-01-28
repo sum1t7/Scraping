@@ -3,7 +3,7 @@ import axios from "axios";
 import { getSeasonId } from "../../../lib/helper/Action";
 import "../styles/EpisodeContainer.css";
 import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
- 
+
 const EpisodeContainer = ({
   season,
   episode,
@@ -50,7 +50,7 @@ const EpisodeContainer = ({
     } catch (error) {
       window.location.reload();
       alert("Not Available")
-     } finally {
+    } finally {
       setLoading(false);
     }
   };

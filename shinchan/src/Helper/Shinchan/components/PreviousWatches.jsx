@@ -1,50 +1,20 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { getSeasonIdreverse } from "../../../lib/helper/Action";
+import { getSeasonId, getSeasonIdreverse } from "../../../lib/helper/Action";
 import "../styles/PreviousWatches.css";
 import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
+import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-const PreviousWatches = ({ watchedEpisodes, onVideoUrlChange }) => {
+const PreviousWatches = ({
+  watchedEpisodes,
+  
+}) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+   const navigate = useNavigate();
 
-  const fetchVideoUrl = async (season, episode) => {
-    setLoading(true);
-    setError(null);
-    console.log("inside fetchurl", episode, season, getSeasonIdreverse(season));
-    const formattedEpisode = parseInt(episode, 10).toString();
-
-    try {
-      const response = await axios.get(
-        "https://scraping-blush.vercel.app/video",
-        {
-          params: {
-            season: season >= 10 ? season : `0${season}`,
-            episode:
-              formattedEpisode.length === 1
-                ? `0${formattedEpisode}`
-                : formattedEpisode,
-          },
-        }
-      );
-      const videoUrl = response.data.videoUrl;
-      onVideoUrlChange(videoUrl);
-    } catch (error) {
-      window.location.reload();
-      alert("Not Available")    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleclick = () => {
-    fetchVideoUrl(watchedEpisodes.season, watchedEpisodes.episode);
-    console.log(
-      "inside previous",
-      watchedEpisodes.episode,
-      watchedEpisodes.season
-    );
-  };
+   
   return (
     <div>
       {loading ? (
@@ -56,11 +26,21 @@ const PreviousWatches = ({ watchedEpisodes, onVideoUrlChange }) => {
         <div>
           <h1 className="PreviousWatches">Previously Watched</h1>
 
-          <div className="Episode-cards" onClick={() => handleclick()}>
+          <div
+            className="Episode-cards"
+            onClick={() =>
+              navigate(
+                `/player/${Number(watchedEpisodes.season)}/${
+                  watchedEpisodes.episode
+                }`
+              )
+            }
+          >
+            <Toaster />
             <img
               loading="lazy"
               src={`https://img.anime-world.in/images/${getSeasonIdreverse(
-                watchedEpisodes.season
+                Number(watchedEpisodes.season)
               )}/${
                 watchedEpisodes.episode > 10
                   ? watchedEpisodes.episode

@@ -2,18 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getSeasonId } from "../../../lib/helper/Action";
 import "../styles/EpisodeContainer.css";
-import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
+import { useNavigate } from "react-router-dom";
+ import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
+import toast, { Toaster } from "react-hot-toast";
+
+
+//Takes season and returns episode based on selection
 
 const EpisodeContainer = ({
   season,
-  episode,
-  onEpisodeSelect,
-  onVideoUrlChange,
-}) => {
+   onEpisodeSelect,
+ }) => {
   const [thumbnail, setThumbnail] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const navigate = useNavigate();
+ 
   useEffect(() => {
     setLoading(true);
     season != null
@@ -22,43 +26,14 @@ const EpisodeContainer = ({
     setLoading(false);
   }, [season]);
 
-  const fetchVideoUrl = async (season, episode) => {
-    setLoading(true);
-    setError(null);
-    onEpisodeSelect(episode);
-    console.log("inside fetchurl", episode);
-    const formattedEpisode = parseInt(episode, 10).toString();
-    localStorage.setItem("season", JSON.stringify(season));
-    localStorage.setItem("episode", JSON.stringify(episode));
-
-    //This will give you back the Video Url Dumbass
-    try {
-      const response = await axios.get(
-        "https://scraping-blush.vercel.app/video",
-        {
-          params: {
-            season: season >= 10 ? season : `0${season}`,
-            episode:
-              formattedEpisode.length === 1
-                ? `0${formattedEpisode}`
-                : formattedEpisode,
-          },
-        }
-      );
-      const videoUrl = response.data.videoUrl;
-      onVideoUrlChange(videoUrl);
-    } catch (error) {
-      window.location.reload();
-      alert("Not Available")
-    } finally {
-      setLoading(false);
-    }
-  };
+   
 
   return (
     <div className="Ep-continent">
       {season != null && !loading && (
-        <h1 className="Ep-season-heading">Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "}</h1>
+        <h1 className="Ep-season-heading">
+          Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "}
+        </h1>
       )}
       <div className="Episode-container">
         {loading ? (
@@ -72,13 +47,12 @@ const EpisodeContainer = ({
               <div
                 className="Episode-cards"
                 key={indx}
-                onClick={() =>
-                  fetchVideoUrl(
-                    getSeasonId(season) === 0 ? 1 : getSeasonId(season),
-                    indx
-                  )
-                }
+                onClick={() =>{
+                onEpisodeSelect(indx) ; navigate(`/player/${getSeasonId(season)}/${indx}`)}
+                 }
               >
+                <Toaster />
+
                 <img
                   loading="lazy"
                   src={`https://img.anime-world.in/images/${season}/${

@@ -7,6 +7,7 @@ import "./styles/Main.css";
 import bgimage from "../../assest/Shinchan-assests/shinchan.jpg";
 import PreviousWatches from "./components/PreviousWatches";
 import NavigationButtons from "./components/NavigationButtons";
+import { useNavigate } from "react-router-dom";
 
 const MainComponent = () => {
   const [season, setSeason] = useState(null);
@@ -15,32 +16,25 @@ const MainComponent = () => {
   const [loading, setLoading] = useState(false);
   const watchedEpisodes = { season: JSON.parse(localStorage.getItem("season")),
   episode: JSON.parse(localStorage.getItem("episode")),} || { season: null, episode: null };
- 
+ const navigate = useNavigate();
   
   const handleEpisodeSelect = (selectedEpisode) => {
-    setEpisode(selectedEpisode);
-  };
-  
-  const handleVideoUrlChange = (url) => {
-    setVideoUrl(url);
-    setLoading(false);
-  };
-
+     setEpisode(selectedEpisode);
+      
+   };
+ 
   const handleSeasonSelect = (selectedSeason) => {
     setLoading(true);
-    setSeason(selectedSeason);
-    setEpisode(null);
+     setSeason(selectedSeason);
+      setEpisode(null);
     setVideoUrl("");
     setLoading(false);
-  };
-  
-  
-
+   };
    
 
   return (
     <div className="app-container">
-      {videoUrl === "" ? (
+      
         <div className="content-wrapper">
           <div
             className="background-container"
@@ -48,37 +42,22 @@ const MainComponent = () => {
           ></div>
           <div className="content">
             <h1 className="heading">Shinchan </h1>
-            <SeasonScroll onSeasonSelect={handleSeasonSelect} />
+            <SeasonScroll onSeasonSelect={handleSeasonSelect} /> 
             {season == null && watchedEpisodes.episode && watchedEpisodes.season && (
               <PreviousWatches
                 watchedEpisodes={watchedEpisodes}
-                onVideoUrlChange={handleVideoUrlChange}
-                onSeasonSelect={handleSeasonSelect}
-                onEpisodeSelect={handleEpisodeSelect}
                 
               />
             )}
             {season != null &&  !loading && (
               <EpisodeContainer
                 season={season}
-                episode={episode}
-                onEpisodeSelect={handleEpisodeSelect}
-                onVideoUrlChange={handleVideoUrlChange}
-               />
+                 onEpisodeSelect={handleEpisodeSelect}
+                />
             )}
           </div>
         </div>
-      ) : (
-        <>
-        <PlayerPage videoUrl={videoUrl} season={season} episode={episode} />
-        <NavigationButtons 
-                season={season}
-                episode={episode}
-                onSeasonSelect={handleSeasonSelect}
-                onEpisodeSelect={handleEpisodeSelect}
-                onVideoUrlChange={handleVideoUrlChange}/>
-        </>
-      )}
+    
     </div>
   );
 };

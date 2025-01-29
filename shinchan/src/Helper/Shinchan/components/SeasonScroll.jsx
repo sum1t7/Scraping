@@ -55,12 +55,12 @@ const SeasonScroll = ({ onSeasonSelect }) => {
       >
         <h2 className="Season-heading">Seasons</h2>
         {Array.from(SeasonMap)
-          .slice(1, 13)
+          .slice(0, 13)
           .map(([key, value], indx) => (
             <div key={indx}>
               <div
                 onClick={() => {
-                  handleSeasonSelect(value);
+                  handleSeasonSelect(value );
                 }}
                 className="Season-cards"
                 role="button"

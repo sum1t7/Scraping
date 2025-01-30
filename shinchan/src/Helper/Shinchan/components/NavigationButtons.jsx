@@ -14,7 +14,7 @@ const NavigationButtons = ({ season, episode }) => {
 
     if (!episode || !season) {
       navigate("/");
-    } else if (newEpisode > 53) {
+    } else if (newEpisode > 52) {
       window.scrollTo(0, 0);
       localStorage.setItem("episode", JSON.stringify(newEpisode - 1));
       navigate("/");

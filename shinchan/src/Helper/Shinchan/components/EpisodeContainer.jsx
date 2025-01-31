@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { getSeasonId } from "../../../lib/helper/Action";
+ import { getSeasonId } from "../../../lib/helper/Action";
 import "../styles/EpisodeContainer.css";
 import { useNavigate } from "react-router-dom";
  import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
 import toast, { Toaster } from "react-hot-toast";
-
+  
 
 //Takes season and returns episode based on selection
 
@@ -15,7 +14,8 @@ const EpisodeContainer = ({
  }) => {
   const [thumbnail, setThumbnail] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+   const [error, setError] = useState(null);
+  
   const navigate = useNavigate();
  
   useEffect(() => {
@@ -26,6 +26,7 @@ const EpisodeContainer = ({
     setLoading(false);
   }, [season]);
 
+  
    
 
   return (
@@ -48,11 +49,13 @@ const EpisodeContainer = ({
                 className="Episode-cards"
                 key={indx}
                 onClick={() =>{
-                onEpisodeSelect(indx) ; navigate(`/player/${getSeasonId(season)}/${indx}`)}
-                 }
+                  onEpisodeSelect(indx) ; navigate(`/player/${getSeasonId(season)}/${indx}`)
+                }
+                   }
+                
               >
                 <Toaster />
-
+ 
                 <img
                   loading="lazy"
                   src={`https://img.anime-world.in/images/${season}/${
@@ -61,11 +64,13 @@ const EpisodeContainer = ({
                   className="Episode-img"
                   alt="thumbnail"
                   onError={(e) => (e.target.style.display = "none")}
+                
                 />
                 <h2 className="Ep-season-text">
                   Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "}
                   Ep {indx}
                 </h2>
+
               </div>
             );
           })

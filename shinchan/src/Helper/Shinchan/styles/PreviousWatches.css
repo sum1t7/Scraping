@@ -1,9 +1,10 @@
 .PreviousWatches{
     font-family: 'Amatic SC', sans-serif;
-    font-size: 2vw;
+    font-size: 4vw;
    color: #fdffcf; 
    margin:2px;
    font-weight: 200;
+   
  }
 .loading-text{
     font-family: 'Amatic SC', sans-serif;
@@ -14,6 +15,13 @@
     position: absolute;
     justify-self: center;
     align-self: center;
+ }
+
+ .Episode-container-liked{
+  display: flex;
+  flex-wrap: wrap;
+   align-items: center;
+  flex-direction: row;
  }
 
  @media (max-width: 930px){

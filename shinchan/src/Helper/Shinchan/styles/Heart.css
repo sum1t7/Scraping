@@ -1,0 +1,9 @@
+.like-button{
+    padding-top: 20px;
+     border: none;
+    border-radius: 50%;
+     cursor: pointer;
+     background: transparent;
+    transition: background 0.2s;
+
+  }

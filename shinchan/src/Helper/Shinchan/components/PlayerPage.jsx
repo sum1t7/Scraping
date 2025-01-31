@@ -9,6 +9,7 @@ import NavigationButtons from "./NavigationButtons";
 import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
 import { toast } from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import Heart from "./Heart";
 
 // takes season and episode as props and returns the videoUrl
 const PlayerPage = () => {
@@ -89,14 +90,16 @@ const PlayerPage = () => {
               )}
             </div>
           )}
-
-          <button className="back-button" onClick={() => navigate(`/`)}>
+           <button className="back-button" onClick={() => navigate(`/`)}>
             <IoArrowBack className="back-icon" />
             Back
           </button>
+          <div style={{display: "flex", justifyContent: "center", alignItems: "center" , gap: "10px"}}>
+          <Heart season={season} episode={episode}/>
           <h1 className="PreviousWatches">
-            Season {season === 0 ? 1 : season} Ep {episode}
+             Season {season === 0 ? 1 : season} Ep {episode}
           </h1>
+          </div>
           <NavigationButtons season={season} episode={episode} />
         </div>
       </div>

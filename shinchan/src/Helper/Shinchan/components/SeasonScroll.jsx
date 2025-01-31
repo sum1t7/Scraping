@@ -66,7 +66,7 @@ const SeasonScroll = ({ onSeasonSelect }) => {
                 role="button"
                 tabIndex={0}
               >
-                <h1 className="Season-Text">{key}</h1>
+                <h1 className="Season-Text" style={key < 10 ? {left:"30px"} : {left:"-10px"}}>{key}</h1>
               </div>
             </div>
           ))}

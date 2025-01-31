@@ -46,8 +46,8 @@ const MainComponent = () => {
             {season == null && watchedEpisodes.episode && watchedEpisodes.season && (
               <PreviousWatches
                 watchedEpisodes={watchedEpisodes}
-                
               />
+              
             )}
             {season != null &&  !loading && (
               <EpisodeContainer

@@ -17,8 +17,7 @@ const MainComponent = () => {
   const watchedEpisodes = { season: JSON.parse(localStorage.getItem("season")),
   episode: JSON.parse(localStorage.getItem("episode")),} || { season: null, episode: null };
  const navigate = useNavigate();
-  
-  const handleEpisodeSelect = (selectedEpisode) => {
+   const handleEpisodeSelect = (selectedEpisode) => {
      setEpisode(selectedEpisode);
       
    };

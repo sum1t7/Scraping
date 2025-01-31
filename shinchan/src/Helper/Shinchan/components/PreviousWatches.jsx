@@ -18,7 +18,7 @@ const PreviousWatches = ({ watchedEpisodes }) => {
           <h1 className="loading-text">Please wait</h1>
           <img src={notAvailableGif} alt="loading" className="loading" />
         </>
-      ) : (
+      ) :   (
         <>
          <div>
           <h1 className="PreviousWatches">Previously Watched</h1>
@@ -51,8 +51,8 @@ const PreviousWatches = ({ watchedEpisodes }) => {
             </h2>
           </div>
           </div>
-          
-           <div style={{marginTop: "20px"}}> 
+
+         { (liked.length > 0) && (<div style={{marginTop: "20px"}}> 
             <h1 className="PreviousWatches">Liked Episodes</h1>
              <div className="Episode-container-liked">
               {liked.map((i, indx) => (
@@ -79,7 +79,8 @@ const PreviousWatches = ({ watchedEpisodes }) => {
                 </div>
               ))}
             </div>
-          </div>
+          </div>)}
+
           </>
 
        )}

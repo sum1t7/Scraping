@@ -40,7 +40,7 @@ const MainComponent = () => {
             style={{ backgroundImage: `url(${bgimage})` }}
           ></div>
           <div className="content">
-            <h1 className="heading">Shinchan </h1>
+            <h1 className="heading">Shinzo</h1>
             <SeasonScroll onSeasonSelect={handleSeasonSelect} /> 
             {season == null && watchedEpisodes.episode && watchedEpisodes.season && (
               <PreviousWatches

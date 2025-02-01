@@ -92,9 +92,12 @@ app.get('/video', async (req, res) => {
   }
   if (m3u8Url.length === 0) {
     return res.status(404).json({ error: "HLS stream not found" });
+    
   } 
+  console.log(m3u8Url);
    res.json({ 
     videoUrl: `https://anym3u8player.com/tv/video-player.php?url=${encodeURIComponent(m3u8Url)}`,  
+    proxied: `${m3u8Url}`,
     season,
     episode
     

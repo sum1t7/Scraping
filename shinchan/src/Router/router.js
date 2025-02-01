@@ -8,6 +8,7 @@ import {
 import { Navigate } from "react-router";
 import MainComponent from "../Helper/Shinchan/Main";
 import PlayerPage from "../Helper/Shinchan/components/PlayerPage";
+import LivePlayer from "../Helper/Shinchan/components/test";
 
 const Rofees = () => {
  
@@ -26,7 +27,7 @@ const Rofees = () => {
           path="/player/:season/:episode"
           element={<PlayerPage />}
         />
-        <Route path="*" element={<Navigate to="/" />} />
+         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );

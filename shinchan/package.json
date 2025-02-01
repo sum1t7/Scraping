@@ -11,6 +11,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@videojs/http-streaming": "^3.16.2",
+    "@videojs/themes": "^1.0.1",
     "axios": "^1.7.3",
     "class-variance-authority": "^0.7.1",
     "cloudflare": "^3.5.0",
@@ -33,6 +35,9 @@
     "tailwindcss": "^3.4.14",
     "tailwindcss-animate": "^1.0.7",
     "video.js": "^8.21.0",
+    "videojs-contrib-hls": "^5.15.0",
+    "videojs-hls-quality-selector": "^2.0.0",
+    "videojs-hotkeys": "^0.2.30",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

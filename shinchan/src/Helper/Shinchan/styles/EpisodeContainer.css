@@ -139,8 +139,8 @@
 @media (max-width: 510px){
 
     .loading{
-        max-width: 200px;
-        height: 200px;
+        max-width: 350px;
+        height: 350px;
         margin: 10px;
         
     }

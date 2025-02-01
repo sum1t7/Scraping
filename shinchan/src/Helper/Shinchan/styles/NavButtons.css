@@ -16,3 +16,8 @@
     }
     
 }
+@media (max-width: 510px){
+    .Nav-Buttons{
+        font-size: 60px;
+    }
+}

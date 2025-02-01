@@ -99,7 +99,6 @@ const PlayerPage = () => {
     <div className="player-container">
       <div className="video-background"></div>
       <div className="background-overlay"></div>
-
       <div className="player-content">
         {videoUrl && !loading ? (
           <>

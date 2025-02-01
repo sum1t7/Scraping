@@ -142,6 +142,8 @@ body::before{
   
   @media (max-width: 510px){
     
+
+    
     .heading{
       font-size: 165px;
       margin: 5px;

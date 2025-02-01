@@ -39,8 +39,11 @@ const Heart = ({ season, episode }) => {
 
     <button onClick={handleClick} className={`like-button heart ${isLiked ? "liked" : ""}`}>
       <HeartIcon
+      size={40}
         fill={`${isLiked ? "red" : "transparent"}`}
         className="heart-icon"
+        absoluteStrokeWidth={true}
+
  />
     </button>
         </div>

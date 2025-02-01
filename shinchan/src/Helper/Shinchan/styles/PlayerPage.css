@@ -1,6 +1,7 @@
  .player-container {
-    position: relative;
-     overflow: hidden;
+  position: relative;
+  overflow: hidden;
+   
   }
   
   .video-background {
@@ -33,8 +34,10 @@
     padding: 2rem;
      display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   }
   
   .video-wrapper {

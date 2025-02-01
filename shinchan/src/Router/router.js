@@ -8,8 +8,7 @@ import {
 import { Navigate } from "react-router";
 import MainComponent from "../Helper/Shinchan/Main";
 import PlayerPage from "../Helper/Shinchan/components/PlayerPage";
-import LivePlayer from "../Helper/Shinchan/components/test";
-
+ 
 const Rofees = () => {
  
 

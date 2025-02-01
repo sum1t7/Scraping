@@ -140,10 +140,11 @@ body::before{
     
   }
   
-  @media (max-width: 450px){
+  @media (max-width: 510px){
     
     .heading{
-      font-size: 20vw;
+      font-size: 165px;
+      margin: 5px;
     }
     .content {
        padding: 0rem;

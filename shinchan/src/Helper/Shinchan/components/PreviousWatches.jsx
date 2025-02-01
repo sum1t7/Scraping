@@ -52,12 +52,13 @@ const PreviousWatches = ({ watchedEpisodes }) => {
           </div>
           </div>
 
-         { (liked.length > 0) && (<div style={{marginTop: "20px"}}> 
+           { (liked.length > 0) && 
+           (<div style={{marginTop: "20px"}}> 
             <h1 className="PreviousWatches">Liked Episodes</h1>
              <div className="Episode-container-liked">
               {liked.map((i, indx) => (
                 <div
-                  className="Episode-cards"
+                  className="Episode-cards-like"
                   key={indx}
                   onClick={() =>
                     navigate(`/player/${Number(i.season)}/${i.episode}`)
@@ -80,6 +81,8 @@ const PreviousWatches = ({ watchedEpisodes }) => {
               ))}
             </div>
           </div>)}
+ 
+
 
           </>
 

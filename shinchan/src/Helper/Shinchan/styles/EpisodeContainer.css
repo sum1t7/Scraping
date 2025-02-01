@@ -136,7 +136,8 @@
 } 
 
 
-  @media (max-width: 510px){
+@media (max-width: 510px){
+
     .loading{
         max-width: 200px;
         height: 200px;
@@ -150,17 +151,23 @@
 }
 .Episode-cards{
     
-    max-width: 40%;
-    width: 40%;
-    
- }
+  max-width: 80%;
+width: 80%;
+justify-self: center;
+
+
+}
+.Episode-container-liked {
+    gap: 2px;
+    justify-content: center;
+}
  .Ep-season-text{
     font-size: 8vw;
    
  }
  .Ep-season-heading{
-    font-size: 15vw;
- }
+    font-size: 25vw;
+  }
 
    
   }

@@ -154,15 +154,16 @@
   
 }
 
-@media (max-width: 450px){
+@media (max-width: 510px){
   
   .Season-Text{
-    font-size: 7rem;
-    color: #fef720;    
+    font-size: 15rem;
+     color: #fef720;    
+     top: 85px;
+margin: 0px;
   }
   .Season-heading{
-    font-size: 5rem;
-    color: #efff5c;
+    display: none;
    }
   .Season-container{
       flex-direction: column;
@@ -177,8 +178,8 @@
   
 .Season-cards{
   padding: 1.55rem;
-  height: 8rem;
-  width: 55px;
+  height: 18rem;
+  width: 165px;
 } 
 .scroll-button {
     font-size: 1.5rem;

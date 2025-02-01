@@ -102,36 +102,43 @@ const PlayerPage = () => {
 
       <div className="player-content">
         {videoUrl && !loading ? (
+          <>
           <div className="video-wrapper">
             <div className="video-container">
                <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
             </div>
           </div>
+          
+           <div
+           style={{
+             display: "flex",
+             justifyContent: "center",
+             alignItems: "center",
+             gap: "10px",
+            }}
+            >
+             <Heart season={season} episode={episode} />
+             <h1 className="PreviousWatches">
+               Season {season === 0 ? 1 : season} Ep {episode}
+             </h1>
+           </div>
+           <NavigationButtons season={season} episode={episode} />
+             </>
+
+          
         ) : (
           <>
             <h1 className="loading-text">Please wait</h1>
             <img src={notAvailableGif} alt="loading" className="loading" />
-          </>
-        )}
 
+          </>
+          )}
+             
+        
         <button className="back-button" onClick={() => navigate(`/`)}>
-          <IoArrowBack className="back-icon" />
-          Back
-        </button>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          <Heart season={season} episode={episode} />
-          <h1 className="PreviousWatches">
-            Season {season === 0 ? 1 : season} Ep {episode}
-          </h1>
-        </div>
-        <NavigationButtons season={season} episode={episode} />
+              <IoArrowBack className="back-icon" />
+              Back
+            </button>
       </div>
       
     </div>

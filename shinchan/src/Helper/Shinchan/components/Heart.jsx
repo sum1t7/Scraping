@@ -35,12 +35,15 @@ const Heart = ({ season, episode }) => {
   }, [liked]);
 
   return (
-    <button onClick={handleClick} className="like-button">
+    <div className="heart-container">
+
+    <button onClick={handleClick} className={`like-button heart ${isLiked ? "liked" : ""}`}>
       <HeartIcon
         fill={`${isLiked ? "red" : "transparent"}`}
-        style={{ strokeWidth: 1,  width: "6vw", height: "6vw" }}
+        style={{ strokeWidth: 1,  width: "6vw", height: "6vw"  }}
         />
     </button>
+        </div>
   );
 };
 

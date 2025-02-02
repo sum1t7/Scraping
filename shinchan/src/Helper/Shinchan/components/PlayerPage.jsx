@@ -72,7 +72,7 @@ const PlayerPage = () => {
     },
     sources: [
       {
-        src: 'https://beta.awstream.net/m3u8/5eac43aceba42c8757b54003a58277b5/master.txt?s=1&lang=hin&cache=1',
+        src: videoUrl,
         type: "application/x-mpegURL",
       },
     ],

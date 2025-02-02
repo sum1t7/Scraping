@@ -58,17 +58,21 @@ const PlayerPage = () => {
       doubleClick: true,
     },
     html5: {
-      hls: {
-        overrideNative: true,
-        enableLowInitialPlaylist: true,
-        bufferWater: 10,  
-        maxBufferSize: 20,  
-        bandwith: 2621440, 
-      },
+       vhs: { // Changed from hls to vhs
+      overrideNative: false, // Match HTML version behavior
+      enableLowInitialPlaylist: true,
+      bufferWater: 30, // Increased from 10
+      maxBufferSize: 60, // Increased from 20
+      bandwidth: 2621440, // Fixed typo from bandwith
+      useDevicePixelRatio: true,
+      experimentalBufferBasedABR: true,
+      bufferCheckInterval: 500,
+      backBufferLength: 90
+    }
     },
     sources: [
       {
-        src: videoUrl,
+        src: 'https://beta.awstream.net/m3u8/5eac43aceba42c8757b54003a58277b5/master.txt?s=1&lang=hin&cache=1',
         type: "application/x-mpegURL",
       },
     ],
@@ -146,6 +150,10 @@ const PlayerPage = () => {
 
     player.hlsQualitySelector({
       displayCurrentQuality: true,
+    });
+
+    player.on('error', function() {
+      console.log(player.error());
     });
 
     player.on("dispose", () => {

@@ -1,7 +1,6 @@
- import { HeartIcon } from "lucide-react";
-import React, { useEffect, useState } from "react";
+ import React, { useEffect, useState } from "react";
 import '../styles/Heart.css';
-
+import HeartIcon from './HeartIcon'
 const Heart = ({ season, episode }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [liked, setLiked] = useState([]);

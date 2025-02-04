@@ -6,7 +6,7 @@ import "../styles/NavButtons.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const NavigationButtons = ({ season, episode }) => {
+const NavigationButtons = ({ season, episode , name}) => {
   const navigate = useNavigate();
 
   const next = () => {
@@ -20,7 +20,7 @@ const NavigationButtons = ({ season, episode }) => {
       navigate("/");
       toast("Season Completed", { icon: "🎉", duration: 4000,position: 'top-center' , style: { backgroundColor: '#333', color: '#fff',  fontSize:'20px' } });
     } else {
-       navigate(`/player/${season}/${newEpisode}`);
+       navigate(`/player/${name}/${season}/${newEpisode}`);
     }
   };
 
@@ -37,7 +37,7 @@ const NavigationButtons = ({ season, episode }) => {
       }, 2000);
       toast("Season Completed", { icon: "🎉", duration: 3000 , position: 'top-center', style: { backgroundColor: '#333', color: '#fff',  fontSize:'20px' } });
     } else {
-       navigate(`/player/${season}/${newEpisode}`);
+       navigate(`/player/${name}/${season}/${newEpisode}`);
     }
   };
 

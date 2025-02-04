@@ -237,7 +237,7 @@ const CartoonPlayerPage = () => {
                 {name} Ep {episode}
               </h1>
             </div>
-            <NavigationButtons season={season} episode={episode} />
+            <NavigationButtons season={season} episode={episode} name={name} />
           </>
         ) : (
           <>

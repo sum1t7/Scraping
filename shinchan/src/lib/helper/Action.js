@@ -49,7 +49,7 @@ export const findSeasonFormalNameById = (seasonId) => {
 export const getSeasonIdByNameAndNumber = (cartoonName, seasonNumber) => {
    console.log("name",cartoonName);
    console.log("season",seasonNumber);
-  if(cartoonName.toLowerCase().startsWith('pokmon'))
+  if(cartoonName && cartoonName.toLowerCase().startsWith('pokmon'))
     {
       console.log('pokemon');
       const seasonDetails = cartoondetails[3].seasons[seasonNumber];
@@ -57,7 +57,7 @@ export const getSeasonIdByNameAndNumber = (cartoonName, seasonNumber) => {
         return seasonDetails.id;
       }
    }
-   else{
+   else if(cartoonName){
     for (const cartoon of Object.values(cartoondetails)) {
       console.log(cartoon.name);
       if (

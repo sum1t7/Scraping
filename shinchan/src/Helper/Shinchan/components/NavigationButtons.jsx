@@ -20,7 +20,7 @@ const NavigationButtons = ({ season, episode , name}) => {
       navigate("/");
       toast("Season Completed", { icon: "🎉", duration: 4000,position: 'top-center' , style: { backgroundColor: '#333', color: '#fff',  fontSize:'20px' } });
     } else {
-       navigate(`/player/${name}/${season}/${newEpisode}`);
+       navigate(`/cartoon/${name}/${season}/${newEpisode}`);
     }
   };
 
@@ -37,7 +37,7 @@ const NavigationButtons = ({ season, episode , name}) => {
       }, 2000);
       toast("Season Completed", { icon: "🎉", duration: 3000 , position: 'top-center', style: { backgroundColor: '#333', color: '#fff',  fontSize:'20px' } });
     } else {
-       navigate(`/player/${name}/${season}/${newEpisode}`);
+       navigate(`/cartoon/${name}/${season}/${newEpisode}`);
     }
   };
 

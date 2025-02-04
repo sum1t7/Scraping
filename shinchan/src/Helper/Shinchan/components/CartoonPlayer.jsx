@@ -135,7 +135,8 @@ const CartoonPlayerPage = () => {
 
     player.hlsQualitySelector({
       displayCurrentQuality: true,
-    });
+      getCurrentQuality: '240p',
+      });
 
     player.on('error', function() {
       console.log(player.error());
@@ -146,7 +147,13 @@ const CartoonPlayerPage = () => {
     });
   };
 
-
+  const skipForward = () => {
+    if (playerRef.current) {
+      const player = playerRef.current;
+      const currentTime = player.currentTime();
+      player.currentTime(currentTime + 10);
+    }
+  };
 
   const fetchVideoUrl = async (name , season, episode) => {
     setLoading(true);
@@ -221,6 +228,9 @@ const CartoonPlayerPage = () => {
             <div className="video-wrapper">
               <div className="video-container">
                 <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
+                <button onClick={skipForward} className="skip-button">
+              Skip 10 seconds
+            </button>
               </div>
             </div>
 
@@ -232,6 +242,7 @@ const CartoonPlayerPage = () => {
                 gap: "10px",
               }}
             >
+               
               <Heart season={season} episode={episode} name={name} />
               <h1 className="PreviousWatches">
                 {name} Ep {episode}

@@ -135,8 +135,7 @@ const CartoonPlayerPage = () => {
 
     player.hlsQualitySelector({
       displayCurrentQuality: true,
-      getCurrentQuality: '240p',
-      });
+       });
 
     player.on('error', function() {
       console.log(player.error());

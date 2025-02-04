@@ -1,7 +1,7 @@
 import React from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
-import '@videojs/themes/dist/fantasy/index.css';
+import '@videojs/themes/dist/forest/index.css';
 
 
 export const VideoJS = (props) => {
@@ -17,7 +17,7 @@ export const VideoJS = (props) => {
       const videoElement = document.createElement("video-js");
 
       videoElement.classList.add('vjs-big-play-centered');
-       videoElement.classList.add('vjs-theme-fantasy');
+       videoElement.classList.add('vjs-theme-forest');
       videoRef.current.appendChild(videoElement);
 
       const player = playerRef.current = videojs(videoElement, options, () => {

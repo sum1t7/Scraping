@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
+
+.Slider-container-main {
+  position: relative;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: hidden;
+  position: relative;
+  gap: 20px;
+  padding: 20px;
+  scrollbar-width: none;
+  justify-content: space-evenly;
+}
+ 
+.Season-cards-container-main {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+ 
+
+.Season-cards-container-main::-webkit-scrollbar {
+  display: none;
+}
+
+.Season-cards-main {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3.55rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  border: 1px solid rgba(215, 44, 44, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 15rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.Season-cards-main:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(5, 0, 0, 0.2);
+}
+
+ 
+ 
+ 
+ 
+
+@media (max-width: 510px) {
+   
+  
+  .Season-container-main {
+    flex-direction: column;
+    margin-top: 75px;
+  }
+
+  .Season-cards-container-main {
+    width: 90%;
+    height: auto;
+    justify-content: space-evenly;
+  }
+
+  .Season-cards-main {
+    padding: 1.55rem;
+    height: 18rem;
+    width: 165px;
+  }
+   
+   
+ 
+}

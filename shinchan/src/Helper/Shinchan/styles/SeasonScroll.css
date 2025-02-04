@@ -55,12 +55,12 @@
   .Season-cards-container::-webkit-scrollbar {
     display: none;  
   }
+  
 
 
 
 .Season-cards{
-  background-image: url('../../../assest/Shinchan-assests/Season_img.webp');
-  background-position: center;
+   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   padding: 3.55rem;
@@ -69,8 +69,8 @@
    border: 1px solid rgba(215, 44, 44, 0.2);  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
   transition: transform 0.2s, box-shadow 0.2s;  
-   height: 4rem;
-  width: 20px;
+   height: 15rem;
+  width: 100px;
    display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +94,7 @@
  }
 
 .Season-Text {
-  font-size: 8rem;
+  font-size: 15rem;
   overflow: hidden;
   margin: 0%;
   color: #F7CA05;
@@ -137,17 +137,22 @@
  @media (max-width: 930px){
   
   .Season-Text{
-       font-size: 8rem;
+       font-size: 15rem;
       color: #9864eb;   }
    
-  
+      .Season-cards-container > :first-child{
+        margin-left: 200px;
+      }
 }
 
 @media (max-width: 566px){
   
   .Season-Text{
-    font-size: 8rem;
+    font-size: 15rem;
     color: #51adc9;  
+  }
+  .Season-cards-container > :first-child{
+    margin-left: 450px;
   }
     
   

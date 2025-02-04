@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import SeasonScroll from "./components/SeasonScroll";
 import EpisodeContainer from "./components/EpisodeContainer";
-import notAvailableGif from "../../assest/Shinchan-assests/loading.gif";
-import PlayerPage from "./components/PlayerPage";
-import "./styles/Main.css";
+  import "./styles/Main.css";
 import bgimage from "../../assest/Shinchan-assests/shinchan.jpg";
 import PreviousWatches from "./components/PreviousWatches";
 import NavigationButtons from "./components/NavigationButtons";
 import { useNavigate } from "react-router-dom";
+import Cartoons from "./components/Cartoons";
 
 const MainComponent = () => {
   const [season, setSeason] = useState(null);
@@ -16,7 +15,10 @@ const MainComponent = () => {
   const [loading, setLoading] = useState(false);
   const watchedEpisodes = { season: JSON.parse(localStorage.getItem("season")),
   episode: JSON.parse(localStorage.getItem("episode")),} || { season: null, episode: null };
+
+
  const navigate = useNavigate();
+ 
    const handleEpisodeSelect = (selectedEpisode) => {
      setEpisode(selectedEpisode);
       
@@ -39,8 +41,10 @@ const MainComponent = () => {
             className="background-container"
             style={{ backgroundImage: `url(${bgimage})` }}
           ></div>
+
           <div className="content">
             <h1 className="heading">Shinzo</h1>
+            <Cartoons/>
             <SeasonScroll onSeasonSelect={handleSeasonSelect} /> 
             {season == null && watchedEpisodes.episode && watchedEpisodes.season && (
               <PreviousWatches
@@ -55,6 +59,8 @@ const MainComponent = () => {
                 />
             )}
           </div>
+
+          
         </div>
     
     </div>

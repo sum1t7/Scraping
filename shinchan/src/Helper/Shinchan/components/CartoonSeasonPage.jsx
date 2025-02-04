@@ -1,12 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import { SeasonMap } from "../../../data/seasons";
-import "../styles/SeasonScroll.css";
-import image from "../../../assest/Shinchan-assests/shinchan.jpg";
-
-const SeasonScroll = ({ onSeasonSelect }) => {
+ import "../styles/SeasonScroll.css";
+ 
+const CartoonSeasonPage = ({ onSeasonSelect , seasons,seasonImage }) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollRef = useRef(null);
+  
 
   const checkScrollPosition = () => {
     if (scrollRef.current) {
@@ -32,6 +31,7 @@ const SeasonScroll = ({ onSeasonSelect }) => {
     return () => container?.removeEventListener("scroll", checkScrollPosition);
   }, []);
 
+
   const handleSeasonSelect = (value) => {
     onSeasonSelect(value);
     window.scrollTo({ top: 600, behavior: "smooth" });
@@ -55,16 +55,15 @@ const SeasonScroll = ({ onSeasonSelect }) => {
         id="cardContainer"
       >
         <h2 className="Season-heading">Seasons</h2>
-        {Array.from(SeasonMap)
-          .slice(0, 13)
-          .map(([key, value], indx) => (
-            <div key={indx}>
+        {Object.entries(seasons)
+           .map(([key, season]) => (
+            <div key={key}>
               <div
                 onClick={() => {
-                  handleSeasonSelect(value );
+                  handleSeasonSelect(season.id);
                 }}
                 className="Season-cards"
-                style={{ backgroundImage: `url(${image})`}}
+                style={{ backgroundImage: `url(${seasonImage})` }}
                  role="button"
                 tabIndex={0}
               >
@@ -87,4 +86,4 @@ const SeasonScroll = ({ onSeasonSelect }) => {
   );
 };
 
-export default SeasonScroll;
+export default CartoonSeasonPage;

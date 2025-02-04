@@ -73,6 +73,7 @@ body::before{
   
   .heading {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    margin : 0px;
   }
   
   .heading:hover {
@@ -102,7 +103,7 @@ body::before{
   }
 
 .heading{
-    font-size:11vw;
+    font-size:21vw;
     white-space: nowrap;
     overflow: hidden;
     color: #F7CA05;
@@ -118,7 +119,7 @@ body::before{
    @media (max-width: 930px){
   
     .heading{
-         font-size: 15vw;
+         font-size: 25vw;
   }
     
   .content {
@@ -130,7 +131,7 @@ body::before{
   @media (max-width: 566px){
     
     .heading{
-      font-size: 15vw;
+      font-size: 25vw;
     }
     .content {
       padding: 0rem;
@@ -145,7 +146,7 @@ body::before{
 
     
     .heading{
-      font-size: 165px;
+      font-size: 35vw;
       margin: 5px;
     }
     .content {

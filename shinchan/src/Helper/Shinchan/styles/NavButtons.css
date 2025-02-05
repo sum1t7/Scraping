@@ -6,18 +6,19 @@
 
 }
 .Nav-Buttons{
-     font-size: 5vw;
+     font-size: 2vw;
     cursor: pointer;
+    margin: 0px;
 }
 
 @media (max-width: 930px){
     .Nav-Buttons{
-        font-size: 10vw;
+        font-size: 30px;
     }
     
 }
 @media (max-width: 510px){
     .Nav-Buttons{
-        font-size: 60px;
+        font-size: 20px;
     }
 }

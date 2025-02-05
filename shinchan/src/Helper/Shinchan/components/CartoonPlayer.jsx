@@ -227,9 +227,14 @@ const CartoonPlayerPage = () => {
             <div className="video-wrapper">
               <div className="video-container">
                 <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
+                <div style={{ display: "flex" ,justifyContent:"space-between" ,alignItems:"center"}}>
+
                 <button onClick={skipForward} className="skip-button">
               Skip 10 seconds
             </button>
+            <NavigationButtons season={season} episode={episode} name={name} />
+                </div>
+
               </div>
             </div>
 
@@ -247,8 +252,7 @@ const CartoonPlayerPage = () => {
                 {name} Ep {episode}
               </h1>
             </div>
-            <NavigationButtons season={season} episode={episode} name={name} />
-          </>
+           </>
         ) : (
           <>
             <h1 className="loading-text">Please wait</h1>

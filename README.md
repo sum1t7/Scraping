@@ -27,9 +27,8 @@
 
 <div style="text-align: left;">
   <img src="shinchan/src/assest/Cartoons/preview.jpg" alt="Home Page" style="max-width: 80%;" >
-    <img src="shinchan/src/assest/Cartoons/preview-player.jpg" alt="Player Page" style="max-width: 80%;" >
-
-  
+  ----------
+  <img src="shinchan/src/assest/Cartoons/preview-player.jpg" alt="Player Page" style="max-width: 80%;" >
 
 </div>
 

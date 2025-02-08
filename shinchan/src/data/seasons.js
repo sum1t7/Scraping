@@ -45,10 +45,10 @@ export const cartoondetails = {
         6: {id: 2901, name: "shinchan",formalName: "Season 6"},
         7: {id: 2902, name: "shinchan",formalName: "Season 7"},
         8: {id: 2903, name: "shinchan",formalName: "Season 8"},
-        9: {id: 2906, name: "shinchan",formalName: "Season 9"},
-        10: {id: 2907, name: "shinchan",formalName: "Season 10"},
-        11: {id: 2908, name: "shinchan",formalName: "Season 11"},
-        12: {id: 2909, name: "shinchan",formalName: "Season 12"},
+        12: {id: 2906, name: "shinchan",formalName: "Season 12"},
+        13: {id: 2907, name: "shinchan",formalName: "Season 13"},
+        14: {id: 2908, name: "shinchan",formalName: "Season 14"},
+        15: {id: 2909, name: "shinchan",formalName: "Season 15"},
     }
      
   },

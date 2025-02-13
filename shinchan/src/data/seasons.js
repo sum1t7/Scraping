@@ -56,6 +56,7 @@ export const cartoondetails = {
     name: "doraemon",
     image: DoraemonImage,
     bgimage: doraemonbg,
+    
     seasonImage: doraemonSeason,
     seasons: {
       1: { id: 2749, name: "doraemon", formalName: "Season 1" },

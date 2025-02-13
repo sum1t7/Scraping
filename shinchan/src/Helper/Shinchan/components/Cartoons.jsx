@@ -5,7 +5,8 @@ import "../styles/Main.css";
 import { useNavigate } from "react-router-dom";
 import CartooonPreviousWatch from "./CartoonPreviousWatch";
 import bgimage from "../../../assest/Shinchan-assests/shinchan.jpg";
-
+import TriangleStars from "../../../Nostalgia/components/Stars";
+ 
 const Cartoons = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -45,14 +46,14 @@ const Cartoons = () => {
     <div className="app-container">
       <div className="content-wrapper">
         <div
-          className="background-container"
+          className="background-container  "
           style={{ backgroundImage: `url(${bgimage})` }}
         ></div>
-
-        
-        <div className="content">
+         <div className="content">
           <h1 className="heading">Shinzo</h1>
-
+          <button style={{backgroundColor: "transparent", border: "none", cursor: "pointer", justifySelf: "center",display:"flex"}} title="nostalgia button" onClick={() => navigate("/nostalgia")}>
+              <h2 style={{color:'white'}} >🏠</h2>
+            </button>
           <div className="Slider-container">
             {canScrollLeft && (
               <button
@@ -63,6 +64,7 @@ const Cartoons = () => {
                 👈
               </button>
             )}
+            
             <div
               className="Season-cards-container"
               ref={scrollRef}

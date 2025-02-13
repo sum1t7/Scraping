@@ -11,7 +11,8 @@ import PlayerPage from "../Helper/Shinchan/components/PlayerPage";
 import CartoonPage from "../Helper/Shinchan/components/CartoonPage";
 import CartoonPlayerPage from "../Helper/Shinchan/components/CartoonPlayer";
 import Cartoons from "../Helper/Shinchan/components/Cartoons";
- 
+import Nostalgia from "../Nostalgia/components/NostalgiaPage";
+    
 const Rofees = () => {
  
 
@@ -37,7 +38,8 @@ const Rofees = () => {
         <Route path="/" element={<Cartoons/>} />
         <Route path="/cartoon/:name/:season/:episode" element={<CartoonPlayerPage/>}/>
          <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+         <Route path="/nostalgia" element={<Nostalgia />} />
+       </Routes>
     </Router>
   );
 };

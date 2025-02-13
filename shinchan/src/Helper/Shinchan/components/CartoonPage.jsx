@@ -5,7 +5,12 @@ import CartoonSeasonPage from "./CartoonSeasonPage";
 import EpisodeContainer from "./CartoonEpisode";
 import CartoonEpisodePage from "./CartoonEpisode";
 import PreviousWatches from "./PreviousWatches";
-import CartooonPreviousWatch from "./CartoonPreviousWatch";
+import CartooonPreviousWatch from "./CartoonPreviousWatch"; 
+import shinchanMp4 from "../../../Nostalgia/assets/ShinchanBGM3.mp4";
+import shinchanMp3 from "../../../Nostalgia/assets/ShinchanBGM.mp3";
+import doraemonMp3 from "../../../Nostalgia/assets/DoraemonBGM.mp3";
+import doraemonMp4 from "../../../Nostalgia/assets/DoraemonLeaves.mp4";
+import Snow from "../../../Nostalgia/components/Snow";
 
 const CartoonPage = () => {
   const { name } = useParams();
@@ -43,12 +48,16 @@ const CartoonPage = () => {
   };
 
   return (
-    <div className="app-container">
+    <div className="app-container fade">
       <div className="content-wrapper">
-        <div
-          className="background-container"
-          style={{ backgroundImage: `url(${bgimage})` }}
-        ></div>
+      <video style={{ position: "fixed", right: 0, bottom: 0, minWidth: "100%", minHeight: "100%", zIndex: -1, }}
+ autoPlay muted loop >
+            <source src={name == 'doraemon' ? doraemonMp4: shinchanMp4} type="video/mp4" />
+          </video>
+          <audio style={{ display: "none" }} autoPlay loop>
+            <source src={name == 'doraemon' ? doraemonMp3: shinchanMp3} type="audio/mp3" />
+          </audio>
+          <Snow count={300}/>
         <div className="content">
           <h1 className="heading">{name}</h1>
           
@@ -70,6 +79,7 @@ const CartoonPage = () => {
               cartoonName={name}
             />
           )}
+           
         </div>
       </div>
     </div>

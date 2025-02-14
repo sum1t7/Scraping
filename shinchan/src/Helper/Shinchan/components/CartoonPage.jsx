@@ -20,6 +20,7 @@ const CartoonPage = () => {
   const [seasonImage, setSeasonImage] = useState(null);
   const [episodeNumber, setEpisodeNumber] = useState(null);
   const [seasonNames, setSeasonNames] = useState(null);
+  const [mute, setmute] = useState(false);
   const watchedEpisodes = {
     name: JSON.parse(localStorage.getItem("name")),
      season: JSON.parse(localStorage.getItem("season")),
@@ -49,18 +50,22 @@ const CartoonPage = () => {
 
   return (
     <div className="app-container fade">
-      <div className="content-wrapper">
+       <div className="content-wrapper">
+
       <video style={{ position: "fixed", right: 0, bottom: 0, minWidth: "100%", minHeight: "100%", zIndex: -1, }}
  autoPlay muted loop >
+  
             <source src={name == 'doraemon' ? doraemonMp4: shinchanMp4} type="video/mp4" />
           </video>
-          <audio style={{ display: "none" }} autoPlay loop>
+          <audio style={{ display: "none" }} autoPlay loop muted={mute}> 
             <source src={name == 'doraemon' ? doraemonMp3: shinchanMp3} type="audio/mp3" />
           </audio>
           <Snow count={300}/>
         <div className="content">
+          <button style={{ background: "transparent", border: "none" }} onClick={() => setmute(!mute)}>
           <h1 className="heading">{name}</h1>
-          
+          </button>
+           
           <CartoonSeasonPage
             seasons={season}
             onSeasonSelect={handleSeasonChange}

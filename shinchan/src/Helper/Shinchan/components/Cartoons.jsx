@@ -51,9 +51,7 @@ const Cartoons = () => {
         ></div>
          <div className="content">
           <h1 className="heading">Shinzo</h1>
-          <button style={{backgroundColor: "transparent", border: "none", cursor: "pointer", justifySelf: "center",display:"flex"}} title="nostalgia button" onClick={() => navigate("/nostalgia")}>
-              <h2 style={{color:'white'}} >🏠</h2>
-            </button>
+        
           <div className="Slider-container">
             {canScrollLeft && (
               <button

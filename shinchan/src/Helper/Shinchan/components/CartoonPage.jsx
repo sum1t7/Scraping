@@ -60,11 +60,13 @@ const CartoonPage = () => {
           <audio style={{ display: "none" }} autoPlay loop muted={mute}> 
             <source src={name == 'doraemon' ? doraemonMp3: shinchanMp3} type="audio/mp3" />
           </audio>
-          <Snow count={300}/>
+          <Snow count={100}/>
         <div className="content">
-          <button style={{ background: "transparent", border: "none" }} onClick={() => setmute(!mute)}>
-          <h1 className="heading">{name}</h1>
+          <button style={{ background: "transparent", border: "none" }} title="mute" onClick={() => setmute(!mute)}>
+          <h1 className="heading">{name}
+          </h1>
           </button>
+          
            
           <CartoonSeasonPage
             seasons={season}

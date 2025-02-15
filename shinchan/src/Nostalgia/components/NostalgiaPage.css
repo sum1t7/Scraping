@@ -19,7 +19,7 @@ body::before {
 }
 
 .fade{
-    animation: fadeInAnimation 10s ease-in-out forwards;
+    animation: fadeInAnimation 5s ease-in-out forwards;
   }
   
    @keyframes fadeInAnimation {
@@ -65,6 +65,5 @@ body::before {
     z-index: 1;  
     color: white;
     text-align: center;
-    padding-top: 20vh;  
-  }
+   }
  

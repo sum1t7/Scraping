@@ -95,10 +95,7 @@ return (
                   alt="thumbnail"
                  
                 />
-                <h2 className="Ep-season-text">
-                  Season {findSeasonNumberById(season) === 0 ? 1 : findSeasonNumberById(season)}{" "}
-                  Ep {indx}
-                </h2>
+               
 
               </div>
             );

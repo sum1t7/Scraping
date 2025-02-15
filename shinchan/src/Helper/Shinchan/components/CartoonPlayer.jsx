@@ -48,12 +48,25 @@ const CartoonPlayerPage = () => {
     muted: false,
     aspectRatio: "16:9",
     responsive: true,
+    preload: "metadata",
     userActions: {
       hotkeys: function (event) {
         return true;
       },
       doubleClick: true,
     },
+    html5: {
+      vhs: { 
+     overrideNative: false,  
+     enableLowInitialPlaylist: true,
+     bufferWater: 30,  
+     maxBufferSize: 20,  
+     bandwidth: 2621440,  
+     useDevicePixelRatio: true,
+     experimentalBufferBasedABR: true,
+     bufferCheckInterval: 500,
+     backBufferLength: 90
+   }},
      
     sources: [
       {

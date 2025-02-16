@@ -58,3 +58,4 @@ const NavigationButtons = ({ season, episode , name}) => {
 };
 
 export default NavigationButtons;
+export const dynamic = "force-dynamic";

@@ -57,3 +57,4 @@ const Heart = ({ season, episode , name }) => {
 };
 
 export default Heart;
+export const dynamic = "force-dynamic";

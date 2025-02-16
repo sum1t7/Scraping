@@ -68,3 +68,4 @@ const MainComponent = () => {
 };
 
 export default MainComponent;
+export const dynamic = "force-dynamic";

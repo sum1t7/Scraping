@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { cartoondetails } from "../../../data/seasons";
 import CartoonSeasonPage from "./CartoonSeasonPage";
-import EpisodeContainer from "./CartoonEpisode";
-import CartoonEpisodePage from "./CartoonEpisode";
-import PreviousWatches from "./PreviousWatches";
-import CartooonPreviousWatch from "./CartoonPreviousWatch"; 
+ import CartoonEpisodePage from "./CartoonEpisode";
+ import CartooonPreviousWatch from "./CartoonPreviousWatch"; 
 import shinchanMp4 from "../../../Nostalgia/assets/ShinchanBGM3.mp4";
 import shinchanMp3 from "../../../Nostalgia/assets/ShinchanBGM.mp3";
 import doraemonMp3 from "../../../Nostalgia/assets/DoraemonBGM.mp3";
@@ -94,3 +92,4 @@ const CartoonPage = () => {
 };
 
 export default CartoonPage;
+export const dynamic = "force-dynamic";

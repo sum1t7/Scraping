@@ -55,3 +55,4 @@ export const VideoJS = (props) => {
 }
 
 export default VideoJS;
+export const dynamic = "force-dynamic";

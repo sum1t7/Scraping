@@ -108,3 +108,4 @@ return (
 };
 
 export default CartoonEpisodePage;
+export const dynamic = "force-dynamic";

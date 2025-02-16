@@ -66,3 +66,4 @@ const Nostalgia = () => {
 }; 
  
 export default Nostalgia;
+export const dynamic = "force-dynamic";

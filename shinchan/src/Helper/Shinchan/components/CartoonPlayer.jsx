@@ -283,3 +283,4 @@ const CartoonPlayerPage = () => {
 };
 
 export default CartoonPlayerPage;
+export const dynamic = "force-dynamic";

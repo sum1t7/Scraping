@@ -30,3 +30,4 @@ const HeartIcon = ({
 };
 
 export default HeartIcon;
+export const dynamic = "force-dynamic";

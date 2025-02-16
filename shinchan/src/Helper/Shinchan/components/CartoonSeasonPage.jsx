@@ -87,3 +87,4 @@ const CartoonSeasonPage = ({ onSeasonSelect , seasons,seasonImage }) => {
 };
 
 export default CartoonSeasonPage;
+export const dynamic = "force-dynamic";

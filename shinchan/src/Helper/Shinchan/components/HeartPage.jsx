@@ -9,4 +9,5 @@ const HeartPage = () => {
   )
 }
 
-export default HeartPage
+export default HeartPage;
+export const dynamic = "force-dynamic";

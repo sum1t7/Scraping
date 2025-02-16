@@ -100,3 +100,4 @@ const Cartoons = () => {
 };
 
 export default Cartoons;
+export const dynamic = "force-dynamic";

@@ -59,3 +59,4 @@ const  Snow = ({ count = 100 }) => {
 };
 
 export default Snow;
+export const dynamic = "force-dynamic";

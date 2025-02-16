@@ -144,3 +144,4 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
 };
 
 export default CartooonPreviousWatch;
+export const dynamic = "force-dynamic";

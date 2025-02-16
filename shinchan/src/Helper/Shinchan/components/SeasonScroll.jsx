@@ -88,3 +88,4 @@ const SeasonScroll = ({ onSeasonSelect }) => {
 };
 
 export default SeasonScroll;
+export const dynamic = "force-dynamic";

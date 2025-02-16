@@ -82,3 +82,4 @@ const EpisodeContainer = ({
 };
 
 export default EpisodeContainer;
+export const dynamic = "force-dynamic";

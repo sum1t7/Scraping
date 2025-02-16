@@ -92,3 +92,4 @@ const PreviousWatches = ({ watchedEpisodes }) => {
 };
 
 export default PreviousWatches;
+export const dynamic = "force-dynamic";

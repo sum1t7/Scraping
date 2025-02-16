@@ -51,7 +51,7 @@ const CartoonPage = () => {
        <div className="content-wrapper">
 
       <video style={{ position: "fixed", right: 0, bottom: 0, minWidth: "100%", minHeight: "100%", zIndex: -1, }}
- autoPlay muted loop >
+ autoPlay muted loop preload="metadata" >
   
             <source src={name == 'doraemon' ? doraemonMp4: shinchanMp4} type="video/mp4" />
           </video>

@@ -4,7 +4,7 @@ import "../styles/EpisodeContainer.css";
 import { useNavigate } from "react-router-dom";
 import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
 import notFound from "../../../assest/Cartoons/notFound.png"
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
     
 
  
@@ -68,7 +68,8 @@ return (
         {loading ? (
           <>
             <h1 className="loading-text">Please wait</h1>
-            <img src={notAvailableGif} alt="loading" className="loading" />
+            <img src={notAvailableGif} alt="loading" className="loading" preload="metadata" priority="true"
+            />
           </>
         ) : (
           thumbnail.map((indx) => {

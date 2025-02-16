@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import { getSeasonId, getSeasonIdreverse } from "../../../lib/helper/Action";
+import {   getSeasonIdreverse } from "../../../lib/helper/Action";
 import "../styles/PreviousWatches.css";
 import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const PreviousWatches = ({ watchedEpisodes }) => {

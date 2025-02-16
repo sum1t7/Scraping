@@ -5,8 +5,7 @@ import "../styles/Main.css";
 import { useNavigate } from "react-router-dom";
 import CartooonPreviousWatch from "./CartoonPreviousWatch";
 import bgimage from "../../../assest/Shinchan-assests/shinchan.jpg";
-import TriangleStars from "../../../Nostalgia/components/Stars";
- 
+  
 const Cartoons = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);

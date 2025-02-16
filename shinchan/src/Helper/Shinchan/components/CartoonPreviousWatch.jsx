@@ -3,8 +3,7 @@ import { useState } from "react";
 import {
   findSeasonNameById,
   getSeasonIdByNameAndNumber,
-  getSeasonIdreverse,
-} from "../../../lib/helper/Action";
+ } from "../../../lib/helper/Action";
 import "../styles/PreviousWatches.css";
 import toast, { Toaster } from "react-hot-toast";
 import notFound from "../../../assest/Cartoons/notFound.png";

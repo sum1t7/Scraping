@@ -4,9 +4,7 @@ import EpisodeContainer from "./components/EpisodeContainer";
   import "./styles/Main.css";
 import bgimage from "../../assest/Shinchan-assests/shinchan.jpg";
 import PreviousWatches from "./components/PreviousWatches";
-import NavigationButtons from "./components/NavigationButtons";
-import { useNavigate } from "react-router-dom";
-import Cartoons from "./components/Cartoons";
+ import Cartoons from "./components/Cartoons";
 
 const MainComponent = () => {
   const [season, setSeason] = useState(null);
@@ -17,8 +15,7 @@ const MainComponent = () => {
   episode: JSON.parse(localStorage.getItem("episode")),} || { season: null, episode: null };
 
 
- const navigate = useNavigate();
- 
+  
    const handleEpisodeSelect = (selectedEpisode) => {
      setEpisode(selectedEpisode);
       

@@ -64,6 +64,7 @@ const CartoonSeasonPage = ({ onSeasonSelect , seasons,seasonImage }) => {
                 }}
                 className="Season-cards"
                 style={{ backgroundImage: `url(${seasonImage})` }}
+                priority="true"
                  role="button"
                 tabIndex={0}
               >

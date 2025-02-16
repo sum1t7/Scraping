@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/EpisodeContainer.css";
 import { useNavigate } from "react-router-dom";
  import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
   
 
 //Takes season and returns episode based on selection

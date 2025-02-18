@@ -1,6 +1,4 @@
-import ShinchanImage from '../assest/Cartoons/Shinchan.png';
-import DoraemonImage from '../assest/Cartoons/Doraemon.png';
-import PokemonImage from '../assest/Cartoons/Pokemon.png';
+ 
  
 import shinchanbg from '../assest/Cartoons/shinchan-bg.webp';
 import doraemonbg from '../assest/Cartoons/doraemon-bg.jpg';
@@ -10,6 +8,10 @@ import pokemonbg from '../assest/Cartoons/pokemon-bg.jpeg';
 import shinchanSeason from '../assest/Shinchan-assests/Season_img.webp';
 import doraemonSeason from '../assest/Cartoons/Doraemon-season.jpg';
 import pokemonSeason from '../assest/Cartoons/Pokemon-season.jpg';
+
+import DoraemonImage from '../assest/Cartoons/SeasonCards/Doraemon-season.jpg'
+import PokemonImage from '../assest/Cartoons/SeasonCards/pokemon-bg.jpeg'
+import ShinchanImage from '../assest/Cartoons/SeasonCards/shinchan1.jpg'
 
 
 

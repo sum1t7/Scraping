@@ -3,12 +3,10 @@ import {  useParams } from "react-router-dom";
 import { cartoondetails } from "../../../data/seasons";
 import CartoonSeasonPage from "./CartoonSeasonPage";
  import CartoonEpisodePage from "./CartoonEpisode";
- import CartooonPreviousWatch from "./CartoonPreviousWatch"; 
-import shinchanMp4 from "../../../Nostalgia/assets/ShinchanBGM3.mp4";
-import shinchanMp3 from "../../../Nostalgia/assets/ShinchanBGM.mp3";
-import doraemonMp3 from "../../../Nostalgia/assets/DoraemonBGM.mp3";
-import doraemonMp4 from "../../../Nostalgia/assets/DoraemonLeaves.mp4";
+ import CartooonPreviousWatch from "./CartoonPreviousWatch";  
 import Snow from "../../../Nostalgia/components/Snow";
+
+import backGif from '../../../assest/Cartoons/Background/BackGIF.gif';
 
 const CartoonPage = () => {
   const { name } = useParams();
@@ -50,14 +48,11 @@ const CartoonPage = () => {
     <div className="app-container fade">
        <div className="content-wrapper">
 
-      <video style={{ position: "fixed", right: 0, bottom: 0, minWidth: "100%", minHeight: "100%", zIndex: -1, }}
- autoPlay muted loop preload="metadata" >
+      <img src={backGif} style={{ position: "fixed", right: 0, bottom: 0, minWidth: "100%", minHeight: "100%", zIndex: -1, }}
+   preload="metadata"/ >
   
-            <source src={name == 'doraemon' ? doraemonMp4: shinchanMp4} type="video/mp4" />
-          </video>
-          <audio style={{ display: "none" }} autoPlay loop muted={mute}> 
-            <source src={name == 'doraemon' ? doraemonMp3: shinchanMp3} type="audio/mp3" />
-          </audio>
+           
+          
           <Snow count={100}/>
         <div className="content">
           <button style={{ background: "transparent", border: "none" }} title="mute" onClick={() => setmute(!mute)}>

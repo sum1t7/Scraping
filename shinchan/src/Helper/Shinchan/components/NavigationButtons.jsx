@@ -1,6 +1,8 @@
 import React from "react";
    import "../styles/NavButtons.css";
-import toast, { Toaster } from "react-hot-toast";
+   import { IoPlaySkipBack } from "react-icons/io5";
+   import { IoPlaySkipForward } from "react-icons/io5";
+   import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const NavigationButtons = ({ season, episode , name}) => {
@@ -43,12 +45,12 @@ const NavigationButtons = ({ season, episode , name}) => {
       <div className="change">
         <h2 className="Nav-Buttons" onClick={previous}>
           <Toaster />
-          ⏮️
-        </h2>
+          <IoPlaySkipBack style={{color:'yellow'}}/>
+          </h2>
         <h2 className="Nav-Buttons" onClick={next}>
           <Toaster />
-          ⏭️
-        </h2>
+          <IoPlaySkipForward style={{color:'yellow'}} />
+          </h2>
       </div>
     </div>
   );

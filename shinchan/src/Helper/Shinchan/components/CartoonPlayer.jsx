@@ -79,6 +79,33 @@ const CartoonPlayerPage = () => {
   const handlePlayerReady = (player) => {
     playerRef.current = player;
 
+ 
+  
+      let lastTapLeft = 0;
+      let lastTapRight = 0;
+  
+      const handleDoubleTap = (event) => {
+        const currentTime = player.currentTime();
+        const tapAreaWidth = player.el().offsetWidth / 2;
+  
+        if (event.clientX < tapAreaWidth) {
+           const now = new Date().getTime();
+          if (now - lastTapLeft < 300) {
+            player.currentTime(Math.max(currentTime - 10, 0));
+          }
+          lastTapLeft = now;
+        } else {
+           const now = new Date().getTime();
+          if (now - lastTapRight < 300) {
+            player.currentTime(Math.min(currentTime + 10, player.duration()));
+          }
+          lastTapRight = now;
+        }
+      };
+      player.el().addEventListener("click", handleDoubleTap);
+
+
+
     player.on("keydown", (event) => {
       const key = event.key.toLowerCase();
       const isFullscreen = player.isFullscreen();
@@ -157,6 +184,8 @@ const CartoonPlayerPage = () => {
     player.on("dispose", () => {
       videojs.log("player will dispose");
     });
+
+    
   };
 
   const skipForward = () => {
@@ -237,17 +266,12 @@ const CartoonPlayerPage = () => {
       <div className="player-content">
         {videoUrl && !loading ? (
           <>
+        
             <div className="video-wrapper">
               <div className="video-container">
                 <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-                <div style={{ display: "flex" ,justifyContent:"space-between" ,alignItems:"center"}}>
-
-                <button onClick={skipForward} className="skip-button">
-              Skip 10 seconds
-            </button>
-            <NavigationButtons season={season} episode={episode} name={name} />
-                </div>
-
+             <NavigationButtons season={season} episode={episode} name={name} />
+ 
               </div>
             </div>
 
@@ -261,10 +285,11 @@ const CartoonPlayerPage = () => {
             >
                
               <Heart season={season} episode={episode} name={name} />
-              <h1 className="PreviousWatches">
-                {name} Ep {episode}
-              </h1>
+              
             </div>
+            <p style={{color:'yellow',textAlign:'center',fontSize:'30px' }}>
+        {name}
+        </p>
            </>
         ) : (
           <>

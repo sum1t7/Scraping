@@ -58,12 +58,12 @@ const PlayerPage = () => {
       doubleClick: true,
     },
     html5: {
-       vhs: { // Changed from hls to vhs
-      overrideNative: false, // Match HTML version behavior
+       vhs: {  
+      overrideNative: false,  
       enableLowInitialPlaylist: true,
-      bufferWater: 30, // Increased from 10
-      maxBufferSize: 60, // Increased from 20
-      bandwidth: 2621440, // Fixed typo from bandwith
+      bufferWater: 30,  
+      maxBufferSize: 60,  
+      bandwidth: 2621440, 
       useDevicePixelRatio: true,
       experimentalBufferBasedABR: true,
       bufferCheckInterval: 500,

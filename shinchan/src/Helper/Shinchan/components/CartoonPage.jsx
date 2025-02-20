@@ -99,11 +99,7 @@ const CartoonPage = () => {
           )}
 
 
-          <div className="footer">
-             <p style={{margin:'0px'}}> Disclaimer! Shinzo does not host any files, it merely pulls streams from 3rd party services. Legal issues should be taken up with the file hosts and providers. Shinzo is not responsible for any media files shown by the video providers.
-            </p>
-            <p style={{marginTop:'10px' , marginBottom:'0px'}}>© Shinzo. All rights reserved. </p>
-          </div>
+          
 
 
         </div>

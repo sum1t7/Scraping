@@ -121,3 +121,9 @@
     margin-left: 20px;
   }
 }
+
+.footer{
+  text-align: start;
+padding: 10px;
+color: black;
+}

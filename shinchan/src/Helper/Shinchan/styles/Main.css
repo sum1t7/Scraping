@@ -80,8 +80,8 @@ body::before {
   width: 30px;
   height: 30px;
   margin: 20px auto;
-  font-size: 30px;
-  bottom: 10px;
+  font-size: 55px;
+  bottom: 80px;
   position: relative;
   color: white;
 
@@ -90,9 +90,9 @@ body::before {
 }
 
 .footer{
-    text-align: start;
+     text-align: start;
   padding: 10px;
-  color: white;
+  color: black;
  }
 
 @keyframes bounce {

@@ -65,7 +65,7 @@ const CartoonPage = () => {
             <h1
               className="heading"
               style={{
-                height: "93vh",
+                height: "90vh",
                 alignContent: "center",
               }}
             >

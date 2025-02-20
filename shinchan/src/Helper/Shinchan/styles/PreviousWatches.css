@@ -90,7 +90,8 @@
 
 @media (max-width: 510px) {
   .PreviousWatches {
-    font-size: 25px;
+   padding-left: 100px;
+    font-size: 50px;
     justify-self: center;
   }
 

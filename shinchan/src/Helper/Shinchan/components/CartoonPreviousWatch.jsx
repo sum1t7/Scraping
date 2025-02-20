@@ -3,7 +3,7 @@ import { useState } from "react";
 import {
   findSeasonNameById,
   getSeasonIdByNameAndNumber,
- } from "../../../lib/helper/Action";
+} from "../../../lib/helper/Action";
 import "../styles/PreviousWatches.css";
 import toast, { Toaster } from "react-hot-toast";
 import notFound from "../../../assest/Cartoons/notFound.png";
@@ -47,8 +47,12 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
         </>
       ) : (
         <>
-          <div>
-            <h1 className="PreviousWatches">Watch Again 📺</h1>
+        
+          <div
+            style={{ backgroundColor: "rgb(247, 202, 5)" }}
+            className="Episode-container-liked"
+          >
+            <h1 className="PreviousWatches">You watched</h1>
             <div
               className="Episode-cards-like"
               onClick={() =>
@@ -59,7 +63,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                 )
               }
             >
-              <Toaster />
+              <Toaster/>
               <img
                 loading="lazy"
                 src={`https://img.anime-world.in/images/${id}/${
@@ -81,59 +85,70 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                   )
                 }
               />
-              <h2 className="Ep-season-text">
+
+              <h2 className="Ep-season-texts">
                 Season {watchedEpisodes.season} Ep {watchedEpisodes.episode}
               </h2>
             </div>
           </div>
 
+
+
+
+
           {liked.length > 0 && (
-            <div style={{ marginTop: "20px" }}>
-              <h1 className="PreviousWatches">Liked Episodes ❤️</h1>
-              <div className="Episode-container-liked">
-                {liked.map((i, indx) => (
-                  <div
-                    className="Episode-cards-like"
-                    key={indx}
-                    onClick={() =>
-                      navigate(
-                        `/cartoon/${findSeasonNameById(
+            <div
+              style={{ backgroundColor: "white" }}
+              className="Episode-container-liked"
+            >
+              <h1
+                className="PreviousWatches"
+                style={{ color: "rgb(247, 202, 5)" }}
+              >
+                Liked Episodes
+              </h1>
+              {liked.map((i, indx) => (
+                <div
+                  className="Episode-cards-like"
+                  key={indx}
+                  onClick={() =>
+                    navigate(
+                      `/cartoon/${findSeasonNameById(
+                        getSeasonIdByNameAndNumber(i.name, i.season)
+                      )}/${
+                        findSeasonNameById(
                           getSeasonIdByNameAndNumber(i.name, i.season)
-                        )}/${
-                          findSeasonNameById(
-                            getSeasonIdByNameAndNumber(i.name, i.season)
-                          ) == "pokemon"
-                            ? 1
-                            : watchedEpisodes.season
-                        }/${watchedEpisodes.episode}`
+                        ) == "pokemon"
+                          ? 1
+                          : watchedEpisodes.season
+                      }/${watchedEpisodes.episode}`
+                    )
+                  }
+                >
+                  <Toaster />
+                  <img
+                    loading="lazy"
+                    src={`https://img.anime-world.in/images/${getSeasonIdByNameAndNumber(
+                      i.name,
+                      i.season
+                    )}/${i.episode >= 10 ? i.episode : `0${i.episode}`}.webp`}
+                    className="Episode-img"
+                    alt="thumbnail"
+                    onError={(e) =>
+                      handleImageErrorDoraemon3(
+                        e,
+                        indx,
+                        `https://img.anime-world.in/images/2910/${
+                          i.episode >= 10 ? i.episode : `0${i.episode}`
+                        }.webp`
                       )
                     }
-                  >
-                    <Toaster />
-                    <img
-                      loading="lazy"
-                      src={`https://img.anime-world.in/images/${getSeasonIdByNameAndNumber(
-                        i.name,
-                        i.season
-                      )}/${i.episode >= 10 ? i.episode : `0${i.episode}`}.webp`}
-                      className="Episode-img"
-                      alt="thumbnail"
-                      onError={(e) =>
-                        handleImageErrorDoraemon3(
-                          e,
-                          indx,
-                          `https://img.anime-world.in/images/2910/${
-                            i.episode >= 10 ? i.episode : `0${i.episode}`
-                          }.webp`
-                        )
-                      }
-                    />
-                    <h2 className="Ep-season-text">
-                      Season {i.season} Ep {i.episode}
-                    </h2>
-                  </div>
-                ))}
-              </div>
+                  />
+                  <h2 className="Ep-season-texts">
+                    Season {i.season} Ep {i.episode}
+                  </h2>
+                </div>
+              ))}
             </div>
           )}
         </>

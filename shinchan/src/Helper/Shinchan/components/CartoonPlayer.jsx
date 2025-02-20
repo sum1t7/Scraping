@@ -188,13 +188,7 @@ const CartoonPlayerPage = () => {
     
   };
 
-  const skipForward = () => {
-    if (playerRef.current) {
-      const player = playerRef.current;
-      const currentTime = player.currentTime();
-      player.currentTime(currentTime + 10);
-    }
-  };
+   
 
   const fetchVideoUrl = async (name , season, episode) => {
     setLoading(true);
@@ -298,7 +292,7 @@ const CartoonPlayerPage = () => {
           </>
         )}
 
-        <button className="back-button" onClick={() => navigate(`/`)}>
+        <button className="back-button" onClick={() => navigate(-1)}>
           <IoArrowBack className="back-icon" />
           Back
         </button>

@@ -1,177 +1,154 @@
-
-.Episode-container{
-    display: flex;
-    flex-wrap: wrap;
-     gap: 10px;
-    padding-top: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    max-height: 580px;  
-    overflow-y: auto; 
-    max-width: 100%; 
-    scrollbar-width: none;  
+.Episode-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  max-height: 580px;
+  overflow-y: auto;
+  max-width: 100%;
+  scrollbar-width: none;
 }
 
-.Episode-cards{
-    display: flex;
-    padding: .25rem;
-    border-radius: .375rem;
-    cursor: pointer;
-    max-width: 80%;
-    width: 20%;
-    flex-direction: column;
-    border: 1px solid rgba(255, 255, 255, 0.2); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-    transition: transform 0.2s, box-shadow 0.2s;  
-    background: rgba(255, 255, 255, 0.1); 
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    animation: loading 1.5s ease-in;
+.Episode-cards {
+  display: flex;
+  padding: 0.25rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  max-width: 80%;
+  width: 20%;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  animation: loading 1.5s ease-in;
 }
- .Episode-cards:hover {
-    transform: translateY(-5px);  
-    box-shadow: 0 8px 16px rgba(7, 0, 0, 0.2);  
+.Episode-cards:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(7, 0, 0, 0.2);
 }
 
-.Episode-img{
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: .375rem;  
-    width: 100%;
-    height: 100%;
+.Episode-cards:hover .Ep-season-text{
+  display: block;
+  opacity: 1;
+}
 
+.Episode-img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0.375rem;
+  width: 100%;
+  height: 100%;
 }
 @keyframes loading {
-    0% {
-
-        width: 0px;
-        height: 0px;
-        font-size: 0px;  
-   }
-50% {
-        width: 5%;
-        height: 0px;
-        font-size: 0px;  
-    }
-    75% {
-        width: 15%;
-        height: 0px;
-        font-size: 0px;  
-    }
-    100% {
-     }
+  0% {
+    width: 0px;
+    height: 0px;
+    font-size: 0px;
   }
-
- 
-.Ep-season-text{
-   font-size: 2vw;
-  color: #ffffff; 
-
-   margin:2px;
-   position:absolute;
-   
-font-family: 'Times New Roman', Times, serif;  font-weight: 200;
-font-weight: 200;
-  animation: loading 1.5s ease-in;
-
+  50% {
+    width: 5%;
+    height: 0px;
+    font-size: 0px;
+  }
+  75% {
+    width: 15%;
+    height: 0px;
+    font-size: 0px;
+  }
+  100% {
+  }
 }
 
+.Ep-season-text {
+  font-size: 2vw;
+  color: #ffffff;
+  margin: 2px;
+  position: absolute;
+  display: none;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 200;
+  opacity: 0;
+  transition: opacity 1.9s ease-in-out;
+}
+
+
+
 .Ep-season-heading {
-    font-size: 8vw;
-  color: #f7ff03; 
+  font-size: 8vw;
+  color: #f7ff03;
   display: inline-block;
   position: relative;
   font-weight: 200;
-  margin:2px;
-   
- }
- .Ep-continent{
-  font-family: 'Amatic SC', sans-serif;
+  margin: 2px;
+}
+.Ep-continent {
+  font-family: "Amatic SC", sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
- }
- 
- .loading{
-    border-radius: 60%;
-    max-width: 400px;
-    margin: 20px;
-    height: 400px;
+}
 
- }
- 
-  
-   
-   
+.loading {
+  border-radius: 60%;
+  max-width: 400px;
+  margin: 20px;
+  height: 400px;
+}
 
- @media (max-width: 753px){
-  
-    .loading{
-        max-width: 200px;
-        height: 200px;
-        margin: 10px;
-        
-    }
-.Episode-container{
+@media (max-width: 753px) {
+  .loading {
+    max-width: 200px;
+    height: 200px;
+    margin: 10px;
+  }
+  .Episode-container {
     gap: 5px;
     padding-top: 20px;
- 
-}
-.Episode-cards{
-    
+  }
+  .Episode-cards {
     max-width: 80%;
     width: 40%;
-    
- }
- 
-.Ep-season-text{
+  }
+
+  .Ep-season-text {
     font-size: 4vw;
-   
- 
- }
-   
-  
-} 
+  }
+}
 
-
-@media (max-width: 510px){
-
-    .loading{
-        max-width: 350px;
-        height: 350px;
-        margin: 10px;
-        
-    }
-.Episode-container{
+@media (max-width: 510px) {
+  .loading {
+    max-width: 350px;
+    height: 350px;
+    margin: 10px;
+  }
+  .Episode-container {
     gap: 0px;
     padding-top: 10px;
- 
-}
-.Episode-cards{
-    
-  max-width: 30%;
-width: 30%;
-border: 0px solid rgba(255, 255, 255, 0.2); 
-padding: 0.15rem;
-justify-self: center;
-
-
-}
-.Episode-container-liked {
+  }
+  .Episode-cards {
+    max-width: 30%;
+    width: 30%;
+    border: 0px solid rgba(255, 255, 255, 0.2);
+    padding: 0.15rem;
+    justify-self: center;
+  }
+  .Episode-container-liked {
     gap: 2px;
     justify-content: center;
-}
- .Ep-season-text{
+  }
+  .Ep-season-text {
     font-size: 0%;
-   
- }
- .Ep-season-heading{
+  }
+  .Ep-season-heading {
     font-size: 10vw;
   }
-
-   
-  }
+}

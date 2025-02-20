@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { cartoondetails } from "../../../data/seasons";
 import CartoonSeasonPage from "./CartoonSeasonPage";
- import CartoonEpisodePage from "./CartoonEpisode";
- import CartooonPreviousWatch from "./CartoonPreviousWatch";  
+import CartoonEpisodePage from "./CartoonEpisode";
+import CartooonPreviousWatch from "./CartoonPreviousWatch";
 import Snow from "../../../Nostalgia/components/Snow";
 
-import backGif from '../../../assest/Cartoons/Background/BackGIF.gif';
+import backGif from "../../../assest/Cartoons/Background/BackGIF.gif";
 
 const CartoonPage = () => {
   const { name } = useParams();
@@ -19,9 +19,9 @@ const CartoonPage = () => {
   const [mute, setmute] = useState(false);
   const watchedEpisodes = {
     name: JSON.parse(localStorage.getItem("name")),
-     season: JSON.parse(localStorage.getItem("season")),
-    episode: JSON.parse(localStorage.getItem("episode")),} || { name:null, season: null, episode: null };
-
+    season: JSON.parse(localStorage.getItem("season")),
+    episode: JSON.parse(localStorage.getItem("episode")),
+  } || { name: null, season: null, episode: null };
 
   useEffect(() => {
     const cartoon = Object.values(cartoondetails).find(
@@ -46,32 +46,50 @@ const CartoonPage = () => {
 
   return (
     <div className="app-container fade">
-       <div className="content-wrapper">
-
-      <img src={backGif} style={{ position: "fixed", right: 0, bottom: 0, minWidth: "100%", minHeight: "100%", zIndex: -1, }}
-   preload="metadata"/ >
-  
-           
-          
-          <Snow count={100}/>
+      <div className="content-wrapper">
+        <img
+          src={backGif}
+          style={{
+            position: "fixed",
+            right: 0,
+            bottom: 0,
+            minWidth: "100%",
+            minHeight: "100%",
+            zIndex: -1,
+          }}
+          preload="metadata"
+        />
         <div className="content">
-          <button style={{ background: "transparent", border: "none" }} title="mute" onClick={() => setmute(!mute)}>
-          <h1 className="heading">{name}
-          </h1>
-          </button>
-          
-           
+
+          <div>
+            <h1
+              className="heading"
+              style={{
+                height: "93vh",
+                alignContent: "center",
+              }}
+            >
+              {name}
+            </h1>
+               <p className="down-arrow">↓</p>  
+ 
+          </div>
+
           <CartoonSeasonPage
             seasons={season}
             onSeasonSelect={handleSeasonChange}
             seasonImage={seasonImage}
           />
+
+
           {seasonNumber == null &&
             watchedEpisodes.episode &&
             watchedEpisodes.season && (
               <CartooonPreviousWatch watchedEpisodes={watchedEpisodes} />
             )}
-          {seasonNumber != null  && (
+
+
+          {seasonNumber != null && (
             <CartoonEpisodePage
               season={seasonNumber}
               onEpisodeSelect={handleEpisodeChange}
@@ -79,7 +97,15 @@ const CartoonPage = () => {
               cartoonName={name}
             />
           )}
-           
+
+
+          <div className="footer">
+             <p style={{margin:'0px'}}> Disclaimer! Shinzo does not host any files, it merely pulls streams from 3rd party services. Legal issues should be taken up with the file hosts and providers. Shinzo is not responsible for any media files shown by the video providers.
+            </p>
+            <p style={{marginTop:'10px' , marginBottom:'0px'}}>© Shinzo. All rights reserved. </p>
+          </div>
+
+
         </div>
       </div>
     </div>

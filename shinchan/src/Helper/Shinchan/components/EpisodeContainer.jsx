@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
- import { getSeasonId } from "../../../lib/helper/Action";
+import { getSeasonId } from "../../../lib/helper/Action";
 import "../styles/EpisodeContainer.css";
 import { useNavigate } from "react-router-dom";
- import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
-import  { Toaster } from "react-hot-toast";
-  
+import notAvailableGif from "../../../assest/Shinchan-assests/loading.gif";
+import { Toaster } from "react-hot-toast";
 
 //Takes season and returns episode based on selection
 
-const EpisodeContainer = ({
-  season,
-   onEpisodeSelect,
- }) => {
+const EpisodeContainer = ({ season, onEpisodeSelect }) => {
   const [thumbnail, setThumbnail] = useState([]);
   const [loading, setLoading] = useState(false);
-   const [error, setError] = useState(null);
-  
+  const [error, setError] = useState(null);
+
   const navigate = useNavigate();
- 
+
   useEffect(() => {
     setLoading(true);
     season != null
@@ -25,9 +21,6 @@ const EpisodeContainer = ({
       : setThumbnail([]);
     setLoading(false);
   }, [season]);
-
-  
-   
 
   return (
     <div className="Ep-continent">
@@ -48,14 +41,13 @@ const EpisodeContainer = ({
               <div
                 className="Episode-cards"
                 key={indx}
-                onClick={() =>{
-                  onEpisodeSelect(indx) ; navigate(`/player/${getSeasonId(season)}/${indx}`)
-                }
-                   }
-                
+                onClick={() => {
+                  onEpisodeSelect(indx);
+                  navigate(`/player/${getSeasonId(season)}/${indx}`);
+                }}
               >
                 <Toaster />
- 
+
                 <img
                   loading="lazy"
                   src={`https://img.anime-world.in/images/${season}/${
@@ -64,13 +56,11 @@ const EpisodeContainer = ({
                   className="Episode-img"
                   alt="thumbnail"
                   onError={(e) => (e.target.style.display = "none")}
-                
                 />
                 <h2 className="Ep-season-text">
                   Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "}
                   Ep {indx}
                 </h2>
-
               </div>
             );
           })

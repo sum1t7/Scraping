@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
- import "../styles/SeasonScroll.css";
- 
-const CartoonSeasonPage = ({ onSeasonSelect , seasons,seasonImage }) => {
+import "../styles/SeasonScroll.css";
+import backGif from "../../../assest/Cartoons/Background/BackGIF.gif";
+
+const CartoonSeasonPage = ({ onSeasonSelect, seasons, seasonImage }) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const scrollRef = useRef(null);
-  
+  const [active, setactive] = useState(null);
 
   const checkScrollPosition = () => {
     if (scrollRef.current) {
@@ -31,22 +32,20 @@ const CartoonSeasonPage = ({ onSeasonSelect , seasons,seasonImage }) => {
     return () => container?.removeEventListener("scroll", checkScrollPosition);
   }, []);
 
-
   const handleSeasonSelect = (value) => {
     onSeasonSelect(value);
     window.scrollTo({ top: 600, behavior: "smooth" });
+    setactive(value);
   };
 
   return (
-    <div className="Slider-container">
+    <div className="Slider-container" style={{ backgroundColor: "white" }}>
       {canScrollLeft && (
         <button
           className="scroll-button left"
           onClick={() => scroll("left")}
           aria-label="Scroll left"
-        >
-          👈
-        </button>
+        ></button>
       )}
 
       <div
@@ -54,24 +53,19 @@ const CartoonSeasonPage = ({ onSeasonSelect , seasons,seasonImage }) => {
         ref={scrollRef}
         id="cardContainer"
       >
-        <h2 className="Season-heading">Seasons</h2>
-        {Object.entries(seasons)
-           .map(([key, season]) => (
-            <div key={key}>
-              <div
-                onClick={() => {
-                  handleSeasonSelect(season.id);
-                }}
-                className="Season-cards"
-                style={{ backgroundImage: `url(${seasonImage})` }}
-                priority="true"
-                 role="button"
-                tabIndex={0}
-              >
-                <h1 className="Season-Text" style={key < 10 ? {left:"30px"} : {left:"-10px"}}>{key}</h1>
-              </div>
-            </div>
-          ))}
+        {Object.entries(seasons).map(([key, season]) => (
+          <div key={key}>
+            <h1
+              onClick={() => {
+                handleSeasonSelect(season.id);
+              }}
+              className={`Season-Text ${active === season.id ? "active" : ""}`}
+              style={key < 10 ? { left: "30px" } : { left: "-10px" }}
+            >
+              {key}
+            </h1>
+          </div>
+        ))}
       </div>
 
       {canScrollRight && (
@@ -79,9 +73,7 @@ const CartoonSeasonPage = ({ onSeasonSelect , seasons,seasonImage }) => {
           className="scroll-button right"
           onClick={() => scroll("right")}
           aria-label="Scroll right"
-        >
-          👉
-        </button>
+        ></button>
       )}
     </div>
   );

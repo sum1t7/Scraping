@@ -1,204 +1,152 @@
 @import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
 
-
 .Slider-container {
-    position: relative;
-    max-width: 90%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow-y: hidden;
-    position: relative;
-    gap: 20px;
-    padding: 20px;
-    scrollbar-width: none; 
+  position: relative;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: hidden;
+  position: relative;
+  gap: 20px;
+  scrollbar-width: none;
+  justify-content: space-evenly;
+
+  background-image: url("https://i.gifer.com/2Bap.gif");
+}
+
+.Slider-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;  
+  background-color: rgb(247, 202, 5);  
+  z-index: 1;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  padding: 0.5rem;
+  font-size: 2.5rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ 
+.Season-cards-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 8rem;
+
+  padding: 1rem 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: 10rem;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+.Season-cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.Season-cards {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 3.55rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 15rem;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.Season-heading {
+  font-size: 8rem;
+  color: #f7ff03;
+  display: inline-block;
+  position: relative;
+  margin: 2px;
+  font-weight: 600;
+}
+
+.Season-Text {
+  font-size: 15rem;
+  margin: 0%;
+  line-height: 180px;
+  letter-spacing: 3px;
+  padding-top: 10px;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.2s ease-in;
+}
+.active {
+  color: rgb(247, 202, 5);
+}
+
+.Season-Text:hover {
+  cursor: pointer;
+  color: rgb(247, 202, 5);
+}
+
+@media (max-width: 930px) {
+   
+  
+}
+
+ 
+
+@media (max-width: 510px) {
+  .Season-Text {
+    font-size: 15rem;
+     top: 85px;
+    margin: 0px;
+  }
+  .Season-heading {
+    display: none;
+  }
+  .Season-container {
+    flex-direction: column;
+    margin-top: 75px;
+  }
+
+  .Season-cards-container {
+    width: 90%;
+    height: auto;
     justify-content: space-evenly;
   }
 
+  .Season-cards {
+    padding: 1.55rem;
+    height: 18rem;
+    width: 165px;
+  }
   .scroll-button {
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
-    background: transparent;
-      cursor: pointer;
-      border: none;
-      border-radius: 50%;
-      padding: 0.5rem;
-      font-size: 2.5rem;
-     z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   }
-  
+    font-size: 1.5rem;
+  }
   .scroll-button.left {
-    left: -15px;
+    left: 0px;
     color: black;
   }
 
   .scroll-button.right {
-    right: -15px;
+    right: 0px;
     color: black;
   }
-  
-  .Season-cards-container {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 1rem;
-    padding: 1rem 0;
-    -ms-overflow-style: none;  
-    scrollbar-width: none;   
-  }
-  
-  .Season-cards-container::-webkit-scrollbar {
-    display: none;  
-  }
-  
-
-
-
-.Season-cards{
-   background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 3.55rem;
-  border-radius: .375rem;
-  cursor: pointer;
-   border: 1px solid rgba(215, 44, 44, 0.2);  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
-  transition: transform 0.2s, box-shadow 0.2s;  
-   height: 15rem;
-  width: 100px;
-   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-    
-} 
-
-.Season-cards:hover{
-  transform: translateY(-5px); 
-  box-shadow: 0 8px 16px rgba(5, 0, 0, 0.2); 
- }
- 
-.Season-heading {
-  font-family: 'Amatic SC', sans-serif;
-  font-size: 8rem;
-  color: #f7ff03; 
-  display: inline-block;
-  position: relative;
-  margin:2px;
-  font-weight: 600;
- }
-
-.Season-Text {
-  font-size: 15rem;
-  overflow: hidden;
-  margin: 0%;
-  color: #F7CA05;
-  text-shadow: 0 10px 7px rgba(0,0,0,0.4),0 -10px 1px #f70707;
-  letter-spacing: -3px;
-  position: absolute;
-  top:30px;
-  left: 0px;
-  justify-content: center;
-  align-items: center;
- }
-.Season-Text:hover {
-  animation: glitch .3s linear infinite;
-  cursor: pointer;
 }
-
-
- @keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-
- @media (max-width: 930px){
-  
-  .Season-Text{
-       font-size: 15rem;
-      color: #9864eb;   }
-   
-      .Season-cards-container > :first-child{
-        margin-left: 200px;
-      }
-}
-
-@media (max-width: 566px){
-  
-  .Season-Text{
-    font-size: 15rem;
-    color: #51adc9;  
-  }
-  .Season-cards-container > :first-child{
-    margin-left: 450px;
-  }
-    
-  
-  
-}
-
-@media (max-width: 510px){
-  
-  .Season-Text{
-    font-size: 15rem;
-     color: #fef720;    
-     top: 85px;
-margin: 0px;
-  }
-  .Season-heading{
-    display: none;
-   }
-  .Season-container{
-      flex-direction: column;
-      margin-top: 75px;
-  }
-
-  .Season-cards-container{
-      width: 90%;
-      height: auto;
-      justify-content: space-evenly;
-  }
-  
-.Season-cards{
-  padding: 1.55rem;
-  height: 18rem;
-  width: 165px;
-} 
-.scroll-button {
-    font-size: 1.5rem;
- }
- .scroll-button.left {
-  left: 0px;
-  color: black;
-}
-
-.scroll-button.right {
-  right: 0px;
-  color: black;
-}
- 
-}
-
-

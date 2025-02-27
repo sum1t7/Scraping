@@ -15,19 +15,16 @@ import "videojs-hls-quality-selector";
 
 const CartoonPlayerPage = () => {
   const navigate = useNavigate();
-  const {name, season, episode } = useParams();
+  const { name, season, episode } = useParams();
   const [videoUrl, setVideoUrl] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const videoRef = useRef(null);
   const playerRef = useRef(null);
-  
-   
-  
 
   useEffect(() => {
     if (season && episode && name) {
-      fetchVideoUrl(name ,season, episode);
+      fetchVideoUrl(name, season, episode);
       console.log(name, season, episode);
     }
   }, [season, episode]);
@@ -56,18 +53,19 @@ const CartoonPlayerPage = () => {
       doubleClick: true,
     },
     html5: {
-      vhs: { 
-     overrideNative: false,  
-     enableLowInitialPlaylist: true,
-     bufferWater: 30,  
-     maxBufferSize: 20,  
-     bandwidth: 2621440,  
-     useDevicePixelRatio: true,
-     experimentalBufferBasedABR: true,
-     bufferCheckInterval: 500,
-     backBufferLength: 90
-   }},
-     
+      vhs: {
+        overrideNative: false,
+        enableLowInitialPlaylist: true,
+        bufferWater: 30,
+        maxBufferSize: 20,
+        bandwidth: 2621440,
+        useDevicePixelRatio: true,
+        experimentalBufferBasedABR: true,
+        bufferCheckInterval: 500,
+        backBufferLength: 90,
+      },
+    },
+
     sources: [
       {
         src: videoUrl,
@@ -79,32 +77,28 @@ const CartoonPlayerPage = () => {
   const handlePlayerReady = (player) => {
     playerRef.current = player;
 
- 
-  
-      let lastTapLeft = 0;
-      let lastTapRight = 0;
-  
-      const handleDoubleTap = (event) => {
-        const currentTime = player.currentTime();
-        const tapAreaWidth = player.el().offsetWidth / 2;
-  
-        if (event.clientX < tapAreaWidth) {
-           const now = new Date().getTime();
-          if (now - lastTapLeft < 300) {
-            player.currentTime(Math.max(currentTime - 10, 0));
-          }
-          lastTapLeft = now;
-        } else {
-           const now = new Date().getTime();
-          if (now - lastTapRight < 300) {
-            player.currentTime(Math.min(currentTime + 10, player.duration()));
-          }
-          lastTapRight = now;
+    let lastTapLeft = 0;
+    let lastTapRight = 0;
+
+    const handleDoubleTap = (event) => {
+      const currentTime = player.currentTime();
+      const tapAreaWidth = player.el().offsetWidth / 2;
+
+      if (event.clientX < tapAreaWidth) {
+        const now = new Date().getTime();
+        if (now - lastTapLeft < 300) {
+          player.currentTime(Math.max(currentTime - 10, 0));
         }
-      };
-      player.el().addEventListener("click", handleDoubleTap);
-
-
+        lastTapLeft = now;
+      } else {
+        const now = new Date().getTime();
+        if (now - lastTapRight < 300) {
+          player.currentTime(Math.min(currentTime + 10, player.duration()));
+        }
+        lastTapRight = now;
+      }
+    };
+    player.el().addEventListener("click", handleDoubleTap);
 
     player.on("keydown", (event) => {
       const key = event.key.toLowerCase();
@@ -127,11 +121,11 @@ const CartoonPlayerPage = () => {
       }
 
       switch (key) {
-        case " ":  
+        case " ":
           player.paused() ? player.play() : player.pause();
           break;
 
-        case "i":  
+        case "i":
           if (document.pictureInPictureEnabled && player.tech().el_) {
             if (document.pictureInPictureElement) {
               document.exitPictureInPicture();
@@ -140,33 +134,31 @@ const CartoonPlayerPage = () => {
             }
           }
           break;
-        case "m":  
+        case "m":
           player.muted(!player.muted());
           break;
 
-        case "arrowup": 
+        case "arrowup":
           player.volume(Math.min(player.volume() + 0.1, 1));
           break;
 
-        case "arrowdown":  
+        case "arrowdown":
           player.volume(Math.max(player.volume() - 0.1, 0));
           break;
 
-        case "f": 
+        case "f":
           isFullscreen ? player.exitFullscreen() : player.requestFullscreen();
           break;
-          
-        case "arrowleft":  
+
+        case "arrowleft":
           player.currentTime(Math.max(currentTime - 10, 0));
-          
+
           break;
 
-        case "arrowright":  
+        case "arrowright":
           player.currentTime(Math.min(currentTime + 10, duration));
           break;
-      
-      
-        }
+      }
     });
 
     player.on("waiting", () => {
@@ -175,56 +167,47 @@ const CartoonPlayerPage = () => {
 
     player.hlsQualitySelector({
       displayCurrentQuality: true,
-       });
+    });
 
-    player.on('error', function() {
+    player.on("error", function () {
       console.log(player.error());
     });
 
     player.on("dispose", () => {
       videojs.log("player will dispose");
     });
-
-    
   };
 
-   
-
-  const fetchVideoUrl = async (name , season, episode) => {
+  const fetchVideoUrl = async (name, season, episode) => {
     setLoading(true);
     setError(null);
     const formattedEpisode = parseInt(episode, 10).toString();
-    
+
     localStorage.setItem("name", JSON.stringify(name));
 
     switch (name) {
-                 case "pokmon-Indigo-League":
-                   localStorage.setItem("season", JSON.stringify(1)); 
-                   break;
+      case "pokmon-Indigo-League":
+        localStorage.setItem("season", JSON.stringify(1));
+        break;
 
+      case "pokmon-adventures-in-the-orange-islands":
+        localStorage.setItem("season", JSON.stringify(2));
+        break;
 
-                case "pokmon-adventures-in-the-orange-islands":
-                    localStorage.setItem("season", JSON.stringify(2));
-                    break;
+      case "pokmon-the-johto-journeys":
+        localStorage.setItem("season", JSON.stringify(3));
+        break;
 
-                  
-                case "pokmon-the-johto-journeys":
-                    localStorage.setItem("season", JSON.stringify(3));
-                    break;
+      case "pokmon-johto-league-champions":
+        localStorage.setItem("season", JSON.stringify(4));
+        break;
 
-      
-                case "pokmon-johto-league-champions":
-                     localStorage.setItem("season", JSON.stringify(4));
-                     break;
+      case "pokmon-Master-Quest":
+        localStorage.setItem("season", JSON.stringify(5));
+        break;
 
-      
-                case "pokmon-Master-Quest":
-                  localStorage.setItem("season", JSON.stringify(5));
-                   break;
-
-                default:
-                localStorage.setItem("season", JSON.stringify(season));
-
+      default:
+        localStorage.setItem("season", JSON.stringify(season));
     }
     localStorage.setItem("episode", JSON.stringify(episode));
 
@@ -234,7 +217,11 @@ const CartoonPlayerPage = () => {
         {
           params: {
             name: name,
-            season: name.startsWith('pokmon') ? '01' : (season >= 10 ? season : `0${season}`),
+            season: name.startsWith("pokmon")
+              ? "01"
+              : season >= 10
+              ? season
+              : `0${season}`,
             episode:
               formattedEpisode.length === 1
                 ? `0${formattedEpisode}`
@@ -260,12 +247,14 @@ const CartoonPlayerPage = () => {
       <div className="player-content">
         {videoUrl && !loading ? (
           <>
-        
             <div className="video-wrapper">
               <div className="video-container">
                 <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
-             <NavigationButtons season={season} episode={episode} name={name} />
- 
+                <NavigationButtons
+                  season={season}
+                  episode={episode}
+                  name={name}
+                />
               </div>
             </div>
 
@@ -277,14 +266,14 @@ const CartoonPlayerPage = () => {
                 gap: "10px",
               }}
             >
-               
               <Heart season={season} episode={episode} name={name} />
-              
             </div>
-            <p style={{color:'yellow',textAlign:'center',fontSize:'30px' }}>
-        {name}
-        </p>
-           </>
+            <p
+              style={{ color: "yellow", textAlign: "center", fontSize: "30px" }}
+            >
+              {name}
+            </p>
+          </>
         ) : (
           <>
             <h1 className="loading-text">Please wait</h1>
@@ -298,11 +287,17 @@ const CartoonPlayerPage = () => {
         </button>
       </div>
       <div className="footer">
-             <p style={{margin:'0px'}}> Disclaimer! Shinzo does not host any files, it merely pulls streams from 3rd party services. Legal issues should be taken up with the file hosts and providers. Shinzo is not responsible for any media files shown by the video providers.
-            </p>
-            <p style={{marginTop:'10px' , marginBottom:'0px'}}>© Shinzo. All rights reserved. </p>
-          </div>
-
+        <p style={{ margin: "0px" }}>
+          {" "}
+          Disclaimer! Shinzo does not host any files, it merely pulls streams
+          from 3rd party services. Legal issues should be taken up with the file
+          hosts and providers. Shinzo is not responsible for any media files
+          shown by the video providers.
+        </p>
+        <p style={{ marginTop: "10px", marginBottom: "0px" }}>
+          © Shinzo. All rights reserved.{" "}
+        </p>
+      </div>
     </div>
   );
 };

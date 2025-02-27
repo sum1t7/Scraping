@@ -50,7 +50,7 @@ const EpisodeContainer = ({ season, onEpisodeSelect }) => {
 
                 <img
                   loading="lazy"
-                  src={`https://img.anime-world.in/images/${season}/${
+                  src={` https://img.anime-world.co/images/${season}/${
                     indx >= 10 ? indx : `0${indx}`
                   }.webp`}
                   className="Episode-img"

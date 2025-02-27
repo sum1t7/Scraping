@@ -92,7 +92,7 @@ const CartoonEpisodePage = ({
 
                 <img
                   loading="lazy"
-                  src={`https://img.anime-world.in/images/${season}/${
+                  src={` https://img.anime-world.co/images/${season}/${
                     indx >= 10 ? indx : `0${indx}`
                   }.webp`}
                   onError={(e) =>
@@ -100,7 +100,7 @@ const CartoonEpisodePage = ({
                       ? handleImageErrorDoraemon3(
                           e,
                           indx,
-                          `https://img.anime-world.in/images/${season - 1}/${
+                          ` https://img.anime-world.co/images/${season - 1}/${
                             indx >= 10 ? indx : `0${indx}`
                           }.webp`
                         )

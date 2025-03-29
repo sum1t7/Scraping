@@ -10,7 +10,9 @@
 
 # production
 /build
- 
+
+NOT_VALID
+
 # misc
 .DS_Store
 .env.local

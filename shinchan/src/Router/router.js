@@ -6,40 +6,30 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { Navigate } from "react-router";
-import MainComponent from "../Helper/Shinchan/Main";
-import PlayerPage from "../Helper/Shinchan/components/PlayerPage";
+ 
 import CartoonPage from "../Helper/Shinchan/components/CartoonPage";
-import CartoonPlayerPage from "../Helper/Shinchan/components/CartoonPlayer";
 import Cartoons from "../Helper/Shinchan/components/Cartoons";
 import Nostalgia from "../Nostalgia/components/NostalgiaPage";
-    
+import CartoonDemoPlayer from "../Helper/Shinchan/components/CartoonDemoPlayer";
+
 const Rofees = () => {
- 
-
-  
-
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<><Nav/><Home /><Rev/></>} /> 
+        {/* <Route path="/" element={<><Nav/><Home /><Rev/></>} />
+        <Route path="/player/:season/:episode" element={<PlayerPage />} />
+        <Route path = "/test1" element = {<Test/>}/>
+        <Route path="/Just-Shinchan" element={<MainComponent />} />
         */}
+        <Route path="/nostalgia" element={<Nostalgia />} />
+        <Route path="/:name" element={<CartoonPage />} />
+        <Route path="/" element={<Cartoons />} />
         <Route
-          path="/Just-Shinchan"
-          element={<MainComponent />}
+          path="/cartoon/:name/:season/:episode"
+          element={<CartoonDemoPlayer />}
         />
-         <Route
-          path="/:name"
-          element={<CartoonPage />}
-        />
-        <Route
-          path="/player/:season/:episode"
-          element={<PlayerPage/>}
-        />
-        <Route path="/" element={<Cartoons/>} />
-        <Route path="/cartoon/:name/:season/:episode" element={<CartoonPlayerPage/>}/>
-         <Route path="*" element={<Navigate to="/" />} />
-         <Route path="/nostalgia" element={<Nostalgia />} />
-       </Routes>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </Router>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-   findSeasonNameById,
+  findSeasonNameById,
   findSeasonNumberById,
   getSeasonId,
 } from "../../../lib/helper/Action";
@@ -53,12 +53,12 @@ const CartoonEpisodePage = ({
   };
 
   return (
-    <div className="Ep-continent" style={{ backgroundColor: 'rgb(247, 202, 5)' }}>
-      {season != null && !loading && (
-        <h1 className="Ep-season-heading">
-         </h1>
-      )}
-      <div className="Episode-container" >
+    <div
+      className="Ep-continent"
+      style={{ backgroundColor: "rgb(247, 202, 5)" }}
+    >
+      {season != null && !loading && <h1 className="Ep-season-heading"></h1>}
+      <div className="Episode-container">
         {loading ? (
           <>
             <h1 className="loading-text">Please wait</h1>
@@ -92,7 +92,7 @@ const CartoonEpisodePage = ({
 
                 <img
                   loading="lazy"
-                  src={` https://img.anime-world.co/images/${season}/${
+                  src={` https://img.watchanimeworld.in/images/${season}/${
                     indx >= 10 ? indx : `0${indx}`
                   }.webp`}
                   onError={(e) =>
@@ -100,16 +100,16 @@ const CartoonEpisodePage = ({
                       ? handleImageErrorDoraemon3(
                           e,
                           indx,
-                          ` https://img.anime-world.co/images/${season - 1}/${
-                            indx >= 10 ? indx : `0${indx}`
-                          }.webp`
+                          ` https://img.watchanimeworld.in/images/${
+                            season - 1
+                          }/${indx >= 10 ? indx : `0${indx}`}.webp`
                         )
                       : handleImageError(e, indx)
                   }
                   className="Episode-img"
                   alt="thumbnail"
                 />
-                 <h2 className="Ep-season-text">
+                <h2 className="Ep-season-text">
                   Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "}
                   Ep {indx}
                 </h2>

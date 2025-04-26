@@ -65,7 +65,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
               <Toaster />
               <img
                 loading="lazy"
-                src={` https://img.anime-world.co/images/${id}/${
+                src={` https://img.watchanimeworld.in/images/${id}/${
                   watchedEpisodes.episode >= 10
                     ? watchedEpisodes.episode
                     : `0${watchedEpisodes.episode}`
@@ -76,7 +76,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                   handleImageErrorDoraemon3(
                     e,
                     watchedEpisodes.episode,
-                    ` https://img.anime-world.co/images/2910/${
+                    ` https://img.watchanimeworld.in/images/2910/${
                       watchedEpisodes.episode >= 10
                         ? watchedEpisodes.episode
                         : `0${watchedEpisodes.episode}`
@@ -123,7 +123,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                   <Toaster />
                   <img
                     loading="lazy"
-                    src={` https://img.anime-world.co/images/${getSeasonIdByNameAndNumber(
+                    src={` https://img.watchanimeworld.in/images/${getSeasonIdByNameAndNumber(
                       i.name,
                       i.season
                     )}/${i.episode >= 10 ? i.episode : `0${i.episode}`}.webp`}
@@ -133,7 +133,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                       handleImageErrorDoraemon3(
                         e,
                         indx,
-                        ` https://img.anime-world.co/images/2910/${
+                        ` https://img.watchanimeworld.in/images/2910/${
                           i.episode >= 10 ? i.episode : `0${i.episode}`
                         }.webp`
                       )

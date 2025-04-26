@@ -26,8 +26,7 @@ const fetchVideoUrl = async (name, season, episode) => {
     try {
         const response = await axios.get(`https://scraping-blush.vercel.app/api/${name}/${season}/${episode}`);
         if (response.status === 200) {
-        console.log(response.data.iframeSrc);
-        setVideoUrl(response.data.iframeSrc);
+         setVideoUrl(response.data.iframeSrc);
         } else {
         setError("Video URL not found");
         }

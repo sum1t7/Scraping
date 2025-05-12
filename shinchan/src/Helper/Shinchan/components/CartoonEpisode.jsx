@@ -20,17 +20,19 @@ const CartoonEpisodePage = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [thumbnailError, setThumbnailError] = useState({});
+   const [animationKey, setAnimationKey] = useState(0);
 
   const navigate = useNavigate();
 
-  //Thumbnail Handlers
-  useEffect(() => {
+   useEffect(() => {
     setLoading(true);
     season != null
       ? setThumbnail([...Array(65)].map((_, index) => index + 1))
       : setThumbnail([]);
     setLoading(false);
     setThumbnailError({});
+    
+     setAnimationKey(prevKey => prevKey + 1);
   }, [season]);
 
   const handleImageErrorDoraemon3 = (e, indx, fallbackSrc) => {
@@ -47,6 +49,7 @@ const CartoonEpisodePage = ({
       setThumbnailError((prev) => ({ ...prev, [indx]: true }));
     }
   };
+  
   const handleImageError = (e, indx) => {
     e.target.onerror = null;
     setThumbnailError((prev) => ({ ...prev, [indx]: true }));
@@ -75,7 +78,7 @@ const CartoonEpisodePage = ({
             return (
               <div
                 className="Episode-cards"
-                key={indx}
+                 key={`${animationKey}-${indx}`}
                 onClick={() => {
                   onEpisodeSelect(indx);
                   navigate(
@@ -90,25 +93,37 @@ const CartoonEpisodePage = ({
               >
                 <Toaster />
 
-                <img
-                  loading="lazy"
-                  src={` https://img.watchanimeworld.in/images/${season}/${
-                    indx >= 10 ? indx : `0${indx}`
-                  }.webp`}
-                  onError={(e) =>
-                    season == 2911
-                      ? handleImageErrorDoraemon3(
-                          e,
-                          indx,
-                          ` https://img.watchanimeworld.in/images/${
-                            season - 1
-                          }/${indx >= 10 ? indx : `0${indx}`}.webp`
-                        )
-                      : handleImageError(e, indx)
-                  }
-                  className="Episode-img"
-                  alt="thumbnail"
-                />
+                <div className="image-container">
+                   <div className="image-placeholder"></div>
+                  <img
+                    loading="lazy"
+                    src={` https://img.watchanimeworld.in/images/${season}/${
+                      indx >= 10 ? indx : `0${indx}`
+                    }.webp`}
+                    onError={(e) =>
+                      season == 2911
+                        ? handleImageErrorDoraemon3(
+                            e,
+                            indx,
+                            ` https://img.watchanimeworld.in/images/${
+                              season - 1
+                            }/${indx >= 10 ? indx : `0${indx}`}.webp`
+                          )
+                        : handleImageError(e, indx)
+                    }
+                     className="Episode-img appear"
+                    alt="thumbnail"
+                   
+                    onLoad={(e) => {
+                       if (e.target.parentNode) {
+                        const placeholder = e.target.previousSibling;
+                        if (placeholder && placeholder.classList.contains('image-placeholder')) {
+                          placeholder.style.display = 'none';
+                        }
+                      }
+                    }}
+                  />
+                </div>
                 <h2 className="Ep-season-text">
                   Season {getSeasonId(season) === 0 ? 1 : getSeasonId(season)}{" "}
                   Ep {indx}

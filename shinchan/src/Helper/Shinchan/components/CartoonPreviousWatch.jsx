@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+ import { useState } from "react";
 import {
   findSeasonNameById,
   getSeasonIdByNameAndNumber,
@@ -40,13 +39,13 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
 
   return (
     <div>
-      {loading ? (
+      {(loading ) ? (
         <>
-          <h1 className="loading-text">Please wait</h1>
-          <img src={notAvailableGif} alt="loading" className="loading" />
-        </>
+        <h1>Please Wait</h1>
+          </>
       ) : (
         <>
+         
           <div
             style={{ backgroundColor: "rgb(247, 202, 5)" }}
             className="Episode-container-liked"
@@ -63,14 +62,15 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
               }
             >
               <Toaster />
-              <img
+
+              {!watchedEpisodes.episode || !watchedEpisodes.season &&(<img
                 loading="lazy"
                 src={` https://img.watchanimeworld.in/images/${id}/${
                   watchedEpisodes.episode >= 10
                     ? watchedEpisodes.episode
                     : `0${watchedEpisodes.episode}`
                 }.webp`}
-                className="Episode-img"
+                className="Episode-img-prev"
                 alt="thumbnail"
                 onError={(e) =>
                   handleImageErrorDoraemon3(
@@ -83,7 +83,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                     }.webp`
                   )
                 }
-              />
+              />)}
 
               <h2 className="Ep-season-texts">
                 Season {watchedEpisodes.season} Ep {watchedEpisodes.episode}
@@ -91,7 +91,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
             </div>
           </div>
 
-          {liked.length > 0 && (
+          {    (
             <div
               style={{ backgroundColor: "white" }}
               className="Episode-container-liked"
@@ -127,7 +127,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                       i.name,
                       i.season
                     )}/${i.episode >= 10 ? i.episode : `0${i.episode}`}.webp`}
-                    className="Episode-img"
+                    className="Episode-img-prev"
                     alt="thumbnail"
                     onError={(e) =>
                       handleImageErrorDoraemon3(

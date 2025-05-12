@@ -60,7 +60,6 @@ const CartoonPage = () => {
           preload="metadata"
         />
         <div className="content">
-
           <div>
             <h1
               className="heading"
@@ -71,8 +70,7 @@ const CartoonPage = () => {
             >
               {name}
             </h1>
-               <p className="down-arrow">↓</p>  
- 
+            <p className="down-arrow">↓</p>
           </div>
 
           <CartoonSeasonPage
@@ -80,14 +78,6 @@ const CartoonPage = () => {
             onSeasonSelect={handleSeasonChange}
             seasonImage={seasonImage}
           />
-
-
-          {seasonNumber == null &&
-            watchedEpisodes.episode &&
-            watchedEpisodes.season && (
-              <CartooonPreviousWatch watchedEpisodes={watchedEpisodes} />
-            )}
-
 
           {seasonNumber != null && (
             <CartoonEpisodePage
@@ -98,10 +88,7 @@ const CartoonPage = () => {
             />
           )}
 
-
-          
-
-
+          {<CartooonPreviousWatch watchedEpisodes={watchedEpisodes} />}
         </div>
       </div>
     </div>

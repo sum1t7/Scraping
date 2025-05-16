@@ -21,7 +21,7 @@ app.get("/api/:name/:season/:episode", async (req, res) => {
   const {name, season, episode } = req.params;
 
   try {
-    const url = `https://anime-world.cc/episode/${name}-${season}x${episode}/`;
+    const url = `https://watchanimeworld.in//episode/${name}-${season}x${episode}/`;
 
     const { data } = await axios.get(url);
 
@@ -47,7 +47,7 @@ app.get("/images/:name/:seasonId/:episode", async (req, res) => {
   const { name, seasonId, episode } = req.params;
 
   try {
-    const url = `https://anime-world.cc/series/${name}`;
+    const url = `https://watchanimeworld.in/series/${name}`;
 
     const { data } = await axios.get(url);
 

@@ -21,7 +21,7 @@ app.get("/api/:name/:season/:episode", async (req, res) => {
   const {name, season, episode } = req.params;
 
   try {
-    const url = `https://watchanimeworld.in//episode/${name}-${season}x${episode}/`;
+    const url = `https://watchanimeworld.in/episode/${name}-${season}x${episode}/`;
 
     const { data } = await axios.get(url);
 

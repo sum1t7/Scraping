@@ -10,7 +10,7 @@ import hima from "../../../assest/Shinchan-assests/loading.gif";
 const CartoonDemoPlayer = () => {
   const { name, season, episode } = useParams();
   const [videoUrl, setVideoUrl] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -38,50 +38,95 @@ const CartoonDemoPlayer = () => {
   };
 
   return (
-    
-    <div className="player-container">
-      <div className="video-background"></div>
-      <div className="background-overlay"></div>
-      <div className="player-content">
-        {videoUrl && (
-          <>
-           <iframe
-           src={videoUrl}
-            title="Video Player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{
-              width: "100%",
-              height: "720px",
-              borderRadius: "10px",
-              backgroundColor: "black",
-            }}
-            loading="lazy"
-           >
+    <>
+      { 
+        <div className="player-container">
+          <div className="video-background"></div>
+          <div className="background-overlay"></div>
+          <div className="player-content">
+            {videoUrl && (
+              <>
+                {loading ? (
+                  <>
+                  <div
+                    className="loading-div"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                        width: "100%",
+                        
+                        height: "100%",
+                       
+                       position: "absolute",                       
+                    }}
+                  >
+                    <img
+                      src={hima}
+                      alt="Loading..."
+                      style={{ width: "120px", marginBottom: "16px" ,   zIndex: 1}}
+                    />
+                    <span style={{ fontSize: "1.2rem", color: "#555" ,  zIndex: 1}}> 
+                      Please wait a moment...
+                    </span>
+                    </div>
+                     <iframe
+                    src={videoUrl}
+                    title="Video Player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{
+                      width: "100%",
+                      height: "720px",
+                      borderRadius: "10px",
+                      backgroundColor: "black",
+                      position: "relative"
+                     }}
+                    loading="lazy"
+                  ></iframe>
+                  </>
+                  
+                ) : (
+                  <iframe
+                    src={videoUrl}
+                    title="Video Player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{
+                      width: "100%",
+                      height: "720px",
+                      borderRadius: "10px",
+                      backgroundColor: "black",
+                    }}
+                    loading="lazy"
+                  ></iframe>
+                )}
+                <div className="video-wrapper">
+                  <div className="video-container">
+                    <NavigationButtons
+                      season={season}
+                      episode={episode}
+                      name={name}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
 
-           </iframe>
-
-            <div className="video-wrapper">
-              <div className="video-container">
-                <NavigationButtons
-                  season={season}
-                  episode={episode}
-                  name={name}
-                />
-              </div>
-            </div>
-
-           
-          </>
-        )}
-
-        <button className="back-button" onClick={() => navigate(`/${name}`)}>
-          <IoArrowBack className="back-icon" />
-          Back
-        </button>
-      </div>
-    </div>
+            <button
+              className="back-button"
+              onClick={() => navigate(`/${name}`)}
+            >
+              <IoArrowBack className="back-icon" />
+              Back
+            </button>
+          </div>
+        </div>
+      }
+    </>
   );
 };
 

@@ -19,6 +19,64 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
     watchedEpisodes.name,
     watchedEpisodes.season
   );
+  const funnyEpisodes = [
+    {
+      season: 5,
+      episode: 15,
+      name: "shinchan",
+    },
+    {
+      season: 5,
+      episode: 19,
+      name: "shinchan",
+    },
+    {
+      season: 7,
+      episode: 24,
+      name: "shinchan",
+    },
+    {
+      season: 7,
+      episode: 32,
+      name: "shinchan",
+    },
+  ];
+
+  const BuriBuri = [
+    {
+      season: 5,
+      episode: 17,
+      name: "shinchan",
+    },
+    {
+      season: 8,
+      episode: 29,
+      name: "shinchan",
+    },
+    {
+      season: 8,
+      episode: 30,
+      name: "shinchan",
+    },
+    {
+      season: 8,
+      episode: 31,
+      name: "shinchan",
+    },
+    {
+      season: 8,
+      episode: 32,
+      name: "shinchan",
+    },
+  ];
+
+  const wieredEpisodes = [
+    {
+      season: 5,
+      episode: 43,
+      name: "shinchan",
+    },
+  ];
 
   const maxLikedVideos = 10;
 
@@ -46,7 +104,7 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
       ) : (
         <>
          
-          <div
+          {/* <div
             style={{ backgroundColor: "rgb(247, 202, 5)" }}
             className="Episode-container-liked"
           >
@@ -89,16 +147,72 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                 Season {watchedEpisodes.season} Ep {watchedEpisodes.episode}
               </h2>
             </div>
-          </div>
+          </div> */}
 
-          {    (
-            <div
+            
+            
+
+              <div
               style={{ backgroundColor: "white" }}
               className="Episode-container-liked"
             >
               <h1
                 className="PreviousWatches"
                 style={{ color: "rgb(247, 202, 5)" }}
+              >
+                Funniest Episodes
+              </h1>
+              {funnyEpisodes.map((i, indx) => (
+                <div
+                  className="Episode-cards-like"
+                  key={indx}
+                  onClick={() =>
+                    navigate(
+                      `/cartoon/${findSeasonNameById(
+                        getSeasonIdByNameAndNumber(i.name, i.season)
+                      )}/${
+                        findSeasonNameById(
+                          getSeasonIdByNameAndNumber(i.name, i.season)
+                        ) == "pokemon"
+                          ? 1
+                          : watchedEpisodes.season
+                      }/${watchedEpisodes.episode}`
+                    )
+                  }
+                >
+                  <Toaster />
+                  <img
+                    loading="lazy"
+                    src={` https://img.watchanimeworld.in/images/${getSeasonIdByNameAndNumber(
+                      i.name,
+                      i.season
+                    )}/${i.episode >= 10 ? i.episode : `0${i.episode}`}.webp`}
+                    className="Episode-img-prev"
+                    alt="thumbnail"
+                    onError={(e) =>
+                      handleImageErrorDoraemon3(
+                        e,
+                        indx,
+                        ` https://img.watchanimeworld.in/images/2910/${
+                          i.episode >= 10 ? i.episode : `0${i.episode}`
+                        }.webp`
+                      )
+                    }
+                  />
+                  <h2 className="Ep-season-texts">
+                    Season {i.season} Ep {i.episode}
+                  </h2>
+                </div>
+              ))}
+            </div>
+
+             <div
+              style={{ backgroundColor:  "rgb(247, 202, 5)" }}
+              className="Episode-container-liked"
+            >
+              <h1
+                className="PreviousWatches"
+                style={{ color: "white" }}
               >
                 Liked Episodes
               </h1>
@@ -145,8 +259,116 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                 </div>
               ))}
             </div>
-          )}
-        </>
+ 
+            
+              <div
+              style={{ backgroundColor: "white" }}
+              className="Episode-container-liked"
+            >
+              <h1
+                className="PreviousWatches"
+                style={{ color: "rgb(247, 202, 5)" }}
+              >
+                Buri Buri Episodes
+              </h1>
+              {BuriBuri.map((i, indx) => (
+                <div
+                  className="Episode-cards-like"
+                  key={indx}
+                  onClick={() =>
+                    navigate(
+                      `/cartoon/${findSeasonNameById(
+                        getSeasonIdByNameAndNumber(i.name, i.season)
+                      )}/${
+                        findSeasonNameById(
+                          getSeasonIdByNameAndNumber(i.name, i.season)
+                        ) == "pokemon"
+                          ? 1
+                          : watchedEpisodes.season
+                      }/${watchedEpisodes.episode}`
+                    )
+                  }
+                >
+                  <Toaster />
+                  <img
+                    loading="lazy"
+                    src={` https://img.watchanimeworld.in/images/${getSeasonIdByNameAndNumber(
+                      i.name,
+                      i.season
+                    )}/${i.episode >= 10 ? i.episode : `0${i.episode}`}.webp`}
+                    className="Episode-img-prev"
+                    alt="thumbnail"
+                    onError={(e) =>
+                      handleImageErrorDoraemon3(
+                        e,
+                        indx,
+                        ` https://img.watchanimeworld.in/images/2910/${
+                          i.episode >= 10 ? i.episode : `0${i.episode}`
+                        }.webp`
+                      )
+                    }
+                  />
+                  <h2 className="Ep-season-texts">
+                    Season {i.season} Ep {i.episode}
+                  </h2>
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{ backgroundColor:  "rgb(247, 202, 5)" }}
+              className="Episode-container-liked"
+            >
+              <h1
+                className="PreviousWatches"
+                style={{ color: "white" }}
+              >
+                Wiered Episodes
+              </h1>
+              {wieredEpisodes.map((i, indx) => (
+                <div
+                  className="Episode-cards-like"
+                  key={indx}
+                  onClick={() =>
+                    navigate(
+                      `/cartoon/${findSeasonNameById(
+                        getSeasonIdByNameAndNumber(i.name, i.season)
+                      )}/${
+                        findSeasonNameById(
+                          getSeasonIdByNameAndNumber(i.name, i.season)
+                        ) == "pokemon"
+                          ? 1
+                          : watchedEpisodes.season
+                      }/${watchedEpisodes.episode}`
+                    )
+                  }
+                >
+                  <Toaster />
+                  <img
+                    loading="lazy"
+                    src={` https://img.watchanimeworld.in/images/${getSeasonIdByNameAndNumber(
+                      i.name,
+                      i.season
+                    )}/${i.episode >= 10 ? i.episode : `0${i.episode}`}.webp`}
+                    className="Episode-img-prev"
+                    alt="thumbnail"
+                    onError={(e) =>
+                      handleImageErrorDoraemon3(
+                        e,
+                        indx,
+                        ` https://img.watchanimeworld.in/images/2910/${
+                          i.episode >= 10 ? i.episode : `0${i.episode}`
+                        }.webp`
+                      )
+                    }
+                  />
+                  <h2 className="Ep-season-texts">
+                    Season {i.season} Ep {i.episode}
+                  </h2>
+                </div>
+              ))}
+            </div>
+         </>
       )}
     </div>
   );

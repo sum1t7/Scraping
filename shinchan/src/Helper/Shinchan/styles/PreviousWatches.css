@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 .PreviousWatches {
   font-family: "Amatic SC", sans-serif;
   font-size: 4vw;
@@ -39,9 +42,7 @@
   flex-shrink: 0;
   border-radius: 0.375rem;
   cursor: pointer;
-  max-width: 80%;
-  width: 30%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   background: rgba(255, 255, 255, 0.1);
@@ -67,15 +68,16 @@ Episode-img-prev{
 }
 
 .Ep-season-texts {
-  font-size: 2vw;
-  color: #ffffff;
-  margin: 2px;
-  position: absolute;
-  display: none;
-  font-family: "Times New Roman", Times, serif;
+ font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
   font-weight: 200;
-  opacity: 0;
-  transition: opacity 1.9s ease-in-out;
+  font-style: normal;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  font-size: 40px;
+  position: absolute;
+  width: 100%;
 }
 
 .Episode-cards-like:hover .Ep-season-texts {
@@ -88,15 +90,13 @@ Episode-img-prev{
     font-size: 44px;
   }
 
-  .Episode-cards-like {
-    min-width: 80%;
-    width: 40%;
-  }
+ 
 }
 
 @media (max-width: 510px) {
   .PreviousWatches {
-   padding-left: 100px;
+   padding-left: 50px;
+   padding-right: 50px;
     font-size: 50px;
     justify-self: center;
   }
@@ -107,7 +107,7 @@ Episode-img-prev{
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    gap: 20px;
+    gap: 10px;
     padding: 20px 20px 20px 0;
     scroll-behavior: smooth;
     -ms-overflow-style: none;
@@ -120,8 +120,7 @@ Episode-img-prev{
   }
 
   .Episode-cards-like {
-    min-width: 80%;
-    width: 80%;
+    
     scroll-snap-align: start;
     flex-shrink: 0;
     margin-left: 20px;

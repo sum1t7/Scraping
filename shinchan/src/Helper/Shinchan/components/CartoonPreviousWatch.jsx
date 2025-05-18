@@ -175,8 +175,8 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                           getSeasonIdByNameAndNumber(i.name, i.season)
                         ) == "pokemon"
                           ? 1
-                          : watchedEpisodes.season
-                      }/${watchedEpisodes.episode}`
+                          : i.season
+                      }/${i.episode}`
                     )
                   }
                 >
@@ -229,8 +229,8 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                           getSeasonIdByNameAndNumber(i.name, i.season)
                         ) == "pokemon"
                           ? 1
-                          : watchedEpisodes.season
-                      }/${watchedEpisodes.episode}`
+                          : i.season
+                      }/${i.episode}`
                     )
                   }
                 >
@@ -284,8 +284,8 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                           getSeasonIdByNameAndNumber(i.name, i.season)
                         ) == "pokemon"
                           ? 1
-                          : watchedEpisodes.season
-                      }/${watchedEpisodes.episode}`
+                          : i.season
+                      }/${i.episode}`
                     )
                   }
                 >
@@ -338,8 +338,8 @@ const CartooonPreviousWatch = ({ watchedEpisodes }) => {
                           getSeasonIdByNameAndNumber(i.name, i.season)
                         ) == "pokemon"
                           ? 1
-                          : watchedEpisodes.season
-                      }/${watchedEpisodes.episode}`
+                          : i.season
+                      }/${i.episode}`
                     )
                   }
                 >

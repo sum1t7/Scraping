@@ -7,7 +7,7 @@
     <h3 align="center">Shinzo - Ad free anime streaming platform</h3>
 </p>
 <p align="center">
-    <a href="https://watchshinchan.vercel.app/">Shinzo</a> is an open-source unofficial streaming application for the japanese animation series "Shinchan". It allows users to browse and watch episodes of Shinchan in hindi, with regular features, without any ads. **Disclaimer I do not hold any copies of these series,and this is not used for any monetary gain.
+    <a href="https://watchshinchan.vercel.app/">Shinzo</a> is an open-source unofficial streaming application for the japanese animation series "Shinchan". It allows users to browse and watch episodes of Shinchan in hindi, with regular features, without any ads. **Disclaimer I do not hold any copies of these series,and this is not used for any monetary gain. Credits: Third party video source - https://watchanimeworld.net/
  </p>
 
 <details>

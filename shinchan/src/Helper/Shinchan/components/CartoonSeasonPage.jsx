@@ -34,7 +34,7 @@ const CartoonSeasonPage = ({ onSeasonSelect, seasons, seasonImage }) => {
 
   const handleSeasonSelect = (value) => {
     onSeasonSelect(value);
-    window.scrollTo({ top: 600, behavior: "smooth" });
+    window.scrollTo({ bottom: 10, behavior: "smooth" });
     setactive(value);
   };
 

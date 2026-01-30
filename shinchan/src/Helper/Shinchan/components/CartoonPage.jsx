@@ -4,8 +4,6 @@ import { cartoondetails } from "../../../data/seasons";
 import CartoonSeasonPage from "./CartoonSeasonPage";
 import CartoonEpisodePage from "./CartoonEpisode";
 import CartooonPreviousWatch from "./CartoonPreviousWatch";
-import Snow from "../../../Nostalgia/components/Snow";
-
 import backGif from "../../../assest/Cartoons/Background/BackGIF.gif";
 
 const CartoonPage = () => {
@@ -88,8 +86,7 @@ const CartoonPage = () => {
             />
           )}
 
-          {<CartooonPreviousWatch watchedEpisodes={watchedEpisodes} />}
-        </div>
+         </div>
       </div>
     </div>
   );

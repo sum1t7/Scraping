@@ -52,7 +52,7 @@
   padding: 1rem 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  height: 10rem;
+  height: 70vh;
   align-items: center;
   overflow-y: hidden;
 }
@@ -87,7 +87,7 @@
 }
 
 .Season-Text {
-  font-size: 15rem;
+  font-size: 30rem;
   margin: 0%;
   line-height: 180px;
   letter-spacing: 3px;

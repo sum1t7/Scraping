@@ -63,19 +63,11 @@ body::before {
 }
 
 .content {
-  flex: 1;
-  position: relative;
-  z-index: 1;
-  color: white;
-}
+   z-index: 1;
+ }
+ 
 
-.heading {
-  margin: 0px;
-}
-
-.heading:hover {
-  cursor: pointer;
-}
+ 
 .down-arrow {
   width: 30px;
   height: 30px;
@@ -129,8 +121,9 @@ body::before {
 }
 
 .heading {
-  font-size: 21vw;
-
+  font-size: 10vw;
+  user-select: none;
+  font-variant: small-caps;
   color: #f7ca05;
   letter-spacing: -3px;
   text-align: center;

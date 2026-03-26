@@ -9,75 +9,70 @@ dotenv.config();
 const app = express();
 app.use(cors());
 
+
+
+
+
 app.get("/", (req, res) => {
   res.send("Hello from the proxy server!");
 });
 
 app.get("/api/:name/:season/:episode", async (req, res) => {
-  const { name, season, episode } = req.params;
+  const {name, season, episode } = req.params;
 
   try {
-    // Step 1: Get the episode page and extract the Zephyrflick iframe URL
-    const episodeUrl = `https://watchanimeworld.net/episode/${name}-${season}x${episode}/`;
-    const { data: episodePage } = await axios.get(episodeUrl, {
-      headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" }
-    });
+    const url = `https://watchanimeworld.net/episode/${name}-${season}x${episode}/`;
 
-    if (episodePage.includes("404 Not Found")) {
-      return res.status(404).json({ error: "Episode not found" });
+    const { data } = await axios.get(url);
+
+    if (data.includes("404 Not Found")) {
+      return res.status(404).json({ error: "Page not found" });
     }
 
-    const $ = load(episodePage);
-    const iframeSrc =
-      $("#options-1 iframe").attr("data-src") ||
-      $("#options-1 iframe").attr("src") ||
-      $("#options-2 iframe").attr("data-src") ||
-      $("#options-2 iframe").attr("src") ||
-      $("iframe").first().attr("data-src") ||
-      $("iframe").first().attr("src");
-
-    if (!iframeSrc) {
-      return res.status(404).json({ error: "Iframe not found" });
-    }
-
-    // Step 2: Extract video ID from Zephyrflick URL
-    const videoIdMatch = iframeSrc.match(/\/video\/([a-f0-9]+)/i);
-    if (!videoIdMatch) {
-      return res.status(404).json({ error: "Video ID not found in iframe URL" });
-    }
-
-    const videoId = videoIdMatch[1];
-
-    // Step 3: POST to Zephyrflick API to get the real video URL
-    const { data: zephyrData } = await axios.post(
-      "https://play.zephyrflick.top/player/index.php",
-      null,
-      {
-        params: { data: videoId, do: "getVideo" },
-        headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-          "X-Requested-With": "XMLHttpRequest",
-          Referer: iframeSrc
-        }
-      }
-    );
-
-    const videoUrl = zephyrData?.videoSource;
-
-    if (!videoUrl) {
-      return res.status(404).json({ error: "Video URL not found" });
-    }
-
-    console.log("Video URL:", videoUrl);
-    return res.json({ videoUrl });
-
+    const $ = load(data);
+    const iframe = $("#options-1 iframe");
+    const iframeSrc = iframe.attr("data-src");
+    console.log(iframeSrc);
+    return iframeSrc
+      ? res.json({ iframeSrc })
+      : res.status(404).json({ error: "Iframe not found" });
   } catch (error) {
-    console.error("Error scraping:", error.message);
-    return res.status(500).json({ error: "Internal server error" });
+    console.error("Error scrapping", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
- 
+
+app.get("/images/:name/:seasonId/:episode", async (req, res) => {
+  const { name, seasonId, episode } = req.params;
+
+  try {
+    const url = `https://watchanimeworld.net/series/${name}`;
+
+    const { data } = await axios.get(url);
+
+    if (data.includes("404 Not Found")) {
+      return res.status(404).json({ error: "Page not found" });
+    }
+
+    const $ = load(data);
+    const imgage = [];
+$('li article div.post-thumbnail img').each((index, element) => {
+  const src = $(element).attr('src');
+  if (src) {
+    imgage.push(src);
+  }
+});
+
+    return image
+      ? res.json({ image })
+      : res.status(404).json({ error: "Image not found" });
+  } catch (error) {
+    console.error("Error scrapping", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+})
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Proxy server running on port ${PORT}`));

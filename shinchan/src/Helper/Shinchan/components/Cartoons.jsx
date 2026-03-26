@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import { cartoondetails, SeasonMap } from "../../../data/seasons";
+import {  useRef } from "react";
+import { cartoondetails} from "../../../data/seasons";
 import { useNavigate } from "react-router-dom"; 
 
 import Snow from "../../../Nostalgia/components/Snow";
@@ -12,12 +12,7 @@ import "../styles/homepage.css";
 const Cartoons = () => { 
   const scrollRef = useRef(null);
   const navigate = useNavigate();
-  const watchedEpisodes = {
-    name: JSON.parse(localStorage.getItem("name")),
-    season: JSON.parse(localStorage.getItem("season")),
-    episode: JSON.parse(localStorage.getItem("episode")),
-  } || { name: null, season: null, episode: null };
-
+  
   
 
    

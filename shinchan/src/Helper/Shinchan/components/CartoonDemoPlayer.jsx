@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import   { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import NavigationButtons from "./NavigationButtons";
-import Heart from "./Heart";
-import "../styles/PlayerPage.css";
+ import "../styles/PlayerPage.css";
 import { IoArrowBack } from "react-icons/io5";
 import axios from "axios";
 import hima from "../../../assest/Shinchan-assests/loading.gif";
@@ -11,8 +10,7 @@ const CartoonDemoPlayer = () => {
   const { name, season, episode } = useParams();
   const [videoUrl, setVideoUrl] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+   const navigate = useNavigate();
 
   useEffect(() => {
     fetchVideoUrl(name, season, episode);
@@ -20,19 +18,17 @@ const CartoonDemoPlayer = () => {
 
   const fetchVideoUrl = async (name, season, episode) => {
     setLoading(true);
-    setError(null);
-    try {
+     try {
       const response = await axios.get(
         `https://scraping-blush.vercel.app/api/${name}/${season}/${episode}`
       );
       if (response.status === 200) {
         setVideoUrl(response.data.iframeSrc);
       } else {
-        setError("Video URL not found");
-      }
+       }
     } catch (error) {
-      setError("Failed to fetch video URL");
-    } finally {
+      console.log9("Error fetching video URL:", error);
+     } finally {
       setLoading(false);
     }
   };

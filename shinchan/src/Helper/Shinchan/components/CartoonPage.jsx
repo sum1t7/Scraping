@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { cartoondetails } from "../../../data/seasons";
 import CartoonSeasonPage from "./CartoonSeasonPage";
 import CartoonEpisodePage from "./CartoonEpisode";
-import CartooonPreviousWatch from "./CartoonPreviousWatch";
+// import CartooonPreviousWatch from "./CartoonPreviousWatch";
 import backGif from "../../../assest/Cartoons/Background/BackGIF.gif";
 
 const CartoonPage = () => {
   const { name } = useParams();
-  const [bgimage, setBgImage] = useState("");
+  // const [bgimage, setBgImage] = useState("");
   const [season, setSeason] = useState([]);
   const [seasonNumber, setSeasonNumber] = useState(null);
   const [seasonImage, setSeasonImage] = useState(null);
-  const [episodeNumber, setEpisodeNumber] = useState(null);
+  // const [episodeNumber, setEpisodeNumber] = useState(null);
   const [seasonNames, setSeasonNames] = useState(null);
-  const [mute, setmute] = useState(false);
-  const watchedEpisodes = {
-    name: JSON.parse(localStorage.getItem("name")),
-    season: JSON.parse(localStorage.getItem("season")),
-    episode: JSON.parse(localStorage.getItem("episode")),
-  } || { name: null, season: null, episode: null };
+  // const [mute, setmute] = useState(false);
+  // const watchedEpisodes = {
+  //   name: JSON.parse(localStorage.getItem("name")),
+  //   season: JSON.parse(localStorage.getItem("season")),
+  //   episode: JSON.parse(localStorage.getItem("episode")),
+  // } || { name: null, season: null, episode: null };
 
   useEffect(() => {
     const cartoon = Object.values(cartoondetails).find(
       (cartoon) => cartoon.name.toLowerCase() === name.toLowerCase()
     );
     if (cartoon) {
-      setBgImage(cartoon.bgimage);
-      setSeason(cartoon.seasons);
+       setSeason(cartoon.seasons);
       setSeasonImage(cartoon.seasonImage);
       setSeasonNames(cartoon.seasonNames);
     }
@@ -38,8 +37,7 @@ const CartoonPage = () => {
     console.log(season);
   };
   const handleEpisodeChange = (episode) => {
-    setEpisodeNumber(episode);
-    console.log(episode);
+     console.log(episode);
   };
 
   return (
@@ -56,10 +54,11 @@ const CartoonPage = () => {
             zIndex: -1,
           }}
           preload="metadata"
+          alt=""
         />
         <div className="content">
           <div>
-            <h1
+            <div
               className="heading"
               style={{
                 height: "90vh",
@@ -67,7 +66,7 @@ const CartoonPage = () => {
               }}
             >
               {name}
-            </h1>
+            </div>
             <p className="down-arrow">↓</p>
           </div>
 

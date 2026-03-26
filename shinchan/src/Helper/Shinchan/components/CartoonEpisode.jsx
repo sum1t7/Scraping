@@ -14,12 +14,10 @@ const CartoonEpisodePage = ({
   season,
   onEpisodeSelect,
   cartoonName,
-  seasonNames,
-}) => {
+ }) => {
   const [thumbnail, setThumbnail] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [thumbnailError, setThumbnailError] = useState({});
+   const [thumbnailError, setThumbnailError] = useState({});
    const [animationKey, setAnimationKey] = useState(0);
 
   const navigate = useNavigate();
@@ -60,7 +58,7 @@ const CartoonEpisodePage = ({
       className="Ep-continent"
       style={{ backgroundColor: "rgb(247, 202, 5)" }}
     >
-      {season != null && !loading && <h1 className="Ep-season-heading"></h1>}
+      {season != null && !loading  }
       <div className="Episode-container">
         {loading ? (
           <>
@@ -83,7 +81,7 @@ const CartoonEpisodePage = ({
                   onEpisodeSelect(indx);
                   navigate(
                     `/cartoon/${findSeasonNameById(season)}/${
-                      cartoonName == "pokemon"
+                      cartoonName === "pokemon"
                         ? 1
                         : findSeasonNumberById(season)
                     }/${indx}`
@@ -101,7 +99,7 @@ const CartoonEpisodePage = ({
                       indx >= 10 ? indx : `0${indx}`
                     }.webp`}
                     onError={(e) =>
-                      season == 2911
+                      season === 2911
                         ? handleImageErrorDoraemon3(
                             e,
                             indx,
@@ -132,8 +130,7 @@ const CartoonEpisodePage = ({
             );
           })
         )}
-        {error && <p>{error}</p>}
-      </div>
+       </div>
     </div>
   );
 };

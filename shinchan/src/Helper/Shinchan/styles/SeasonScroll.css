@@ -95,6 +95,7 @@
   justify-content: center;
   align-items: center;
   transition: color 0.2s ease-in;
+  color:rgb(30, 30, 30);
 }
 .active {
   color: rgb(247, 202, 5);

@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import {
+ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useNavigate,
-} from "react-router-dom";
+ } from "react-router-dom";
 import { Navigate } from "react-router";
  
 import CartoonPage from "../Helper/Shinchan/components/CartoonPage";

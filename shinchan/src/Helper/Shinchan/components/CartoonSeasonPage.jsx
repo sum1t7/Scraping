@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import "../styles/SeasonScroll.css";
-import backGif from "../../../assest/Cartoons/Background/BackGIF.gif";
-
+ 
 const CartoonSeasonPage = ({ onSeasonSelect, seasons, seasonImage }) => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);

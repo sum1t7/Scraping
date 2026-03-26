@@ -1,4 +1,3 @@
-import React, { CSSProperties, useState } from 'react';
 import aud from "../assets/DoraemonSteelTroops.mp3"
 
 
@@ -72,7 +71,7 @@ const TriangleStars = () => {
         <div
           key={index}
           style={{
-            ...starStyle(index==2 ?  index*12 : index*10),
+            ...starStyle(index===2 ?  index*12 : index*10),
             ...pos,
           }} 
         >
